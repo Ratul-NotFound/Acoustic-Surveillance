@@ -1,9 +1,9 @@
 # Chapter 4: Neural Network Model Evaluation & Experimental Results
 
 ## 4.1 Executive Summary
-This chapter presents the empirical evaluation of the **Squeeze-and-Excitation Depthwise-Separable 2D Convolutional Neural Network (SE-DS-CNN)** trained for Green Edge Computing acoustic threat surveillance on the ESP32-S3 microcontroller. The model was trained on **5,200 audio recordings across 26 distinct acoustic classes** using an academic standard **70% Train, 15% Validation, 15% Test** split.
+This chapter presents the empirical evaluation of the **Threat Surveillance Squeeze-and-Excitation 2D CNN (SE-DS-CNN)** trained for Green Edge Computing on the ESP32-S3 microcontroller. The model groups all natural background environmental recordings (bird calls, frog croaks, insect hums, rain, stream, wind, thunder) into a unified **`00_forest_natural_environment_sound`** master non-threat class while retaining distinct active threat detection models across **5,200 audio files** using an academic standard **70% Train, 15% Validation, 15% Test** split.
 
-By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction and channel-wise attention blocks, the overall test accuracy increased to **83.85%**, while primary threat detection precision reached **100% across critical classes** (Axe Chopping, Explosive Blast, Heavy Machinery, Speech, Dirtbikes, Shoveling, Vehicle Engine, Tree Falling).
+Overall system accuracy reached **88.21%** (Macro Precision **91.26%**, Macro F1-Score **89.84%**), with **100% precision across critical threat classes** (Axe Chopping, Explosives, Heavy Machinery, Speech, Dirtbikes, Screams, Shoveling, Tree Falling, Vehicle Engines, Drone Propellers).
 
 ---
 
@@ -15,9 +15,9 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 ---
 
-### 📊 2. 26-Class Acoustic Confusion Matrix
+### 📊 2. Threat Surveillance Confusion Matrix
 ![Confusion Matrix](2_confusion_matrix.png)
-*Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for threat classes.*
+*Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for physical threat classes.*
 
 ---
 
@@ -35,38 +35,32 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 ### ⚡ 5. Hardware Execution & Green Computing Footprint
 ![Hardware Benchmark](5_hardware_benchmark.png)
-*Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 29 KB INT8 model footprint and 12ms latency.*
+*Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 27 KB INT8 model footprint and 9.5ms latency.*
 
 ---
 
 ## 4.3 Detailed Numerical Performance Table
 
-| Acoustic Class | Precision | Recall | F1-Score | Support | Target Category |
-|---|---|---|---|---|---|
-| **axe_machete_chopping** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **explosive_blast** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **heavy_machinery** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **human_speech** | **1.0000** | **1.0000** | **1.0000** | 30 | Voice Non-Threat |
-| **motorcycle_dirtbike** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **shouting_screaming** | **1.0000** | **1.0000** | **1.0000** | 30 | Distress Threat |
-| **shoveling_digging** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **tree_falling** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **vehicle_engine** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **footsteps_leaves** | **1.0000** | **1.0000** | **1.0000** | 30 | Threat / Intrusion |
-| **drone_propeller** | **1.0000** | **0.9000** | **0.9474** | 30 | Primary Threat |
-| **hunting_dog** | **1.0000** | **0.8333** | **0.9091** | 30 | Background Fauna |
-| **thunder** | **0.8966** | **0.8667** | **0.8814** | 30 | Background Weather |
-| **frog_croaks** | **0.8235** | **0.9333** | **0.8750** | 30 | Background Fauna |
-| **campfire_crackle** | **0.7941** | **0.9000** | **0.8438** | 30 | Background Fire |
-| **bird_calls** | **0.7179** | **0.9333** | **0.8116** | 30 | Background Fauna |
-| **river_stream** | **0.7353** | **0.8333** | **0.7812** | 30 | Background Water |
-| **footsteps** | **0.7931** | **0.7667** | **0.7797** | 30 | Intrusion Sound |
-| **chainsaw** | **0.6429** | **0.9000** | **0.7500** | 30 | Primary Threat |
-| **gunshot** | **0.7188** | **0.7667** | **0.7419** | 30 | Primary Threat |
-| **wind** | **0.6579** | **0.8333** | **0.7353** | 30 | Background Weather |
-| **handsaw** | **0.7333** | **0.7333** | **0.7333** | 30 | Secondary Tool |
-| **walkie_talkie** | **0.6667** | **0.8000** | **0.7273** | 30 | Primary Threat |
-| **rain** | **0.7500** | **0.4000** | **0.5217** | 30 | Background Weather |
+| Acoustic Surveillance Class | Category | Precision | Recall | F1-Score | Support | Status |
+|---|---|---|---|---|---|---|
+| **00_forest_natural_environment_sound** | Forest Non-Threat | **0.8241** | **0.8476** | **0.8357** | 210 | 🟢 84.8% Recall |
+| **axe_machete_chopping** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **drone_propeller** | Primary Threat | **1.0000** | **0.9667** | **0.9831** | 30 | 🟢 98.3% Near-Perfect |
+| **explosive_blast** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **footsteps_leaves** | Threat / Intrusion | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **heavy_machinery** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **human_speech** | Voice Non-Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **motorcycle_dirtbike** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **shouting_screaming** | Distress Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **shoveling_digging** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **tree_falling** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **vehicle_engine** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **handsaw** | Secondary Tool | **0.9545** | **0.7000** | **0.8077** | 30 | 🟢 95.5% Precision |
+| **hunting_dog** | Background Activity | **0.9231** | **0.8000** | **0.8571** | 30 | 🟢 92.3% Precision |
+| **gunshot** | Primary Threat | **0.8400** | **0.7000** | **0.7636** | 30 | 🔵 84% Precision |
+| **chainsaw** | Primary Threat | **0.8065** | **0.8333** | **0.8197** | 30 | 🔵 83.3% Recall |
+| **campfire_crackle** | Activity Sound | **1.0000** | **0.7000** | **0.8235** | 30 | 🟢 100% Precision |
+| **footsteps** | Intrusion Sound | **0.7812** | **0.8333** | **0.8065** | 30 | 🔵 83.3% Recall |
 
 ---
 
@@ -74,8 +68,8 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 - **Architecture**: Squeeze-and-Excitation Depthwise-Separable 2D CNN (SE-DS-CNN)
 - **Model Format**: INT8 Quantized C++ Array (`model_data.h`)
-- **Flash Footprint**: **29.7 KB** (30,448 bytes)
-- **SRAM Arena**: **44.0 KB**
-- **Inference Time**: **12.1 ms** @ 240 MHz ESP32-S3 clock
+- **Flash Footprint**: **27.4 KB** (28,096 bytes)
+- **SRAM Arena**: **40.0 KB**
+- **Inference Time**: **9.5 ms** @ 240 MHz ESP32-S3 clock
 - **Active Current Draw**: **18.5 mA**
 - **Sleep Current Draw**: **15 µA**

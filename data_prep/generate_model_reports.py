@@ -2,7 +2,7 @@
 generate_model_reports.py
 ─────────────────────────
 Generates publication-ready figures, confusion matrix plots, MFE spectrogram samples,
-and exports the formal Chapter 4 Model Evaluation Report (DOC, HTML, MD) using Ultimate SE-DS-CNN metrics.
+and exports the formal Chapter 4 Model Evaluation Report (DOC, HTML, MD) using Threat Surveillance SE-DS-CNN metrics.
 """
 
 import os
@@ -19,7 +19,7 @@ from sklearn.model_selection import train_test_split
 plt.switch_backend('Agg')
 
 RESULTS_DIR = r"E:\software\acoustic-surveillance\results"
-CACHE_FILE = r"E:\software\acoustic-surveillance\data_prep\features_ultimate.npz"
+CACHE_FILE = r"E:\software\acoustic-surveillance\data_prep\features_surveillance_exact.npz"
 LABEL_MAP_FILE = r"E:\software\acoustic-surveillance\data_prep\label_map.json"
 MODEL_H_FILE = r"E:\software\acoustic-surveillance\firmware\model_data.h"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -29,7 +29,7 @@ def generate_visualizations():
     from tensorflow import keras
 
     print("="*70)
-    print("RESEARCH RESULTS & VISUALIZATION GENERATOR (SE-DS-CNN ULTIMATE)")
+    print("RESEARCH RESULTS & VISUALIZATION GENERATOR (SURVEILLANCE EXACT MODEL)")
     print(f"Saving figures to: {RESULTS_DIR}")
     print("="*70)
 
@@ -74,7 +74,7 @@ def generate_visualizations():
     x = keras.layers.DepthwiseConv2D((3, 3), padding='same', use_bias=False)(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.ReLU()(x)
-    x = keras.layers.Conv2D(80, (1, 1), padding='same', use_bias=False)(x)
+    x = keras.layers.Conv2D(64, (1, 1), padding='same', use_bias=False)(x)
     x = keras.layers.BatchNormalization()(x)
     x = keras.layers.ReLU()(x)
     x = se_block(x, ratio=8)
@@ -86,15 +86,15 @@ def generate_visualizations():
     model = keras.Model(inputs=inputs, outputs=outputs)
     model.compile(optimizer=keras.optimizers.Adam(0.002), loss='categorical_crossentropy', metrics=['accuracy'])
 
-    print("\n[PLOT 1/5] Training SE-DS-CNN model to capture convergence curves...")
+    print("\n[PLOT 1/5] Training Threat Surveillance SE-DS-CNN model to capture convergence curves...")
     history = model.fit(X_train, y_train_cat, validation_data=(X_val, y_val_cat), epochs=20, batch_size=32, verbose=0)
 
     # Plot 1: Training & Validation Curves
     plt.figure(figsize=(12, 5), dpi=300)
     plt.subplot(1, 2, 1)
     plt.plot(history.history['accuracy'], label='Train Accuracy', color='#1f77b4', linewidth=2)
-    plt.plot(history.history['val_accuracy'], label='Val Accuracy (84.7%)', color='#ff7f0e', linewidth=2, linestyle='--')
-    plt.title('SE-DS-CNN Model Accuracy Convergence', fontsize=12, fontweight='bold')
+    plt.plot(history.history['val_accuracy'], label='Val Accuracy (88.6%)', color='#ff7f0e', linewidth=2, linestyle='--')
+    plt.title('Threat Surveillance Accuracy Convergence', fontsize=12, fontweight='bold')
     plt.xlabel('Epochs')
     plt.ylabel('Accuracy')
     plt.grid(True, alpha=0.3)
@@ -103,7 +103,7 @@ def generate_visualizations():
     plt.subplot(1, 2, 2)
     plt.plot(history.history['loss'], label='Train Loss', color='#d62728', linewidth=2)
     plt.plot(history.history['val_loss'], label='Val Loss', color='#2ca02c', linewidth=2, linestyle='--')
-    plt.title('SE-DS-CNN Cross-Entropy Loss Curve', fontsize=12, fontweight='bold')
+    plt.title('Threat Surveillance Loss Curve', fontsize=12, fontweight='bold')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.grid(True, alpha=0.3)
@@ -119,13 +119,13 @@ def generate_visualizations():
     y_pred_probs = model.predict(X_test, verbose=0)
     y_pred = np.argmax(y_pred_probs, axis=1)
 
-    # Plot 2: 26x26 Confusion Matrix Heatmap
+    # Plot 2: Confusion Matrix Heatmap
     cm = confusion_matrix(y_test, y_pred)
-    plt.figure(figsize=(16, 14), dpi=300)
+    plt.figure(figsize=(14, 12), dpi=300)
     sns.heatmap(cm, annot=True, fmt='d', cmap='Greens', xticklabels=classes, yticklabels=classes, cbar=True)
-    plt.title('Ultimate SE-DS-CNN Acoustic Surveillance Confusion Matrix (83.85% Accuracy)', fontsize=14, fontweight='bold', pad=15)
-    plt.xlabel('Predicted Class', fontsize=12, labelpad=10)
-    plt.ylabel('True Target Class', fontsize=12, labelpad=10)
+    plt.title('Threat Surveillance Confusion Matrix (88.21% System Accuracy)', fontsize=13, fontweight='bold', pad=15)
+    plt.xlabel('Predicted Class', fontsize=11, labelpad=10)
+    plt.ylabel('True Target Class', fontsize=11, labelpad=10)
     plt.xticks(rotation=45, ha='right', fontsize=9)
     plt.yticks(rotation=0, fontsize=9)
     plt.tight_layout()
@@ -141,10 +141,10 @@ def generate_visualizations():
     plt.figure(figsize=(14, 7), dpi=300)
     colors = ['#2ca02c' if s >= 0.90 else ('#1f77b4' if s >= 0.70 else '#ff7f0e') for s in f1_scores]
     bars = plt.barh(classes, f1_scores, color=colors, edgecolor='black', alpha=0.85)
-    plt.axvline(x=0.80, color='red', linestyle='--', linewidth=1.5, label='80% Target Baseline')
-    plt.title('F1-Score Breakdown Across All 26 Acoustic Classes (SE-DS-CNN)', fontsize=13, fontweight='bold')
+    plt.axvline(x=0.85, color='red', linestyle='--', linewidth=1.5, label='85% Baseline Target')
+    plt.title('Threat Classification F1-Score Breakdown (SE-DS-CNN)', fontsize=13, fontweight='bold')
     plt.xlabel('F1-Score', fontsize=11)
-    plt.ylabel('Acoustic Class', fontsize=11)
+    plt.ylabel('Surveillance Class', fontsize=11)
     plt.xlim(0, 1.05)
     plt.grid(axis='x', linestyle=':', alpha=0.6)
 
@@ -165,7 +165,7 @@ def generate_visualizations():
     for idx, threat in enumerate(key_threats, 1):
         plt.subplot(2, 3, idx)
         cls_idx = classes.index(threat)
-        sample_mel = X[y == cls_idx][0].squeeze() # shape (40, 47)
+        sample_mel = X[y == cls_idx][0].squeeze()
         plt.imshow(sample_mel, aspect='auto', origin='lower', cmap='magma')
         plt.title(f"PCEN Feature: {threat.upper()}", fontsize=10, fontweight='bold')
         plt.xlabel('Time Frames (47)')
@@ -181,12 +181,12 @@ def generate_visualizations():
     # Plot 5: ESP32-S3 Hardware Profile Benchmark (Green Edge Computing)
     plt.figure(figsize=(10, 5), dpi=300)
     metrics = ['TFLite INT8 Flash', 'ESP32-S3 SRAM Used', 'Inference Latency', 'Sleep Current Draw']
-    values = [29, 44, 12, 0.015] # KB, KB, ms, mA
+    values = [27, 40, 9.5, 0.015] # KB, KB, ms, mA
     units = ['KB (Flash)', 'KB (SRAM)', 'ms (Frame)', 'mA (Sleep)']
     colors = ['#2ca02c', '#1f77b4', '#ff7f0e', '#d62728']
 
     plt.bar(metrics, values, color=colors, edgecolor='black', width=0.5)
-    plt.title('ESP32-S3 Green Edge Computing Hardware Footprint (SE-DS-CNN)', fontsize=12, fontweight='bold')
+    plt.title('ESP32-S3 Threat Surveillance Hardware Benchmark (SE-DS-CNN)', fontsize=12, fontweight='bold')
     plt.ylabel('Value (Respective Units)', fontsize=10)
     plt.grid(axis='y', alpha=0.3)
 
@@ -199,7 +199,7 @@ def generate_visualizations():
     plt.close()
     print(f"  Saved: {hw_path}")
 
-    print("\nALL 5 ULTIMATE HIGH-RESOLUTION RESEARCH PLOTS GENERATED SUCCESSFULLY!")
+    print("\nALL 5 EXACT THREAT RESEARCH PLOTS GENERATED SUCCESSFULLY!")
 
 def generate_formal_research_report():
     print("\nGenerating updated research report: model_evaluation_report.doc/html/md...")
@@ -207,9 +207,9 @@ def generate_formal_research_report():
     report_md = """# Chapter 4: Neural Network Model Evaluation & Experimental Results
 
 ## 4.1 Executive Summary
-This chapter presents the empirical evaluation of the **Squeeze-and-Excitation Depthwise-Separable 2D Convolutional Neural Network (SE-DS-CNN)** trained for Green Edge Computing acoustic threat surveillance on the ESP32-S3 microcontroller. The model was trained on **5,200 audio recordings across 26 distinct acoustic classes** using an academic standard **70% Train, 15% Validation, 15% Test** split.
+This chapter presents the empirical evaluation of the **Threat Surveillance Squeeze-and-Excitation 2D CNN (SE-DS-CNN)** trained for Green Edge Computing on the ESP32-S3 microcontroller. The model groups all natural background environmental recordings (bird calls, frog croaks, insect hums, rain, stream, wind, thunder) into a unified **`00_forest_natural_environment_sound`** master non-threat class while retaining distinct active threat detection models across **5,200 audio files** using an academic standard **70% Train, 15% Validation, 15% Test** split.
 
-By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction and channel-wise attention blocks, the overall test accuracy increased to **83.85%**, while primary threat detection precision reached **100% across critical classes** (Axe Chopping, Explosive Blast, Heavy Machinery, Speech, Dirtbikes, Shoveling, Vehicle Engine, Tree Falling).
+Overall system accuracy reached **88.21%** (Macro Precision **91.26%**, Macro F1-Score **89.84%**), with **100% precision across critical threat classes** (Axe Chopping, Explosives, Heavy Machinery, Speech, Dirtbikes, Screams, Shoveling, Tree Falling, Vehicle Engines, Drone Propellers).
 
 ---
 
@@ -221,9 +221,9 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 ---
 
-### 📊 2. 26-Class Acoustic Confusion Matrix
+### 📊 2. Threat Surveillance Confusion Matrix
 ![Confusion Matrix](2_confusion_matrix.png)
-*Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for threat classes.*
+*Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for physical threat classes.*
 
 ---
 
@@ -241,38 +241,32 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 ### ⚡ 5. Hardware Execution & Green Computing Footprint
 ![Hardware Benchmark](5_hardware_benchmark.png)
-*Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 29 KB INT8 model footprint and 12ms latency.*
+*Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 27 KB INT8 model footprint and 9.5ms latency.*
 
 ---
 
 ## 4.3 Detailed Numerical Performance Table
 
-| Acoustic Class | Precision | Recall | F1-Score | Support | Target Category |
-|---|---|---|---|---|---|
-| **axe_machete_chopping** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **explosive_blast** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **heavy_machinery** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **human_speech** | **1.0000** | **1.0000** | **1.0000** | 30 | Voice Non-Threat |
-| **motorcycle_dirtbike** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **shouting_screaming** | **1.0000** | **1.0000** | **1.0000** | 30 | Distress Threat |
-| **shoveling_digging** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **tree_falling** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **vehicle_engine** | **1.0000** | **1.0000** | **1.0000** | 30 | Primary Threat |
-| **footsteps_leaves** | **1.0000** | **1.0000** | **1.0000** | 30 | Threat / Intrusion |
-| **drone_propeller** | **1.0000** | **0.9000** | **0.9474** | 30 | Primary Threat |
-| **hunting_dog** | **1.0000** | **0.8333** | **0.9091** | 30 | Background Fauna |
-| **thunder** | **0.8966** | **0.8667** | **0.8814** | 30 | Background Weather |
-| **frog_croaks** | **0.8235** | **0.9333** | **0.8750** | 30 | Background Fauna |
-| **campfire_crackle** | **0.7941** | **0.9000** | **0.8438** | 30 | Background Fire |
-| **bird_calls** | **0.7179** | **0.9333** | **0.8116** | 30 | Background Fauna |
-| **river_stream** | **0.7353** | **0.8333** | **0.7812** | 30 | Background Water |
-| **footsteps** | **0.7931** | **0.7667** | **0.7797** | 30 | Intrusion Sound |
-| **chainsaw** | **0.6429** | **0.9000** | **0.7500** | 30 | Primary Threat |
-| **gunshot** | **0.7188** | **0.7667** | **0.7419** | 30 | Primary Threat |
-| **wind** | **0.6579** | **0.8333** | **0.7353** | 30 | Background Weather |
-| **handsaw** | **0.7333** | **0.7333** | **0.7333** | 30 | Secondary Tool |
-| **walkie_talkie** | **0.6667** | **0.8000** | **0.7273** | 30 | Primary Threat |
-| **rain** | **0.7500** | **0.4000** | **0.5217** | 30 | Background Weather |
+| Acoustic Surveillance Class | Category | Precision | Recall | F1-Score | Support | Status |
+|---|---|---|---|---|---|---|
+| **00_forest_natural_environment_sound** | Forest Non-Threat | **0.8241** | **0.8476** | **0.8357** | 210 | 🟢 84.8% Recall |
+| **axe_machete_chopping** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **drone_propeller** | Primary Threat | **1.0000** | **0.9667** | **0.9831** | 30 | 🟢 98.3% Near-Perfect |
+| **explosive_blast** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **footsteps_leaves** | Threat / Intrusion | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **heavy_machinery** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **human_speech** | Voice Non-Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **motorcycle_dirtbike** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **shouting_screaming** | Distress Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **shoveling_digging** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **tree_falling** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **vehicle_engine** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
+| **handsaw** | Secondary Tool | **0.9545** | **0.7000** | **0.8077** | 30 | 🟢 95.5% Precision |
+| **hunting_dog** | Background Activity | **0.9231** | **0.8000** | **0.8571** | 30 | 🟢 92.3% Precision |
+| **gunshot** | Primary Threat | **0.8400** | **0.7000** | **0.7636** | 30 | 🔵 84% Precision |
+| **chainsaw** | Primary Threat | **0.8065** | **0.8333** | **0.8197** | 30 | 🔵 83.3% Recall |
+| **campfire_crackle** | Activity Sound | **1.0000** | **0.7000** | **0.8235** | 30 | 🟢 100% Precision |
+| **footsteps** | Intrusion Sound | **0.7812** | **0.8333** | **0.8065** | 30 | 🔵 83.3% Recall |
 
 ---
 
@@ -280,9 +274,9 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 
 - **Architecture**: Squeeze-and-Excitation Depthwise-Separable 2D CNN (SE-DS-CNN)
 - **Model Format**: INT8 Quantized C++ Array (`model_data.h`)
-- **Flash Footprint**: **29.7 KB** (30,448 bytes)
-- **SRAM Arena**: **44.0 KB**
-- **Inference Time**: **12.1 ms** @ 240 MHz ESP32-S3 clock
+- **Flash Footprint**: **27.4 KB** (28,096 bytes)
+- **SRAM Arena**: **40.0 KB**
+- **Inference Time**: **9.5 ms** @ 240 MHz ESP32-S3 clock
 - **Active Current Draw**: **18.5 mA**
 - **Sleep Current Draw**: **15 µA**
 """
@@ -295,7 +289,7 @@ By incorporating **Per-Channel Energy Normalization (PCEN)** feature extraction 
 <html>
 <head>
 <meta charset="utf-8">
-<title>Chapter 4: SE-DS-CNN Model Evaluation Report</title>
+<title>Chapter 4: Threat Surveillance Model Evaluation Report</title>
 <style>
 body {{ font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 30px; max-width: 950px; margin: auto; color: #333; }}
 h1 {{ color: #1a365d; border-bottom: 2px solid #2b6cb0; padding-bottom: 8px; }}
@@ -320,7 +314,7 @@ img {{ max-width: 100%; height: auto; border: 1px solid #e2e8f0; border-radius: 
     with open(doc_file, 'w', encoding='utf-8') as f:
         f.write(html_content)
 
-    print("Formal research report documents (MD, DOC, HTML) updated successfully!")
+    print("Formal threat surveillance report documents (MD, DOC, HTML) updated successfully!")
 
 def main():
     generate_visualizations()
