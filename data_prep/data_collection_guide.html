@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Data Collection Guide</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Guide: Acoustic Data Collection Strategies</h1>
+<p>Building a high-quality dataset is 80% of the work in an Edge AI / TinyML thesis. To build a robust 31-class classifier, you must combine public datasets, custom web-scraped clips, and custom field recordings.</p>
+<p>This guide outlines exactly how and where to collect data for your forest acoustic surveillance system.</p>
+<hr />
+<h2>1. Top Public Databases for Forest Acoustics</h2>
+<p>Using established public datasets ensures your project is academically valid and speeds up the training phase.</p>
+<h3>A. Environmental &amp; Threat Sounds</h3>
+<ul>
+<li><strong>ESC-50 (Environmental Sound Classification)</strong>:<ul>
+<li><em>Where to get</em>: GitHub or Kaggle.</li>
+<li><em>Available Classes</em>: Chainsaw, gunshot, rain, wind, thunder, footsteps, campfire crackle, dog barking.</li>
+<li><em>Format</em>: 2,000 5-second clean clips.</li>
+</ul>
+</li>
+<li><strong>Rainforest Connection (RFCx) Open Data</strong>:<ul>
+<li><em>Where to get</em>: <a href="https://rfcx.org/">rfcx.org</a> / Kaggle.</li>
+<li><em>Available Classes</em>: Real forest ambient noise, rain, wind, animal vocalizations, illegal chainsaw logging, and shotgun fire recorded in actual jungles.</li>
+</ul>
+</li>
+<li><strong>Google AudioSet</strong>:<ul>
+<li><em>Where to get</em>: <a href="https://research.google.com/audioset/">AudioSet Ontology website</a>.</li>
+<li><em>Available Classes</em>: "Handsaw", "Axe", "Wood chopping", "Walkie-talkie", "Heavy machinery", "Drone propellers", "Outboard motorboat".</li>
+</ul>
+</li>
+</ul>
+<h3>B. Biological / Animal Sounds (Wildlife)</h3>
+<ul>
+<li><strong>Xeno-Canto</strong>:<ul>
+<li><em>Where to get</em>: <a href="https://xeno-canto.org/">xeno-canto.org</a>.</li>
+<li><em>Available Classes</em>: The world's largest open-access database of bird songs, frog croaks, and primate/monkey calls. You can download mp3s of specific species.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>2. Collecting Custom Audio via Web Scraping</h2>
+<p>If you cannot find clean audio files for specific sub-classes (like custom boat engines or specific walkie-talkie beeps), you can scrape them from YouTube.</p>
+<p>I have created a Python script in your workspace at <code>data_prep/download_youtube.py</code> that automates this. </p>
+<h3>How to use the Scraper:</h3>
+<ol>
+<li>Find YouTube videos of the sound you need (e.g., "long-tail boat engine sound", "chainsaw idling").</li>
+<li>Add the YouTube URLs to the script.</li>
+<li>The script will download the audio, extract the exact segment you want (e.g., from minute 1:00 to 2:00), resample it to <code>16kHz, mono, WAV</code>, and save it directly to your raw data directory.</li>
+</ol>
+<hr />
+<h2>3. Recording Directly from the ESP32-S3 Hardware (Edge Impulse Daemon)</h2>
+<p>For the highest accuracy, you should train your model on audio captured by the <strong>exact same microphone</strong> (INMP441) and hardware setup you will deploy. This accounts for the mic’s unique frequency response.</p>
+<h3>Method: The Edge Impulse CLI Daemon</h3>
+<p>Edge Impulse allows you to stream audio directly from your ESP32-S3 to the cloud for automatic labeling and segmenting.</p>
+<ol>
+<li><strong>Install Node.js</strong> on your computer.</li>
+<li>Install the Edge Impulse CLI by running in your terminal:
+    <code>bash
+    npm install -g edge-impulse-cli</code></li>
+<li>Flash the <strong>Edge Impulse Firmware</strong> to your ESP32-S3 (Edge Impulse provides a pre-compiled binary for the ESP32-S3 Eye/Sense board).</li>
+<li>Connect the ESP32-S3 to your PC via USB and run:
+    <code>bash
+    edge-impulse-daemon</code></li>
+<li>Log in to your account. Your ESP32-S3 will appear as a recording device in the <strong>Edge Impulse Studio</strong>.</li>
+<li>Click <strong>Record</strong> in the browser. The ESP32-S3 will record, upload, and format the audio automatically.</li>
+</ol>
+<hr />
+<h2>4. Generating Synthetic Data (Mixer Augmentation)</h2>
+<p>In a forest, threats are mixed with background noise. You can synthetically build this in Python.</p>
+<h3>The Mixing Recipe:</h3>
+<p>If you have a clean gunshot recording (<i>G</i>) and a continuous recording of forest rain (<i>R</i>):</p>
+<div style="text-align:center; font-style:italic; margin: 15px 0;">\text{Mixed Sample} = (G \cdot \alpha) + (R \cdot \beta)</div>
+
+<p>Where <i>\alpha</i> and <i>\beta</i> are gain scales. By varying <i>\alpha</i> and <i>\beta</i>, you can create 100 different training samples from just 1 gunshot clip, simulating different distances and rain volumes.</p>
+</body>
+</html>

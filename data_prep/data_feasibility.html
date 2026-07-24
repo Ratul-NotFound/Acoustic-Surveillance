@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Data Feasibility</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Analysis: Can You Source 100% of Your Data Online for Free?</h1>
+<p>Yes. From a pure data-volume perspective, <strong>you can source 100% of your training data online for free</strong>. By combining standard datasets (ESC-50, FSC22, Mendeley) with targeted YouTube scraping, you can build a massive, high-quality database without spending a dime.</p>
+<p>However, for a high-scoring thesis, you must understand the difference between <strong>training data</strong> (which can be 100% online) and <strong>testing/validation data</strong> (which requires local hardware validation).</p>
+<hr />
+<h2>1. Online Sourcing Feasibility Chart (31 Classes)</h2>
+<p>Here is how you can compile every single class using only free online resources:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Class Group</th>
+<th style="text-align: left;">Sourcing Method</th>
+<th style="text-align: left;">Free Online Resources</th>
+<th style="text-align: left;">Feasibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Standard Threats</strong> (Chainsaw, Axe, Gunshot, Vehicles)</td>
+<td style="text-align: left;">Direct Download</td>
+<td style="text-align: left;"><strong>ESC-50, FSC22, Mendeley Gunshot Dataset</strong>. These provide thousands of high-quality, pre-labeled clips.</td>
+<td style="text-align: left;"><strong>100% Feasible</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Specialized Threats</strong> (Handsaw, Walkie-talkie, Traps, Drones, Digging)</td>
+<td style="text-align: left;">YouTube Scraping</td>
+<td style="text-align: left;">Use <code>download_youtube.py</code> on clips like "VHF radio squelch", "quadcopter drone sound", or "setting steel animal traps".</td>
+<td style="text-align: left;"><strong>100% Feasible</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain, Wind, Thunder, Rivers</strong></td>
+<td style="text-align: left;">Direct Download</td>
+<td style="text-align: left;"><strong>ESC-50, FSC22, Rainforest Connection</strong>. Massive databases of natural weather and running water.</td>
+<td style="text-align: left;"><strong>100% Feasible</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Birds, Frogs, Monkeys</strong></td>
+<td style="text-align: left;">API Download</td>
+<td style="text-align: left;"><strong>Xeno-Canto API</strong>. Download specific species (e.g., local forest birds, cicadas, tree frogs) in seconds.</td>
+<td style="text-align: left;"><strong>100% Feasible</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. The Hardware Gap: Why 100% Online Data is Risky</h2>
+<p>While you can train the model on internet audio, deploying it directly to a forest using a cheap <strong>INMP441 I2S microphone</strong> introduces a mismatch:</p>
+<ol>
+<li><strong>Microphone Frequency Response</strong>: Studio audio downloaded from the internet has flat, high-fidelity frequency responses. The INMP441 microphone has physical limitations (e.g. low-frequency roll-off below 100Hz, and high-frequency resonances around 5kHz–10kHz).</li>
+<li><strong>Enclosure Acoustics</strong>: Placing your microphone inside a plastic IP67 weatherproof box changes the sound, creating a chamber resonance (like speaking into a cup).</li>
+<li><strong>Result</strong>: If the model only knows clean internet sounds, it might not recognize those same sounds when distorted by your microphone and enclosure.</li>
+</ol>
+<hr />
+<h2>3. Recommended Thesis Sourcing Plan</h2>
+<p>To get an <strong>A+ grade</strong> on your thesis, use this hybrid strategy:</p>
+<pre class="codehilite"><code>[ 95% Training Data ] ──&gt; Sourced Online (FSC22, Mendeley, YouTube) ──&gt; Train Model
+                                                                            │
+                                                                            ▼
+[ 5% Validation Data ] ──&gt; Recorded Locally with ESP32-S3 + Mic ───────&gt; Verify Accuracy
+</code></pre>
+
+<ol>
+<li><strong>Train the Model (95% of data)</strong>: Download and scrape all your training data online. This gives you the volume needed to train a deep neural network (approx. 500–1,000 samples per class).</li>
+<li><strong>Fine-Tune / Validate (5% of data)</strong>:<ul>
+<li>Assemble your ESP32-S3 + INMP441 microphone.</li>
+<li>Record 10–20 samples of your own footsteps, handsaw scraping, and ambient forest noises <em>directly</em> through the hardware.</li>
+<li>Mix a small portion of this hardware-recorded sound into your training dataset (called "domain adaptation").</li>
+<li>Use the rest of the hardware-recorded data as your <strong>Test Set</strong> to prove in your thesis document that the model works on the actual hardware.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>

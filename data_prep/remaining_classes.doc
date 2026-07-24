@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Remaining Classes</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Remaining Sourcing Targets (Post ESC-50 Extraction)</h1>
+<p>Your <strong>ESC-50 dataset</strong> has been successfully downloaded and sorted! You now have <strong>560 audio files</strong> spanning <strong>13 classes</strong> inside your <code>raw_data/</code> directory.</p>
+<p>Here is the updated list of the remaining <strong>18 classes and sub-classes</strong> that you still need to collect, along with their optimal sources:</p>
+<hr />
+<h2>1. Threats / Unwanted Activities (14 Classes Remaining)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Target Class</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Best Source to Use</th>
+<th style="text-align: left;">Download Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Pistol/Rifle)</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">Mendeley Gunshot Dataset</td>
+<td style="text-align: left;">Download and copy files to <code>raw_data/gunshot/</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Shotgun)</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">Mendeley Gunshot Dataset</td>
+<td style="text-align: left;">Download and copy files to <code>raw_data/gunshot/</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Axe/Machete Chopping</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSC22 / FSD50K</td>
+<td style="text-align: left;">Search <code>axe</code> or <code>wood chopping</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tree Cracking/Falling</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSC22 / FSD50K</td>
+<td style="text-align: left;">Search <code>tree falling</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heavy Machinery</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Search <code>bulldozer</code> or <code>tractor</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motorcycle/Dirt Bike</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Search <code>dirt bike</code> or <code>motorcycle</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Human Speech/Voices</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K / AudioSet</td>
+<td style="text-align: left;">Search <code>speech</code> or <code>talking</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shouting/Screaming</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Search <code>screaming</code> or <code>shouting</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Walkie-Talkie (Static/Beeps)</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K / YouTube</td>
+<td style="text-align: left;">Search <code>walkie talkie static</code> in Freesound or YouTube.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metal Clinking (Traps)</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K / YouTube</td>
+<td style="text-align: left;">Search <code>steel trap click</code> in Freesound or YouTube.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shoveling/Digging</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Search <code>digging</code> or <code>shoveling</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drone Propeller Hum</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K / YouTube</td>
+<td style="text-align: left;">Search <code>drone propeller</code> in Freesound or YouTube.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explosive Blast</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Search <code>explosion</code> in Freesound.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Idle / Cutting)</strong></td>
+<td style="text-align: left;">🟡 Split Needed</td>
+<td style="text-align: left;">Zenodo / YouTube</td>
+<td style="text-align: left;">Use your general <code>chainsaw</code> folder, but collect more specific clips of chainsaws <em>idle</em> vs. <em>cutting</em> to split them.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Weather &amp; Biological Filters (4 Classes Remaining)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Target Class</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: left;">Best Source to Use</th>
+<th style="text-align: left;">Download Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Monkey Alarm Calls</strong></td>
+<td style="text-align: left;">🔴 Missing</td>
+<td style="text-align: left;">Rainforest / Xeno-Canto</td>
+<td style="text-align: left;">Search <code>Primate</code> or <code>monkey alert</code> in Xeno-Canto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain (Light vs. Heavy)</strong></td>
+<td style="text-align: left;">🟡 Split Needed</td>
+<td style="text-align: left;">FSC22</td>
+<td style="text-align: left;">Split your ESC-50 <code>rain</code> folder into <code>rain_light</code> and <code>rain_heavy</code> using FSC22.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Distant vs. Close)</strong></td>
+<td style="text-align: left;">🟡 Split Needed</td>
+<td style="text-align: left;">FSC22</td>
+<td style="text-align: left;">Split your ESC-50 <code>thunder</code> folder into <code>thunder_distant</code> and <code>thunder_close</code> using FSC22.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Canopy vs. Howling)</strong></td>
+<td style="text-align: left;">🟡 Split Needed</td>
+<td style="text-align: left;">FSC22</td>
+<td style="text-align: left;">Split your ESC-50 <code>wind</code> folder into <code>wind_canopy</code> and <code>wind_howling</code> using FSC22.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Model Training Guide</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>TinyML Model Training Guide (with Edge Impulse)</h1>
+<p>This guide walks you through building, training, and deploying your forest acoustic surveillance classification model using <strong>Edge Impulse</strong>.</p>
+<hr />
+<h2>Step 1: Create an Edge Impulse Project</h2>
+<ol>
+<li>Sign up for a free developer account at <a href="https://studio.edgeimpulse.com">Edge Impulse</a>.</li>
+<li>Create a new project named <code>Forest-Acoustic-Surveillance</code>.</li>
+<li>Select <strong>Audio</strong> as your data type.</li>
+</ol>
+<hr />
+<h2>Step 2: Upload Your Preprocessed Dataset</h2>
+<p>Use the files you formatted using <code>data_prep/format_audio.py</code> (which are in <code>16kHz, 16-bit, Mono WAV</code> format).</p>
+<ol>
+<li>In the Edge Impulse Studio, go to <strong>Data Acquisition</strong>.</li>
+<li>Click <strong>Upload existing data</strong>.</li>
+<li>Choose your audio files.</li>
+<li>Set the label automatically based on the folder/file name (e.g., <code>chainsaw</code>, <code>gunshot</code>, <code>axe</code>, <code>footsteps</code>, <code>ambient</code>).</li>
+<li>Choose <strong>Automatically split between training and testing</strong> (keeps an 80/20 train/test split).</li>
+</ol>
+<hr />
+<h2>Step 3: Design Your Impulse</h2>
+<p>An Impulse is the machine learning pipeline (features -&gt; processing block -&gt; learning block).</p>
+<ol>
+<li>Go to <strong>Impulse Design</strong>.</li>
+<li>Set the window size to <strong>2000 ms</strong> (2 seconds) and the window increase to <strong>500 ms</strong>.</li>
+<li>Add a <strong>Processing Block</strong>: Select <strong>Audio (MFE)</strong> (Mel-Frequency Energy) or <strong>MFCC</strong>.</li>
+<li><em>MFE</em> is better for non-voice environmental sounds like chainsaws, gunshots, and engines.</li>
+<li><em>MFCC</em> is better for human voice/speech detection.</li>
+<li>Add a <strong>Learning Block</strong>: Select <strong>Classification (Keras)</strong>.</li>
+<li>Click <strong>Save Impulse</strong>.</li>
+</ol>
+<hr />
+<h2>Step 4: Extract Features</h2>
+<ol>
+<li>Go to <strong>MFE / MFCC</strong> in the sidebar.</li>
+<li>Under parameters, leave the default settings:</li>
+<li>Frame length: <code>0.02s</code> (20 ms)</li>
+<li>Frame stride: <code>0.01s</code> (10 ms)</li>
+<li>Number of Mel filters: <code>40</code></li>
+<li>Click <strong>Save parameters</strong>.</li>
+<li>Click <strong>Generate Features</strong>. Edge Impulse will convert all your 2-second audio clips into feature vectors and display them in a 3D visualization. Ensure different classes are clustered separately.</li>
+</ol>
+<hr />
+<h2>Step 5: Train the Neural Network</h2>
+<ol>
+<li>Go to <strong>Classifier</strong> in the sidebar.</li>
+<li>Configure the training settings:</li>
+<li>Number of epochs: <code>50</code> to <code>100</code></li>
+<li>Learning rate: <code>0.005</code></li>
+<li>Validation set size: <code>20%</code></li>
+<li>Use a 2D Convolutional Neural Network (CNN) architecture (Edge Impulse provides a pre-configured 2D CNN optimized for audio).</li>
+<li>Click <strong>Start Training</strong>.</li>
+<li>Once complete, review the <strong>Accuracy</strong> and <strong>Confusion Matrix</strong>. Target an accuracy of <strong>&gt; 90%</strong>.</li>
+</ol>
+<hr />
+<h2>Step 6: Quantize and Export to ESP32-S3</h2>
+<p>To run the model on a microcontroller, we must quantize it to <code>INT8</code> (which reduces model size by 75% and speeds up inference with negligible accuracy loss).</p>
+<ol>
+<li>Go to <strong>Deployment</strong> in the sidebar.</li>
+<li>Under "Select deployment", choose <strong>Arduino Library</strong> (or <strong>C++ Library</strong> if using ESP-IDF).</li>
+<li>Under "Select optimizations", select <strong>Quantized (int8)</strong>.</li>
+<li>Click <strong>Build</strong>.</li>
+<li>A ZIP file containing the C++ library will download.</li>
+<li>In Arduino IDE: Go to <code>Sketch</code> -&gt; <code>Include Library</code> -&gt; <code>Add .ZIP Library...</code> and select the downloaded file.</li>
+<li>Include the library headers in your <code>firmware.ino</code> sketch and run the inference using the API generated by Edge Impulse.</li>
+</ol>
+</body>
+</html>

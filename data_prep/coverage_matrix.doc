@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Coverage Matrix</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Methodology: Acoustic Dataset Coverage Matrix</h1>
+<p>This matrix maps all 31 acoustic classes and sub-classes to their respective download sources. It proves how your dataset achieves 100% coverage using the listed open-source databases and custom YouTube scraping.</p>
+<hr />
+<h2>1. Threat / Illegal Activity Coverage</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Class / Sub-Class</th>
+<th style="text-align: left;">Sourced From</th>
+<th style="text-align: left;">Specific File / Search Tag to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Gasoline)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50, Zenodo</td>
+<td style="text-align: left;">Folder: <code>chainsaw</code> / Tag: <code>chainsaw</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Electric)</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Search: "electric chainsaw sound", "battery chainsaw"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Axe (Hardwood/Metallic ring)</strong></td>
+<td style="text-align: left;">FSC22, FSD50K</td>
+<td style="text-align: left;">Tag: <code>axe</code>, <code>wood chopping</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Axe (Softwood/Wet thud)</strong></td>
+<td style="text-align: left;">FSD50K, Custom recording</td>
+<td style="text-align: left;">Tag: <code>chopping wood</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Machete (Clearing brush/bamboo)</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Search: "clearing brush machete", "bamboo cutting"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Handsaw (Manual)</strong></td>
+<td style="text-align: left;">FSC22, FSD50K</td>
+<td style="text-align: left;">Tag: <code>handsaw</code>, <code>sawing wood</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tree Cracking &amp; Falling</strong></td>
+<td style="text-align: left;">FSC22, FSD50K</td>
+<td style="text-align: left;">Tag: <code>tree falling</code>, <code>wood cracking</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heavy Machinery</strong></td>
+<td style="text-align: left;">FSD50K, ESC-50</td>
+<td style="text-align: left;">Tag: <code>engine</code>, <code>tractor</code>, <code>bulldozer</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Supersonic Rifle)</strong></td>
+<td style="text-align: left;">Mendeley Gunshot, FSD50K</td>
+<td style="text-align: left;">Category: <code>Rifle</code>, <code>supersonic crack</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Subsonic Pistol)</strong></td>
+<td style="text-align: left;">Mendeley Gunshot, ESC-50</td>
+<td style="text-align: left;">Category: <code>Pistol</code> / Folder: <code>gunshot</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Shotgun)</strong></td>
+<td style="text-align: left;">Mendeley Gunshot, ESC-50</td>
+<td style="text-align: left;">Category: <code>Shotgun</code> / Folder: <code>gunshot</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Air Rifle)</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Search: "air rifle shooting", "pellet gun pop"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vehicle Engine (Truck/SUV)</strong></td>
+<td style="text-align: left;">FSC22, FSD50K</td>
+<td style="text-align: left;">Tag: <code>diesel engine</code>, <code>suv engine</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motorcycle / Dirt Bike</strong></td>
+<td style="text-align: left;">FSD50K, ESC-50</td>
+<td style="text-align: left;">Tag: <code>motorcycle</code>, <code>dirt bike</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Human Speech / Voices</strong></td>
+<td style="text-align: left;">FSD50K, AudioSet</td>
+<td style="text-align: left;">Tag: <code>speech</code>, <code>conversation</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shouting / Screaming</strong></td>
+<td style="text-align: left;">FSD50K, ESC-50</td>
+<td style="text-align: left;">Tag: <code>screaming</code>, <code>shouting</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Footsteps (Dry Leaves)</strong></td>
+<td style="text-align: left;">ESC-50, FSD50K</td>
+<td style="text-align: left;">Folder: <code>footsteps</code> / Search: "footsteps dry leaves"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Walkie-Talkie (Static/Beeps)</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Search: "walkie talkie static", "VHF squelch"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metal Clinking (Traps/Snares)</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Search: "setting steel trap", "metal cage door click"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shoveling / Digging</strong></td>
+<td style="text-align: left;">FSD50K</td>
+<td style="text-align: left;">Tag: <code>digging</code>, <code>shoveling</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hunting Dog (Bark/Howl)</strong></td>
+<td style="text-align: left;">ESC-50</td>
+<td style="text-align: left;">Folder: <code>dog</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drone Propeller Hum</strong></td>
+<td style="text-align: left;">FSD50K, YouTube</td>
+<td style="text-align: left;">Tag: <code>drone</code>, <code>quadcopter</code> / Search: "drone flying close"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explosive Blast</strong></td>
+<td style="text-align: left;">FSD50K, ESC-50</td>
+<td style="text-align: left;">Folder: <code>explosion</code> / Tag: <code>explosion</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campfire Crackle</strong></td>
+<td style="text-align: left;">ESC-50</td>
+<td style="text-align: left;">Folder: <code>crackling_fire</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Natural Background &amp; Fauna Coverage (Filters)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Class / Sub-Class</th>
+<th style="text-align: left;">Sourced From</th>
+<th style="text-align: left;">Specific File / Search Tag to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rain (Light / Drizzle)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>rain</code> / Tag: <code>rain</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain (Heavy / Downpour)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>rain</code> / Tag: <code>heavy rain</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Distant rumble)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>thunderstorm</code> / Tag: <code>rumble</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Close clap/crack)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>thunderstorm</code> / Tag: <code>thunder clap</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Canopy rustling)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>wind</code> / Tag: <code>wind</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Howling gusts)</strong></td>
+<td style="text-align: left;">FSC22, ESC-50</td>
+<td style="text-align: left;">Folder: <code>wind</code> / Tag: <code>howling wind</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bird Calls / Songs</strong></td>
+<td style="text-align: left;">Xeno-Canto, FSC22</td>
+<td style="text-align: left;">Search: Species name (e.g. <em>Passer domesticus</em>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cicadas / Insect Hums</strong></td>
+<td style="text-align: left;">Xeno-Canto, FSC22</td>
+<td style="text-align: left;">Search: "Cicada", "Orthoptera", "insect hum"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frog Croaks</strong></td>
+<td style="text-align: left;">Xeno-Canto, FSC22</td>
+<td style="text-align: left;">Search: "Anura", "frog call"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Monkey Alarm Calls</strong></td>
+<td style="text-align: left;">Rainforest Connection, Xeno-Canto</td>
+<td style="text-align: left;">Search: "Primate", "monkey alert", "howler monkey"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>River / Stream Flowing</strong></td>
+<td style="text-align: left;">ESC-50, FSD50K</td>
+<td style="text-align: left;">Folder: <code>water_drops</code> / Tag: <code>river</code>, <code>stream</code></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

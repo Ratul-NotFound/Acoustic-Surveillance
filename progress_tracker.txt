@@ -1,0 +1,67 @@
+# 📊 Thesis Progress Tracker & Task List
+
+This file tracks the completed and remaining tasks for your Edge AI-powered Forest Acoustic Surveillance System. It is organized according to your 24-week A-to-Z thesis roadmap.
+
+## 📊 Quick Status Summary
+*   **Total Project Tasks**: 30
+*   **Completed Tasks**: 14 (47%)
+*   **In Progress**: 3 (10%)
+*   **Pending Tasks**: 13 (43%)
+
+---
+
+## 📅 Roadmap & Task Checklist
+
+### 📑 Task 1: Research, Architecture, & Design (100% Completed)
+- [x] Draft end-to-end A-to-Z project plan [README.md](file:///D:/software/acoustic-surveillance/README.md)
+- [x] Design electrical hardware wiring configurations [wiring_guide.md](file:///D:/software/acoustic-surveillance/hardware/wiring_guide.md)
+- [x] Define 31 acoustic target and background classes [sound_classes.md](file:///D:/software/acoustic-surveillance/sound_classes.md)
+- [x] Create detailed sub-class taxonomy, excluding boat engine classes [sub_classes.md](file:///D:/software/acoustic-surveillance/sub_classes.md)
+- [x] Analyze distance attenuation physics & design digital AGC [distance_handling.md](file:///D:/software/acoustic-surveillance/distance_handling.md)
+- [x] Draft solar, battery, zoning, and GSM protocol design [system_architecture.md](file:///D:/software/acoustic-surveillance/system_architecture.md)
+- [x] Conduct literature search on arXiv & OpenAlex and write draft [literature_review.md](file:///D:/software/acoustic-surveillance/literature_review.md)
+
+### 🔊 Task 2: Dataset Sourcing & Sourcing Setup (65% Completed)
+- [x] Map dataset coverage matrix [coverage_matrix.md](file:///D:/software/acoustic-surveillance/data_prep/coverage_matrix.md)
+- [x] Compile verified dataset download links [dataset_links.txt](file:///D:/software/acoustic-surveillance/dataset_links.txt)
+- [x] Download and extract baseline ESC-50 dataset (`raw_data/esc-50/`)
+- [x] Write and run extraction script to sort ESC-50 into 13 target subfolders (`raw_data/...`)
+- [ ] Download Mendeley Gunshot Dataset and copy files to `raw_data/gunshot/`
+- [ ] Download FSC22 Dataset and copy background weather/biological files to raw directories
+
+### 🐍 Task 3: Audio Preprocessing & Web Scraping (75% Completed)
+- [x] Setup Python dependency definitions [requirements.txt](file:///D:/software/acoustic-surveillance/data_prep/requirements.txt)
+- [x] Create automated YouTube audio downloader script [download_youtube.py](file:///D:/software/acoustic-surveillance/data_prep/download_youtube.py)
+- [x] Write WAV audio formatter/resampling script [format_audio.py](file:///D:/software/acoustic-surveillance/data_prep/format_audio.py)
+- [/] Collect remaining rare classes (walkie-talkies, traps, drones) using YouTube scraper
+- [/] Run `format_audio.py` to convert all raw files to 16kHz, mono, 16-bit WAV
+
+### 🧠 Task 4: TinyML Model Development (Pending)
+- [ ] Create an Edge Impulse project and upload the `formatted_data/` folder
+- [ ] Configure feature extraction blocks (MFE for mechanical noise, MFCC for vocal sweeps)
+- [ ] Train 2D Convolutional Neural Network (CNN) and review confusion matrix (Target: >90% accuracy)
+- [ ] Quantize trained network to INT8 and export as optimized C++ Arduino library
+
+### 🔌 Task 5: Hardware & Firmware Prototyping (25% Completed)
+- [x] Create boilerplate ESP32-S3 deep sleep and I2S microphone sketch [firmware.ino](file:///D:/software/acoustic-surveillance/firmware/firmware.ino)
+- [ ] Wire the physical ESP32-S3, INMP441 Mic, LIS3DH Accelerometer, Neo-6M GPS, and SIM800L
+- [ ] Import Edge Impulse library into Arduino IDE and integrate with `firmware.ino`
+- [ ] Implement digital AGC code and hierarchical two-stage anomaly inference
+- [ ] Implement SIM800L GSM AT commands to send alert SMS with GPS coordinates
+
+### 🔋 Task 6: Power Optimization & Casing (Pending)
+- [ ] Integrate CN3065 solar charge controller with 18650 LiFePO4 battery
+- [ ] Write firmware power management code (Deep Sleep duty-cycling and accelerometer interrupts)
+- [ ] Perform hardware power auditing (measure active vs. sleep current draw)
+- [ ] Design and 3D print a weatherproof IP67 camouflaged tree-mount casing
+
+### 🌲 Task 7: Field Verification & Testing (Pending)
+- [ ] Deploy prototype node high on a tree trunk in a local wooded area
+- [ ] Play target threat playbacks (chainsaws, gunshots) at varying distances (10m - 150m)
+- [ ] Log alert delivery latency, cellular signal strength, and detection accuracy
+- [ ] Run continuous solar-harvesting validation over a 7-day period
+
+### ✍️ Task 8: Thesis Documentation & Defense (Pending)
+- [ ] Compile testing results, power graphs, and accuracy metrics
+- [ ] Write thesis chapters: Introduction, Literature Review, Methodology, Results, Conclusion
+- [ ] Prepare presentation slides and record hardware demo video

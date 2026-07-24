@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Wiring Guide</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Hardware Wiring &amp; Pin Mapping Guide</h1>
+<p>This guide details the physical electrical connections between the <strong>ESP32-S3</strong> microcontroller and the peripheral modules.</p>
+<hr />
+<h2>1. GPIO Pin Mapping Table</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Peripheral Module</th>
+<th style="text-align: left;">Pin Name</th>
+<th style="text-align: left;">ESP32-S3 Pin</th>
+<th style="text-align: left;">Description / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>INMP441 Microphone</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V</td>
+<td style="text-align: left;">Digital microphone power</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">L/R</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Set to GND for Left Channel audio</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SCK (Clock)</td>
+<td style="text-align: left;">GPIO 4</td>
+<td style="text-align: left;">I2S Serial Clock</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">WS (Word Select)</td>
+<td style="text-align: left;">GPIO 5</td>
+<td style="text-align: left;">I2S Word Select</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SD (Serial Data)</td>
+<td style="text-align: left;">GPIO 6</td>
+<td style="text-align: left;">I2S Serial Data input</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIM800L GSM Module</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">4V Battery / Regulator</td>
+<td style="text-align: left;">Needs 3.7V - 4.2V (up to 2A burst current). Do not power from 3.3V!</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Must share a common ground with ESP32-S3</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">TX</td>
+<td style="text-align: left;">GPIO 18</td>
+<td style="text-align: left;">Connects to ESP32 RX (Serial2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RX</td>
+<td style="text-align: left;">GPIO 17</td>
+<td style="text-align: left;">Connects to ESP32 TX (Serial2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">PWR_KEY</td>
+<td style="text-align: left;">GPIO 16</td>
+<td style="text-align: left;">Controls MOSFET switch to power ON/OFF GSM</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RST</td>
+<td style="text-align: left;">GPIO 15</td>
+<td style="text-align: left;">Optional hardware reset pin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Neo-6M GPS Module</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V / 5V</td>
+<td style="text-align: left;">GPS power supply</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">TX</td>
+<td style="text-align: left;">GPIO 41</td>
+<td style="text-align: left;">Connects to ESP32 RX (Serial1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RX</td>
+<td style="text-align: left;">GPIO 42</td>
+<td style="text-align: left;">Connects to ESP32 TX (Serial1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LIS3DH Accelerometer</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V</td>
+<td style="text-align: left;">Ultra-low power sensor supply</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SDA</td>
+<td style="text-align: left;">GPIO 8</td>
+<td style="text-align: left;">I2C Data line</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SCL</td>
+<td style="text-align: left;">GPIO 9</td>
+<td style="text-align: left;">I2C Clock line</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">INT1</td>
+<td style="text-align: left;">GPIO 10</td>
+<td style="text-align: left;">Interrupt output to wake up ESP32-S3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Power and Charging Circuit Schematic Design</h2>
+<p>To support long-term autonomous field deployment, use a solar energy harvesting circuit:</p>
+<pre class="codehilite"><code>                        [ Solar Panel (5V-6V, 2W) ]
+                                     │
+                                     ▼
+                    [ CN3065 / TP4056 Solar Charger ]
+                      │                            │
+                      ▼                            ▼
+         [ 18650 LiFePO4 Battery ]       [ High-Current Switch / MOSFET ]
+                      │                            │
+                      ▼                            ▼
+            [ LDO Regulator (3.3V) ]         [ SIM800L Module (4V/GPRS) ]
+                      │
+                      ▼
+             [ ESP32-S3 / Mic / GPS ]
+</code></pre>
+
+<h3>Key Power Components:</h3>
+<ol>
+<li><strong>Solar Panel</strong>: 5V to 6V monocrystalline panel, rated at 1W to 2W.</li>
+<li><strong>Solar Charger (CN3065)</strong>: Connects solar panel to the battery. Automatically stops charging when battery is full.</li>
+<li><strong>Battery</strong>: A single 18650 LiFePO4 battery (nominal 3.2V, full charge 3.6V). This battery chemistry operates safely in high forest ambient temperatures.</li>
+<li><strong>Regulator (LDO)</strong>: Use a high-efficiency Low Dropout Regulator (such as <strong>HT7333-A</strong>) with a very low quiescent current (approx. 4µA) to step down the battery voltage to a clean 3.3V for the ESP32-S3, microphone, and sensors.</li>
+<li><strong>GSM Power Switch</strong>: The SIM800L consumes substantial standby power and experiences high current spikes. Use an <strong>N-channel MOSFET</strong> (e.g., IRLZ44N) connected to the ESP32 GPIO 16 to completely isolate the SIM800L's ground/power line when it is not actively transmitting alerts.</li>
+</ol>
+</body>
+</html>

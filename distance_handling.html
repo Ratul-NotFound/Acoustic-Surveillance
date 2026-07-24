@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Distance Handling</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Guide: Handling Acoustic Distance, Attenuation, &amp; Reverberation</h1>
+<p>In a real forest deployment, sounds will be recorded at varying distances from the sensor node (from 5 meters to over 500 meters). As sound travels through a dense forest, it undergoes physical transformations that completely alter its acoustic profile.</p>
+<p>If your model is only trained on close-up, clean recordings, it will fail to detect distant threats. This guide details how to handle distance-based attenuation, foliage absorption, and multipath reverberation.</p>
+<hr />
+<h2>1. The Physics of Forest Acoustic Propagation</h2>
+<p>When sound travels through a forest, it is degraded by three primary physical processes:</p>
+<pre class="codehilite"><code>[ Close Sound Source ] ──( 6dB Drop per Double Distance )──&gt; [ Geometric Spreading ]
+[ Foliage &amp; Leaves ] ──( Absorbs Frequencies &gt; 1kHz )──────&gt; [ High-Frequency Attenuation ]
+[ Tree Trunks &amp; Ground ] ──( Multiple Sound Reflections )──&gt; [ Temporal Reverberation ]
+</code></pre>
+
+<ol>
+<li><strong>Geometric Spreading (Volume Drop)</strong>: Sound energy drops by approximately <strong>6 dB for every doubling of distance</strong> from the source (the Inverse Square Law).</li>
+<li><strong>Excess Attenuation (Foliage Absorption)</strong>: Leaves, pine needles, and undergrowth act as low-pass filters. They absorb high frequencies much faster than low frequencies. Frequencies above <strong>1 kHz</strong> attenuate rapidly over distance.</li>
+<li><strong>Multipath Scattering (Reverberation)</strong>: Sound waves bounce off tree trunks and the forest floor. A clean, sharp sound (like a 10ms gunshot or axe chop) gets scattered, smearing the sound over time into a longer, muddy echo (up to 300ms).</li>
+</ol>
+<hr />
+<h2>2. Spectrogram Alteration: Close vs. Distant Sounds</h2>
+<p>Your TinyML Convolutional Neural Network (CNN) reads Mel-Spectrograms as images. Here is how distance changes those images:</p>
+<h3>Example: Gunshot Spectrograms</h3>
+<ul>
+<li><strong>Close Gunshot (e.g., &lt; 30m)</strong>:<ul>
+<li><em>Visual</em>: A sharp, dark vertical line spanning from 100Hz to 8,000Hz.</li>
+<li><em>Amplitude</em>: High energy, crisp, clear transient start.</li>
+</ul>
+</li>
+<li><strong>Distant Gunshot (e.g., &gt; 300m)</strong>:<ul>
+<li><em>Visual</em>: A blurry, faint blob restricted entirely to low frequencies (under 800Hz) with a long tail.</li>
+<li><em>Amplitude</em>: Very low energy, low Signal-to-Noise Ratio (SNR).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>3. Machine Learning Solutions (Data Augmentation)</h2>
+<p>To make your TinyML model capable of recognizing both close and distant sounds, you must apply <strong>Data Augmentation</strong> to your dataset in Python before training:</p>
+<h3>Python Augmentation Strategy</h3>
+<p>When compiling your training data, take your close-up recordings (e.g., clean chainsaw or gunshot clips) and programmatically generate "distant" versions using these transformations:</p>
+<ol>
+<li><strong>Gain Reduction (Volume Control)</strong>:<ul>
+<li>Scale the amplitude of the audio array by a random factor between <code>0.05</code> and <code>0.3</code> to simulate volume drop.</li>
+</ul>
+</li>
+<li><strong>Low-Pass Filtering (Foliage Simulation)</strong>:<ul>
+<li>Apply a Butterworth low-pass filter with a random cutoff frequency between <code>500 Hz</code> and <code>1.5 kHz</code> to simulate leaf absorption.</li>
+</ul>
+</li>
+<li><strong>Reverberation (Multipath Simulation)</strong>:<ul>
+<li>Convolve the audio with a synthetic room impulse response (RIR) or add a decay echo to simulate scattering off tree trunks.</li>
+</ul>
+</li>
+<li><strong>Noise Injection (SNR Degradation)</strong>:<ul>
+<li>Mix the clean sound with a continuous recording of forest background wind/rain at varying Signal-to-Noise Ratios (from +15dB down to -5dB).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>4. Software Solutions in ESP32-S3 Firmware</h2>
+<p>On the microcontroller, you must implement techniques to ensure faint signals are not ignored and loud signals do not distort (clip) the analog-to-digital converter (ADC).</p>
+<h3>Technique A: Logarithmic Spectrogram Scaling</h3>
+<p>When configuring your feature extractor (MFE block in Edge Impulse), ensure you use <strong>Logarithmic Scaling</strong>:</p>
+<div style="text-align:center; font-style:italic; margin: 15px 0;">\text{Output} = 10 \cdot \log_{10}(\text{Mel Energy})</div>
+
+<ul>
+<li><em>Why</em>: Human hearing and sound propagation are logarithmic. Log-scaling compresses loud, close-up sounds while boosting the contrast of quiet, distant sounds, allowing the neural network to analyze both on the same scale.</li>
+</ul>
+<h3>Technique B: Software Digital Automatic Gain Control (AGC)</h3>
+<p>If your digital microphone does not have hardware AGC, you can implement a simple software gain-scaling step in your ESP32 C++ buffer before running inference:</p>
+<pre class="codehilite"><code class="language-cpp">void apply_digital_agc(int16_t* buffer, size_t size, float target_rms = 4000.0) {
+  float sum = 0.0;
+
+  // 1. Calculate the Root Mean Square (RMS) volume of the current 2s block
+  for (size_t i = 0; i &lt; size; i++) {
+    sum += buffer[i] * buffer[i];
+  }
+  float rms = sqrt(sum / size);
+
+  // 2. If the block is very quiet, boost it dynamically
+  if (rms &gt; 50.0 &amp;&amp; rms &lt; target_rms) {
+    float gain = target_rms / rms;
+    if (gain &gt; 8.0) gain = 8.0; // Cap maximum gain boost at 8x to avoid boosting sensor floor noise
+
+    for (size_t i = 0; i &lt; size; i++) {
+      int32_t boosted = (int32_t)(buffer[i] * gain);
+      // Prevent overflow clipping
+      if (boosted &gt; 32767) boosted = 32767;
+      if (boosted &lt; -32768) boosted = -32768;
+      buffer[i] = (int16_t)boosted;
+    }
+  }
+}
+</code></pre>
+
+<p><em>Add this function inside your ESP32 sketch right after reading the raw I2S microphone data.</em></p>
+</body>
+</html>

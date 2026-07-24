@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Esc50 Contents</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>ESC-50 Dataset Contents &amp; Project Class Mapping</h1>
+<p>The <strong>ESC-50 (Environmental Sound Classification)</strong> dataset is a labeled collection of 2,000 environmental audio recordings. It is widely used as an academic benchmark for evaluating environmental sound classification models.</p>
+<hr />
+<h2>1. Dataset Specifications</h2>
+<ul>
+<li><strong>Total Audio Clips</strong>: 2,000</li>
+<li><strong>Total Classes</strong>: 50 (exactly 40 clips per class)</li>
+<li><strong>Clip Duration</strong>: 5 seconds</li>
+<li><strong>Original Audio Format</strong>: 44.1 kHz, Mono, 16-bit Ogg Vorbis/WAV</li>
+<li><strong>Dataset Structure</strong>: Organized into 5 cross-validation folds to help you evaluate model accuracy without overfitting.</li>
+</ul>
+<hr />
+<h2>2. The 50 Labeled Classes (Categorized)</h2>
+<p>The 50 classes are divided into 5 distinct environmental categories:</p>
+<h3>A. Animals (10 Classes)</h3>
+<ul>
+<li>Dog (barks)</li>
+<li>Rooster</li>
+<li>Pig</li>
+<li>Cow</li>
+<li>Frog</li>
+<li>Cat</li>
+<li>Hen</li>
+<li>Insects (cicadas)</li>
+<li>Sheep</li>
+<li>Crow</li>
+</ul>
+<h3>B. Natural Soundscapes &amp; Water (10 Classes)</h3>
+<ul>
+<li>Rain</li>
+<li>Sea waves</li>
+<li>Crackling fire</li>
+<li>Crickets</li>
+<li>Chirping birds</li>
+<li>Water drops</li>
+<li>Wind</li>
+<li>Pouring water</li>
+<li>Demolition</li>
+<li>Gushing water</li>
+</ul>
+<h3>C. Human, Non-Speech Sounds (10 Classes)</h3>
+<ul>
+<li>Crying</li>
+<li>Sneezing</li>
+<li>Laughter</li>
+<li>Snoring</li>
+<li>Coughing</li>
+<li>Footsteps</li>
+<li>Yawning</li>
+<li>Finger snapping</li>
+<li>Clapping</li>
+<li>Breathing</li>
+</ul>
+<h3>D. Domestic / Home Sounds (10 Classes)</h3>
+<ul>
+<li>Door knock</li>
+<li>Mouse click</li>
+<li>Keyboard typing</li>
+<li>Door, wood creaks</li>
+<li>Can opening</li>
+<li>Washing machine</li>
+<li>Vacuum cleaner</li>
+<li>Clock ticking</li>
+<li>Glass breaking</li>
+<li>Clock alarm</li>
+</ul>
+<h3>E. Urban &amp; Mechanical Noises (10 Classes)</h3>
+<ul>
+<li>Helicopter</li>
+<li>Chainsaw</li>
+<li>Siren</li>
+<li>Car horn</li>
+<li>Engine (truck/car)</li>
+<li>Train</li>
+<li>Church bells</li>
+<li>Airplane</li>
+<li>Fireworks</li>
+<li>Handgun</li>
+</ul>
+<hr />
+<h2>3. Direct Mapping to Your 31 Forest Surveillance Classes</h2>
+<p>ESC-50 directly covers <strong>12 of your target classes</strong> out-of-the-box. You can extract these folders to populate your dataset instantly:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Your Forest Surveillance Class</th>
+<th style="text-align: left;">Matching ESC-50 Class</th>
+<th style="text-align: left;">Description in ESC-50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw</strong></td>
+<td style="text-align: left;"><code>chainsaw</code></td>
+<td style="text-align: left;">Gas-powered 2-stroke chainsaw operating</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot</strong></td>
+<td style="text-align: left;"><code>handgun</code></td>
+<td style="text-align: left;">Dry, high-energy pistol fire shots</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Footsteps</strong></td>
+<td style="text-align: left;"><code>footsteps</code></td>
+<td style="text-align: left;">Rhythmic human footsteps walking</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hunting Dog</strong></td>
+<td style="text-align: left;"><code>dog</code></td>
+<td style="text-align: left;">Domestic canine barks and howling</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campfire Crackle</strong></td>
+<td style="text-align: left;"><code>crackling_fire</code></td>
+<td style="text-align: left;">Logs burning, popping, and sizzling</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain (Light/Heavy)</strong></td>
+<td style="text-align: left;"><code>rain</code></td>
+<td style="text-align: left;">Rushing rain droplets falling on surfaces</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Canopy/Gusts)</strong></td>
+<td style="text-align: left;"><code>wind</code></td>
+<td style="text-align: left;">Howling gusts and tree movement noise</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bird Calls/Songs</strong></td>
+<td style="text-align: left;"><code>chirping_birds</code></td>
+<td style="text-align: left;">High-pitched bird songs and chirps</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cicadas / Insect Hums</strong></td>
+<td style="text-align: left;"><code>insects</code> / <code>crickets</code></td>
+<td style="text-align: left;">Continuous high-frequency insect vibrations</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frog Croaks</strong></td>
+<td style="text-align: left;"><code>frog</code></td>
+<td style="text-align: left;">Pulsed croaking calls</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>River / Stream Flowing</strong></td>
+<td style="text-align: left;"><code>gushing_water</code> / <code>water_drops</code></td>
+<td style="text-align: left;">Running river/water stream soundscapes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vehicle Engines</strong></td>
+<td style="text-align: left;"><code>engine</code></td>
+<td style="text-align: left;">Continuous diesel/gasoline vehicle motor hums</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pregenerated folders for other sounds can be safely ignored or deleted.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
