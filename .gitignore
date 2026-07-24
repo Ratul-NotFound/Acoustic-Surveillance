@@ -1,39 +1,20 @@
-# Git Ignore for Edge AI Acoustic Surveillance System
-
-# Ignore large binary audio datasets & temporary downloads
+# Audio Datasets & Raw Downloads
 data_prep/raw_data/
 data_prep/formatted_data/
 data_prep/q1_dataset/
 data_prep/_temp_downloads/
 data_prep/_temp_audio/
-data_prep/temp_esc50/
+data_prep/*.webm
+data_prep/*.npz
+*.webm
+*.npz
+
+# Python Cache & Artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
 scratch/
 
-# Ignore audio files and large archives
-*.wav
-*.mp3
-*.flac
-*.m4a
-*.ogg
-*.zip
-*.z01
-*.tar.gz
-
-# Ignore raw JSON search dumps
-arxiv_results.json
-arxiv_results_aggregated.json
-openalex_results_aggregated.json
-
-# Python byte-code and virtual environments
-__pycache__/
-*.py[cod]
-*$py.class
-.venv/
-venv/
-env/
-.pytest_cache/
-
-# OS specific files
+# OS Files
 .DS_Store
 Thumbs.db
-desktop.ini
