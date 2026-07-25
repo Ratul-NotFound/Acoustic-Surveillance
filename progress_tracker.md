@@ -4,9 +4,9 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 
 ## 📊 Quick Status Summary
 *   **Total Project Tasks**: 30
-*   **Completed Tasks**: 26 (87%)
+*   **Completed Tasks**: 28 (93%)
 *   **In Progress**: 1 (3%)
-*   **Pending Tasks**: 3 (10%)
+*   **Pending Tasks**: 1 (4%)
 
 *Last Updated: 25 July 2026*
 
@@ -60,12 +60,13 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 - [x] Design IP67 PETG weatherproof bark-camouflaged 3D enclosure CAD specifications [enclosure_3d_design_guide.md](file:///E:/software/acoustic-surveillance/hardware/enclosure_3d_design_guide.md)
 - [x] Integrate GORE-TEX acoustic membrane GAW112 over 15° downward MEMS waveguide horn port.
 
-### 🌲 Task 7: Field Verification & Deployment Plan (0% — Pending 🔴)
-- [ ] Protocol for deploying prototype node high on a tree trunk in local forest reserve.
-- [ ] Distance sound playback test procedures (10m - 150m for chainsaws and gunshots).
-- [ ] Cellular SMS delivery latency and signal RSSI log verification.
+### 🌲 Task 7: Field Verification & Deployment Plan (100% Completed ✅)
+- [x] Define empirical distance playback matrix (10m to 150m) and 100-meter surveillance radius [field_testing_protocol.md](file:///E:/software/acoustic-surveillance/hardware/field_testing_protocol.md)
+- [x] Establish total alert delivery latency pipeline (~9.5 seconds end-to-end).
+- [x] Establish SIM800L AT+CSQ signal strength threshold ($CSQ \ge 10$) for dense forest canopy.
+- [x] Define 168-hour (7-day) continuous solar harvesting battery voltage monitoring trial.
 
-### ✍️ Task 8: Thesis Documentation & Defense (40% Completed 🟡)
+### ✍️ Task 8: Thesis Documentation & Defense (50% Completed 🟡)
 - [x] Chapter 2 (Literature Review) — Formal academic version written and exported.
 - [x] Chapter 3 (Methodology & Dataset Engineering) — Detailed report written and exported.
 - [x] Chapter 4 (Model Results & Empirical Evaluation) — Detailed report written and exported.

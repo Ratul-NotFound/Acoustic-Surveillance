@@ -2,7 +2,7 @@ import os
 
 hardware_dir = r"E:\software\acoustic-surveillance\hardware"
 
-for fname in ['power_budget_guide', 'enclosure_3d_design_guide']:
+for fname in ['power_budget_guide', 'enclosure_3d_design_guide', 'field_testing_protocol']:
     md_file = os.path.join(hardware_dir, f"{fname}.md")
     doc_file = os.path.join(hardware_dir, f"{fname}.doc")
     html_file = os.path.join(hardware_dir, f"{fname}.html")
@@ -38,4 +38,4 @@ code {{ background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-fa
     with open(doc_file, 'w', encoding='utf-8') as f:
         f.write(full_html)
 
-print("Hardware HTML and DOC exports generated successfully!")
+print("All Hardware HTML and DOC exports generated successfully!")
