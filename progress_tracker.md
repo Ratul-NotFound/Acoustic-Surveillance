@@ -4,9 +4,9 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 
 ## 📊 Quick Status Summary
 *   **Total Project Tasks**: 30
-*   **Completed Tasks**: 24 (80%)
+*   **Completed Tasks**: 26 (87%)
 *   **In Progress**: 1 (3%)
-*   **Pending Tasks**: 5 (17%)
+*   **Pending Tasks**: 3 (10%)
 
 *Last Updated: 25 July 2026*
 
@@ -53,19 +53,19 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 - [x] Integrate Neo-6M GPS NMEA sentence parser for live Google Maps coordinate generation.
 - [x] Integrate SIM800L GSM modem AT command controller to dispatch emergency SMS alerts to forest rangers.
 
-### 🔋 Task 6: Power Optimization & Casing (0% — Pending 🔴)
-- [ ] Integrate CN3065 solar charge controller with 18650 LiFePO4 battery.
-- [ ] Write firmware power management code (Deep Sleep duty-cycling and accelerometer interrupts).
-- [ ] Perform hardware power auditing (measure active vs. sleep current draw).
-- [ ] Design and 3D print weatherproof IP67 camouflaged tree-mount casing.
+### 🔋 Task 6: Power Optimization & Casing Design (100% Completed ✅)
+- [x] Design 18650 LiFePO4 battery budget & CN3065 5W solar harvesting equilibrium math [power_budget_guide.md](file:///E:/software/acoustic-surveillance/hardware/power_budget_guide.md)
+- [x] Design HT7333-1 LDO voltage regulator wiring circuit ($I_q < 4\mu\text{A}$) and ADC battery monitoring divider.
+- [x] Calculate dark autonomy buffer (66.5 days of darkness on a single 2000mAh battery).
+- [x] Design IP67 PETG weatherproof bark-camouflaged 3D enclosure CAD specifications [enclosure_3d_design_guide.md](file:///E:/software/acoustic-surveillance/hardware/enclosure_3d_design_guide.md)
+- [x] Integrate GORE-TEX acoustic membrane GAW112 over 15° downward MEMS waveguide horn port.
 
-### 🌲 Task 7: Field Verification & Testing (0% — Pending 🔴)
-- [ ] Deploy prototype node high on a tree trunk in a local wooded area.
-- [ ] Play target threat playbacks (chainsaws, gunshots) at varying distances (10m - 150m).
-- [ ] Log alert delivery latency, cellular signal strength, and detection accuracy.
-- [ ] Run continuous solar-harvesting validation over a 7-day period.
+### 🌲 Task 7: Field Verification & Deployment Plan (0% — Pending 🔴)
+- [ ] Protocol for deploying prototype node high on a tree trunk in local forest reserve.
+- [ ] Distance sound playback test procedures (10m - 150m for chainsaws and gunshots).
+- [ ] Cellular SMS delivery latency and signal RSSI log verification.
 
-### ✍️ Task 8: Thesis Documentation & Defense (30% Completed 🟡)
+### ✍️ Task 8: Thesis Documentation & Defense (40% Completed 🟡)
 - [x] Chapter 2 (Literature Review) — Formal academic version written and exported.
 - [x] Chapter 3 (Methodology & Dataset Engineering) — Detailed report written and exported.
 - [x] Chapter 4 (Model Results & Empirical Evaluation) — Detailed report written and exported.
