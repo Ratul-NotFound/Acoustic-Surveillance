@@ -1,0 +1,22 @@
+{
+  "00_forest_natural_environment_sound": 0,
+  "axe_machete_chopping": 1,
+  "campfire_crackle": 2,
+  "chainsaw": 3,
+  "drone_propeller": 4,
+  "explosive_blast": 5,
+  "footsteps": 6,
+  "footsteps_leaves": 7,
+  "gunshot": 8,
+  "handsaw": 9,
+  "heavy_machinery": 10,
+  "human_speech": 11,
+  "hunting_dog": 12,
+  "motorcycle_dirtbike": 13,
+  "shouting_screaming": 14,
+  "shoveling_digging": 15,
+  "tree_falling": 16,
+  "vehicle_engine": 17,
+  "vehicle_engines": 18,
+  "walkie_talkie": 19
+}

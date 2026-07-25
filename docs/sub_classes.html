@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sub Classes</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Taxonomy: Deep Acoustic Sub-Class Analysis</h1>
+<p>A major challenge in forest acoustic monitoring is <strong>intra-class variance</strong>—the fact that different models, calibers, or materials under the same category sound completely different. </p>
+<p>To build a high-performance TinyML model, you must recognize these sub-classes during dataset assembly and training. This document details the acoustic variations and spectral signatures of your core threat sub-classes.</p>
+<hr />
+<h2>1. Chainsaw Sub-Classes</h2>
+<p>Chainsaws vary significantly based on their power source (gasoline vs. electric/battery).</p>
+<h3>Sub-Class A: Gasoline 2-Stroke Chainsaw (Classic)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Raspy, erratic, combustion-dominated harmonics.</li>
+<li><strong>Spectral Characteristics</strong>: Rich low-frequency harmonics (<i>80\text{ Hz} - 500\text{ Hz}</i>) representing cylinder explosions. When cutting, the RPMs sag and the pitch drops under load, creating a weeping sound.</li>
+<li><strong>Inference Impact</strong>: High low-frequency energy. Needs a low-pass or wideband filter config.</li>
+</ul>
+<h3>Sub-Class B: Electric / Battery Chainsaw (Modern)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: High-pitched coil whine, whistling fan noise, clean hum.</li>
+<li><strong>Spectral Characteristics</strong>: Absence of low-frequency engine pops. Dominated by high-frequency electric motor PWM switching and gearing sounds (<i>1\text{ kHz} - 4\text{ kHz}</i>). RPMs remain highly stable even under load.</li>
+<li><strong>Inference Impact</strong>: Can be easily missed if your model relies too heavily on low-frequency engine signatures. High-frequency bins must be weighted properly.</li>
+</ul>
+<hr />
+<h2>2. Chopping &amp; Clearing Sub-Classes</h2>
+<p>Chopping sounds vary based on the wood density and the tool being used.</p>
+<h3>Sub-Class A: Steel Axe on Hardwood</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Bright metallic ring followed by a clean, sharp crack.</li>
+<li><strong>Spectral Characteristics</strong>: Sharp impact transient (&lt;10ms rise time) with a distinct metallic resonance ring (<i>1.5\text{ kHz} - 3\text{ kHz}</i>) from the steel head.</li>
+<li><strong>Inference Impact</strong>: Very easy to detect due to the high-frequency metal ring component.</li>
+</ul>
+<h3>Sub-Class B: Steel Axe on Softwood / Wet Wood</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Dull, muffled "thud".</li>
+<li><strong>Spectral Characteristics</strong>: Low-to-mid frequency compression (<i>100\text{ Hz} - 800\text{ Hz}</i>) with almost no high-frequency steel resonance. The decay is very short as wet/soft wood absorbs the sound waves.</li>
+<li><strong>Inference Impact</strong>: Harder to detect. Often misclassified as large animal footsteps or dropping branches.</li>
+</ul>
+<h3>Sub-Class C: Machete / Brush Hook on Bamboo &amp; Undergrowth</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Rhythmic swishing followed by light, hollow cracking sounds.</li>
+<li><strong>Spectral Characteristics</strong>: Broad high-frequency friction noise (<i>2\text{ kHz} - 6\text{ kHz}</i>) from the blade moving through air/leaves, followed by a hollow impulse.</li>
+<li><strong>Inference Impact</strong>: Rhythmic and lower energy than axe chopping.</li>
+</ul>
+<hr />
+<h2>3. Gunshot Sub-Classes (Poaching)</h2>
+<p>Gunshots differ based on bullet speed (supersonic vs. subsonic) and caliber.</p>
+<h3>Sub-Class A: Supersonic Rifle (e.g., .223, 7.62mm, Hunting Rifles)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Dual-event "Crack-Bang".</li>
+<li><strong>Spectral Characteristics</strong>: <ol>
+<li>A sharp, high-frequency bow-shockwave "crack" (caused by the bullet breaking the sound barrier, peaks at <i>3\text{ kHz} - 8\text{ kHz}</i>).</li>
+<li>A slightly delayed muzzle blast "bang" (lower frequency, <i>100\text{ Hz} - 500\text{ Hz}</i>).</li>
+</ol>
+</li>
+<li><strong>Inference Impact</strong>: Extremely loud and distinct. Easy to classify even at long distances.</li>
+</ul>
+<h3>Sub-Class B: Subsonic Handgun (e.g., 9mm, .45 ACP, Pistols)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Single-event "Pop" or "Bang".</li>
+<li><strong>Spectral Characteristics</strong>: Muzzle blast only (no supersonic shockwave). Lower energy, with a broader frequency distribution (<i>100\text{ Hz} - 2\text{ kHz}</i>).</li>
+<li><strong>Inference Impact</strong>: Decays much faster with distance than rifle fire.</li>
+</ul>
+<h3>Sub-Class C: Shotgun (e.g., 12-Gauge)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Heavy, bass-heavy booming blast.</li>
+<li><strong>Spectral Characteristics</strong>: Huge low-frequency pressure wave (<i>30\text{ Hz} - 400\text{ Hz}</i>) with a long acoustic decay. High amplitude over a wide area.</li>
+<li><strong>Inference Impact</strong>: Can saturate/clip the microphone if fired nearby, causing flat-top wave clipping.</li>
+</ul>
+<h3>Sub-Class D: Air Rifle / Pneumatic Gun (Silent Poaching)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Short, metallic pop and hiss.</li>
+<li><strong>Spectral Characteristics</strong>: Very low amplitude. High-frequency pneumatic exhaust hiss (<i>2\text{ kHz} - 6\text{ kHz}</i>).</li>
+<li><strong>Inference Impact</strong>: Very quiet; requires the sensor node to be closer to the source to detect.</li>
+</ul>
+<hr />
+<h2>4. Boat Sub-Classes (River Forests / Floodplain Logging)</h2>
+<p>Boats are the primary transport for illegal logging in delta/river forests.</p>
+<h3>Sub-Class A: Long-tail Boat (Unmuffled 2/4-Stroke)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Deafening, metallic, rapid mechanical popping.</li>
+<li><strong>Spectral Characteristics</strong>: Extremely loud. Exhaust discharges directly into the air. Features sharp, rhythmic engine pulses (<i>50\text{ Hz} - 600\text{ Hz}</i>) that echo off river banks.</li>
+<li><strong>Inference Impact</strong>: Very high amplitude. Dominates the acoustic landscape; easy to detect from miles away.</li>
+</ul>
+<h3>Sub-Class B: Outboard Motorboat (Muffled)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Continuous low-frequency hum, bubbling, water cavitation.</li>
+<li><strong>Spectral Characteristics</strong>: Exhaust is muffled underwater. High-frequency water bubbling and propeller shearing noise (<i>1\text{ kHz} - 5\text{ kHz}</i>) mixed with a steady low motor hum.</li>
+<li><strong>Inference Impact</strong>: Moderately quiet; sound is directional and absorbed by water.</li>
+</ul>
+<h3>Sub-Class C: Manual Paddling / Oar Rowing</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Rhythmic splashing and creaking.</li>
+<li><strong>Spectral Characteristics</strong>: Low-amplitude periodic splashing (<i>500\text{ Hz} - 3\text{ kHz}</i>) coupled with wood-on-wood creaking of the oarlocks.</li>
+<li><strong>Inference Impact</strong>: Extremely quiet. Requires temporal pattern matching over several seconds.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sound Classes</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Forest Acoustic Surveillance: Expanded Sound Class Catalog &amp; Signal Profiles</h1>
+<p>For an edge AI acoustic monitoring system to be successful, it must be trained on a highly diverse set of sound classes. In machine learning, if the model is not trained on background sounds (e.g., wind, rain, birds), it will misclassify these sounds as threats (e.g., chainsaws or gunshots).</p>
+<p>This catalog details all target threat classes and environmental noise classes, their frequency ranges, temporal signatures, and dataset sources.</p>
+<hr />
+<h2>1. Threat / Illegal Activity Sound Classes</h2>
+<p>These are the <strong>critical trigger classes</strong> that must wake up the system to send an alert.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sound Class</th>
+<th style="text-align: left;">Typical Frequency Range (Hz)</th>
+<th style="text-align: left;">Temporal Signature</th>
+<th style="text-align: left;">Primary Public Dataset Source</th>
+<th style="text-align: left;">Key Feature Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Idle)</strong></td>
+<td style="text-align: left;">80 Hz – 400 Hz</td>
+<td style="text-align: left;">Continuous, harmonic</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Low-frequency periodic humming from the engine cylinders.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Cutting)</strong></td>
+<td style="text-align: left;">100 Hz – 4,000 Hz</td>
+<td style="text-align: left;">Continuous, screaming pitch</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">High-pitched mechanical whine with load-dependent pitch fluctuations.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Axe/Machete Chopping</strong></td>
+<td style="text-align: left;">200 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Periodic, impulsive</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">Sharp transient hit followed by a short decay of vibrating wood.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Handsaw</strong></td>
+<td style="text-align: left;">500 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Rhythmic, scraping</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Periodic friction sounds (shh-shh) with distinct push-pull cycles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tree Cracking/Falling</strong></td>
+<td style="text-align: left;">20 Hz – 800 Hz</td>
+<td style="text-align: left;">Transient, cascading</td>
+<td style="text-align: left;">AudioSet, Rainforest Connection</td>
+<td style="text-align: left;">Low-frequency cracking wood impulses followed by a broad-spectrum leaves-crashing rumble.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heavy Machinery</strong></td>
+<td style="text-align: left;">50 Hz – 1,000 Hz</td>
+<td style="text-align: left;">Continuous, low-pitch rumble</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Bulldozers, tractors, and excavators. Very low-frequency tones.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Pistol/Rifle)</strong></td>
+<td style="text-align: left;">100 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Extremely impulsive (&lt;150ms)</td>
+<td style="text-align: left;">ESC-50, UrbanSound8K</td>
+<td style="text-align: left;">High-amplitude shockwave (crack) followed by reflections (reverb).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Shotgun)</strong></td>
+<td style="text-align: left;">50 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Impulsive (&lt;300ms)</td>
+<td style="text-align: left;">ESC-50, UrbanSound8K</td>
+<td style="text-align: left;">Booming impulse with a wider low-frequency profile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vehicle Engine (Truck/SUV)</strong></td>
+<td style="text-align: left;">60 Hz – 1,200 Hz</td>
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Constant low-frequency hum from exhausts and tires.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motorcycle/Dirt Bike</strong></td>
+<td style="text-align: left;">150 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Dynamic continuous</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Raspy, high-revving engine sound that changes pitch rapidly.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Human Speech/Voices</strong></td>
+<td style="text-align: left;">80 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Harmonic, modulating</td>
+<td style="text-align: left;">AudioSet, LibriSpeech</td>
+<td style="text-align: left;">Formant frequencies with distinct pitch variations and pauses.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shouting/Screaming</strong></td>
+<td style="text-align: left;">800 Hz – 4,500 Hz</td>
+<td style="text-align: left;">Loud, continuous harmonic</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">High-energy, sustained vocal harmonics.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Footsteps (Dry Leaves)</strong></td>
+<td style="text-align: left;">800 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Rhythmic, transient</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">High-frequency crackles (crushing dry leaves/twigs).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Walkie-Talkie (Static/Beeps)</strong></td>
+<td style="text-align: left;">300 Hz – 3,400 Hz</td>
+<td style="text-align: left;">Short bursts, static</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">Demodulated radio tone, PTT beep, squelch tail hiss, and band-limited voice.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metal Clinking (Traps/Snares)</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Impulsive, metallic clicks</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">High-frequency clinks of steel wire, springs, or cages being loaded.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shoveling/Digging</strong></td>
+<td style="text-align: left;">100 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Periodic, scraping impact</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Shovel blade scraping against gravel/soil (illegal mining/poaching).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hunting Dog (Bark/Howl)</strong></td>
+<td style="text-align: left;">300 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Rhythmic, harmonic</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Sharp barks and long howling of tracking dogs used by poachers.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drone Propeller Hum</strong></td>
+<td style="text-align: left;">200 Hz – 5,000 Hz</td>
+<td style="text-align: left;">High-pitched continuous hum</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Quadcopter rotor blades spinning; indicates unauthorized scouting.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explosive Blast</strong></td>
+<td style="text-align: left;">20 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Severe impulse + low rumble</td>
+<td style="text-align: left;">AudioSet, ESC-50</td>
+<td style="text-align: left;">Blast mining or illegal dynamite clearing; huge amplitude peak.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campfire Crackle</strong></td>
+<td style="text-align: left;">500 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Stochastic, impulsive pops</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Random, short-duration pops and sizzles from burning wood.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Environmental / Biological Background Classes (False Alarm Filters)</h2>
+<p>The model <strong>must</strong> be trained on these classes to learn to ignore them. If these are detected, the system should log them locally or discard them and return to sleep immediately.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sound Class</th>
+<th style="text-align: left;">Typical Frequency Range (Hz)</th>
+<th style="text-align: left;">Temporal Signature</th>
+<th style="text-align: left;">Primary Public Dataset Source</th>
+<th style="text-align: left;">Key Feature Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rain (Light/Drizzle)</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, pink-noise-like</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Soft, steady high-frequency sound with tiny random impacts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain (Heavy/Downpour)</strong></td>
+<td style="text-align: left;">100 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, white-noise-like</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Broad-spectrum roar, masks other signals; dampens acoustic ranges.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Distant)</strong></td>
+<td style="text-align: left;">10 Hz – 150 Hz</td>
+<td style="text-align: left;">Low rumbling, slow decay</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Deep infrasound and low-frequency rumble.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Close)</strong></td>
+<td style="text-align: left;">50 Hz – 4,000 Hz</td>
+<td style="text-align: left;">Impulsive crash + rumble</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Extremely loud, broad-spectrum blast, can mimic gunshots.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Canopy Rustle)</strong></td>
+<td style="text-align: left;">200 Hz – 5,000 Hz</td>
+<td style="text-align: left;">Modulating, continuous</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Swaying frequencies, rises and falls with wind speed.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Howling/Gusts)</strong></td>
+<td style="text-align: left;">50 Hz – 800 Hz</td>
+<td style="text-align: left;">Low-frequency modulated hum</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Air turbulence against microphone capsule.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bird Calls/Songs</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">High-pitched harmonic whistles</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">Highly structured chirps, trills, and sweeps.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cicadas / Insect Hums</strong></td>
+<td style="text-align: left;">3,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, buzzy vibration</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">High-frequency continuous screeching or rhythmic pulsing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frog Croaks</strong></td>
+<td style="text-align: left;">100 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Pulsed, rhythmic</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">Low-to-mid frequency croaking, barking, or clicking sounds.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Monkey Alarm Calls</strong></td>
+<td style="text-align: left;">400 Hz – 3,500 Hz</td>
+<td style="text-align: left;">Repetitive, harsh transients</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">High-pitched shrieks or chattering, indicates forest disturbance.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>River / Stream Flowing</strong></td>
+<td style="text-align: left;">100 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Continuous, rushing noise</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Constant, steady rushing water.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Thesis Feature Engineering: Optimizing Spectrograms per Class</h2>
+<p>Because of the differences in frequency and time spans of these sounds, you must optimize your TinyML feature extractor:</p>
+<pre class="codehilite"><code>                  ┌────────────── Audio Signal (16kHz) ──────────────┐
+                  │                                                 │
+                  ▼                                                 ▼
+        [ Short-Time Window ]                             [ Long-Time Window ]
+          (e.g., 20ms Frame)                                (e.g., 40ms Frame)
+                  │                                                 │
+                  ▼                                                 ▼
+        High Temporal Resolution                         High Frequency Resolution
+       (Ideal for transient sounds)                     (Ideal for continuous sounds)
+    - Gunshots, Axe chops, Footsteps                 - Chainsaws, Vehicle engines, Birds
+</code></pre>
+
+<h3>Strategic Advice for Feature Extraction (MFE Settings)</h3>
+<ol>
+<li><strong>For Impulsive/Transient Sounds (Gunshots, Axe hits, Footsteps)</strong>:<ul>
+<li><em>Frame Length</em>: <strong>20 ms</strong></li>
+<li><em>Frame Stride</em>: <strong>10 ms</strong></li>
+<li><em>Why</em>: Minimizes temporal smearing, ensuring the quick shockwave of the gunshot is captured in a single, high-contrast column on the spectrogram.</li>
+</ul>
+</li>
+<li><strong>For Continuous/Engine Sounds (Chainsaws, Trucks, Cicadas)</strong>:<ul>
+<li><em>Frame Length</em>: <strong>40 ms</strong></li>
+<li><em>Frame Stride</em>: <strong>20 ms</strong></li>
+<li><em>Why</em>: Improves frequency resolution, helping the network distinguish the exact harmonics of the motor or wind.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>4. Advanced Thesis Concept: Hierarchical Two-Stage Inference</h2>
+<p>To save battery, running a 14-class CNN continuously on the ESP32-S3 is inefficient. For your thesis, proposing a <strong>Hierarchical Two-Stage Inference Architecture</strong> will significantly elevate your grade:</p>
+<h3>Stage 1: Ultra-Low-Power Acoustic Anomaly Detector (Always On / Duty-Cycled)</h3>
+<ul>
+<li><strong>Model</strong>: Autoencoder Neural Network or simple Root-Mean-Square (RMS) / Zero-Crossing-Rate (ZCR) threshold.</li>
+<li><strong>Task</strong>: Check if the current audio segment is "normal background" (e.g., quiet forest, light wind).</li>
+<li><strong>Result</strong>: If normal, immediately return the MCU to Deep Sleep. If the sound is "anomalous" (unusually loud or structured), trigger Stage 2.</li>
+</ul>
+<h3>Stage 2: Main Classifier CNN (Activated Only on Anomaly)</h3>
+<ul>
+<li><strong>Model</strong>: 2D Convolutional Neural Network (CNN) with 14 classes (trained using the classes above).</li>
+<li><strong>Task</strong>: Run a full classification to determine if the anomaly is a threat (e.g., chainsaw, gunshot) or a false positive (e.g., heavy thunder, close monkey call).</li>
+<li><strong>Result</strong>: If it is a threat, trigger the GSM module and send the SMS alert.</li>
+</ul>
+</body>
+</html>

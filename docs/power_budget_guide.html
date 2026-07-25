@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>power_budget_guide</title>
+<style>
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 25px; color: #333; }
+h1 { color: #1a365d; border-bottom: 2px solid #2b6cb0; padding-bottom: 8px; }
+h2 { color: #2c5282; margin-top: 20px; border-bottom: 1px solid #cbd5e0; padding-bottom: 4px; }
+h3 { color: #2b6cb0; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+th, td { border: 1px solid #cbd5e0; padding: 10px; text-align: left; }
+th { background-color: #ebf8ff; color: #2c5282; }
+code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-family: Consolas, monospace; }
+</style>
+</head>
+<body>
+<h1>🔋 Task 6.1: Solar Power Budget, Battery Audit & Circuitry Guide<br><br>**System Target**: 24/7 Autonomous Solar Harvesting for Infinite Node Lifespan  
+**Microcontroller**: ESP32-S3 (Dual-Core LX7 @ 240MHz)  
+**Battery**: 18650 LiFePO4 Cell (3.2V - 3.6V, 2000 mAh Capacity)  
+**Solar Controller**: CN3065 Mini Solar Charger IC + 5V 5W Monocrystalline Panel  
+**Voltage Regulator**: HT7333-1 LDO (3.3V Output, Ultra-Low Quiescent Current $I_q < 4\mu\text{A}$)  <br><br>---<br><br>#<h1>📊 1. Power Consumption Audit Table<br><br>| System State | Active Modules | Voltage (V) | Current Draw | Power (mW) | Duty Cycle per Hour | Daily Energy (mWh) |
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Deep Sleep Mode** | ESP32-S3 RTC + LIS3DH Accelerometer | 3.3V | **15 µA** | 0.0495 mW | 58.5 min/hr (97.5%) | **1.16 mWh** |
+| **Acoustic Surveillance** | ESP32-S3 @ 240MHz + INMP441 Mic | 3.3V | **18.5 mA** | 61.05 mW | 1.5 min/hr (2.5%) | **91.58 mWh** |
+| **GPS Fix Acquisition** | Neo-6M GPS Module (UART) | 3.3V | **25.0 mA** | 82.50 mW | 2 alerts/day (30s ea) | **1.38 mWh** |
+| **GSM SMS Transmission** | SIM800L Cellular Modem (TX Burst) | 3.7V | **200.0 mA** | 740.00 mW | 2 alerts/day (5s ea) | **2.06 mWh** |
+| **TOTAL DAILY ENERGY CONSUMED** | | | | | | **~96.18 mWh / day** |<br><br>---<br><br>#<h1>☀️ 2. Solar Energy Harvesting Equilibrium Calculation<br><br>* **5V 5W Mini Solar Panel Yield**:
+  - Average Peak Sun Hours (Forest Canopy Understory): **2.5 Hours / day**
+  - Solar Panel Output: $5\text{W} \times 0.20 \text{ (Canopy Loss)} = 1.0\text{W}$
+  - Daily Harvested Energy: $1.0\text{W} \times 2.5\text{ hrs} = 2,500\text{ mWh / day}$<br><br>$$\text{Energy Harvested } (2,500\text{ mWh}) \gg \text{Energy Consumed } (96.18\text{ mWh})$$<br><br>**Result**: The solar harvesting yield exceeds daily consumption by **over 25x**, guaranteeing **continuous 24/7/365 node operation** even during prolonged cloudy weather!<br><br>---<br><br>#<h1>⚡ 3. Battery Autonomy Without Sun (Cloudy Weather Buffer)<br><br>* **18650 LiFePO4 Energy Capacity**:
+  $$\text{Capacity} = 3.2\text{V} \times 2000\text{ mAh} = 6,400\text{ mWh}$$
+* **Days of Autonomy in Complete Darkness (Zero Sunlight)**:
+  $$\text{Autonomy Days} = \frac{6,400\text{ mWh}}{96.18\text{ mWh/day}} \approx \mathbf{66.5 \text{ Days}}$$<br><br>---<br><br>#<h1>🔌 4. Wiring Circuitry & Battery Protection Schematic<br><br>```
+  [ 5V 5W Solar Panel ]
+           │
+           ▼
+     ┌───────────┐
+     │  CN3065   │──(BAT+)──┐
+     │ Solar IC  │          │
+     └─────┬─────┘          ▼
+           │           ┌──────────┐
+        (GND)          │  18650   │ (LiFePO4 3.2V)
+           │           │ Battery  │
+           ▼           └────┬─────┘
+    ┌─────────────┐         │
+    │  HT7333-1   │◄────────┘ (VBAT)
+    │  3.3V LDO   │
+    └──────┬──────┘
+           │
+           ├───────────────────────────────► ESP32-S3 3.3V VCC
+           ├───────────────────────────────► INMP441 VDD
+           └─[100kΩ/100kΩ Voltage Divider]──► GPIO 1 (ADC Battery Monitor)
+```
+
+</body>
+</html>

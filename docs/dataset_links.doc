@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dataset Links</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 40px;
+    }
+    h1 {
+        color: #1a5276;
+        border-bottom: 2.5px solid #1a5276;
+        padding-bottom: 8px;
+        font-size: 24pt;
+        margin-top: 20px;
+    }
+    h2 {
+        color: #2980b9;
+        margin-top: 35px;
+        border-bottom: 1.5px solid #ddd;
+        padding-bottom: 5px;
+        font-size: 18pt;
+    }
+    h3 {
+        color: #2e86c1;
+        font-size: 14pt;
+        margin-top: 25px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 25px 0;
+        font-size: 11pt;
+    }
+    th, td {
+        border: 1px solid #cccccc;
+        text-align: left;
+        padding: 10px;
+    }
+    th {
+        background-color: #f2f4f4;
+        font-weight: bold;
+        color: #1a5276;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9f9;
+    }
+    code {
+        font-family: Consolas, Monaco, Courier, monospace;
+        background-color: #f4f6f7;
+        color: #c0392b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 10pt;
+    }
+    pre {
+        background-color: #f4f6f7;
+        padding: 15px;
+        border: 1px solid #d5dbdb;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 20px 0;
+    }
+    pre code {
+        color: #333333;
+        background-color: transparent;
+        padding: 0;
+    }
+    blockquote {
+        border-left: 5px solid #3498db;
+        background-color: #ebf5fb;
+        padding: 12px 20px;
+        margin: 20px 0;
+        color: #2c3e50;
+        font-style: italic;
+    }
+    ul, ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    hr {
+        border: 0;
+        border-top: 1px solid #d5dbdb;
+        margin: 30px 0;
+    }
+</style>
+</head>
+<body>
+<h1>Thesis Reference: Acoustic Datasets Index</h1>
+<p>This document provides a clean index of the primary public acoustic datasets used for training and validating your forest surveillance AI model. You can copy these links directly into your thesis bibliography or literature review chapter.</p>
+<hr />
+<h2>1. Primary Forest &amp; Threat Datasets</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset Name</th>
+<th style="text-align: left;">Primary Threat Classes Included</th>
+<th style="text-align: left;">Download Link (URL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>FSC22 (Forest Sound Classification Dataset)</strong></td>
+<td style="text-align: left;">Chainsaws, Axes, Handsaws, Tree Falling, Rain, Wind, Thunder, Animals</td>
+<td style="text-align: left;"><a href="https://www.kaggle.com/datasets/dakshinaranmal/fsc22-v1">Kaggle - FSC22 Dataset</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tropical Forest Gunshot Classification Dataset</strong></td>
+<td style="text-align: left;">Gunshots (pistol, rifle, shotgun), Jungle Ambient Noise, Forest Weather</td>
+<td style="text-align: left;"><a href="https://data.mendeley.com/datasets/x48cwz364j/3">Mendeley Data - Gunshot Dataset</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Environmental Audio Recordings (Chainsaw)</strong></td>
+<td style="text-align: left;">Chainsaw engine operation, idling, mechanical noise</td>
+<td style="text-align: left;"><a href="https://zenodo.org/records/5824905">Zenodo - Chainsaw Dataset</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rainforest Connection (RFCx) Dataset</strong></td>
+<td style="text-align: left;">Tropical rainforest soundscapes, birds, monkeys, cicadas, rain</td>
+<td style="text-align: left;"><a href="https://www.kaggle.com/competitions/rfcx-species-audio-detection">Kaggle - Rainforest Connection Species Detection</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Baseline &amp; General Environmental Datasets</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset Name</th>
+<th style="text-align: left;">Primary Threat Classes Included</th>
+<th style="text-align: left;">Download Link (URL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ESC-50 (Environmental Sound Classification)</strong></td>
+<td style="text-align: left;">Chainsaws, Gunshots, Rain, Wind, Thunder, Campfires, Footsteps, Dogs</td>
+<td style="text-align: left;"><a href="https://github.com/karoldvl/paper-2015-esc-dataset">GitHub - ESC-50 Repository</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FSD50K (Freesound Dataset)</strong></td>
+<td style="text-align: left;">Walkie-talkies, Drones, Digging/Shoveling, Vehicle engines, Boat engines</td>
+<td style="text-align: left;"><a href="https://zenodo.org/records/4060432">Zenodo - FSD50K Dataset</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Fauna &amp; Biological Reference Datasets</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dataset Name</th>
+<th style="text-align: left;">Primary Biological Classes Included</th>
+<th style="text-align: left;">Download Link (URL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Xeno-Canto Database</strong></td>
+<td style="text-align: left;">600,000+ recordings of bird calls/songs, frog croaks, monkey alarms</td>
+<td style="text-align: left;"><a href="https://xeno-canto.org/">Xeno-Canto Official Database</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Citation and Reference Format for Your Bibliography</h2>
+<p>When referencing these datasets in your thesis report, you can use the following standard citation formats:</p>
+<ul>
+<li><strong>FSC22</strong>:
+    &gt; <em>Dakshinaranmal, S. (2022). FSC22: A Forest Sound Classification Dataset for Illegal Logging Detection. Kaggle. https://www.kaggle.com/datasets/dakshinaranmal/fsc22-v1</em></li>
+<li><strong>Tropical Forest Gunshot</strong>:
+    &gt; <em>Mendeley Data. (2020). Tropical Forest Gunshot Classification Dataset. Mendeley. https://data.mendeley.com/datasets/x48cwz364j/3</em></li>
+<li><strong>ESC-50</strong>:
+    &gt; <em>Piczak, K. J. (2015). ESC: Dataset for Environmental Sound Classification. GitHub. https://github.com/karoldvl/paper-2015-esc-dataset</em></li>
+</ul>
+</body>
+</html>
