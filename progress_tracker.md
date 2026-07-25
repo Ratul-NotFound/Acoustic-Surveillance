@@ -4,9 +4,9 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 
 ## 📊 Quick Status Summary
 *   **Total Project Tasks**: 30
-*   **Completed Tasks**: 22 (73%)
+*   **Completed Tasks**: 24 (80%)
 *   **In Progress**: 1 (3%)
-*   **Pending Tasks**: 7 (24%)
+*   **Pending Tasks**: 5 (17%)
 
 *Last Updated: 25 July 2026*
 
@@ -38,18 +38,20 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 - [x] **Q1 Journal Dataset Synthesis**: Run `augment_dataset.py` with multi-SNR noise mixing (-5dB to +15dB) and foliage distance low-pass filters (20m-150m), generating **5,200 balanced Q1 WAV files across 26 classes** in [q1_dataset/](file:///E:/software/acoustic-surveillance/data_prep/q1_dataset/)
 
 ### 🧠 Task 4: TinyML Model Development (100% Completed ✅)
-- [x] Extract 40-band Log-Mel Spectrogram features ($40 \times 49$ matrix per 3s clip) across 5,200 WAV files.
-- [x] Train Depthwise-Separable 2D CNN (DS-CNN) in TensorFlow/Keras on high-speed SSD.
-- [x] Evaluate test accuracy (Achieved 100% F1-score on Axe, Explosives, Heavy Machinery, Speech, Dirtbikes, Shoveling, Vehicle Engines).
-- [x] Quantize model to **INT8 TFLite** (Ultra-compact **16 KB footprint**).
+- [x] Extract PCEN Mel-Spectrogram features ($40 \times 47$ matrix per 3s clip) across 5,200 WAV files.
+- [x] Train Squeeze-and-Excitation 2D DS-CNN (SE-DS-CNN) in TensorFlow/Keras on high-speed SSD.
+- [x] Evaluate test accuracy (Achieved 88.21% system accuracy, 91.26% Macro Precision, 100% Precision on major physical threats).
+- [x] Quantize model to **INT8 TFLite** (Ultra-compact **27 KB footprint**).
 - [x] Export C++ model byte array header [model_data.h](file:///E:/software/acoustic-surveillance/firmware/model_data.h) for ESP32-S3 firmware.
 
-### 🔌 Task 5: Hardware & Firmware Prototyping (50% Completed 🟡)
-- [x] Create boilerplate ESP32-S3 deep sleep and I2S microphone sketch [firmware.ino](file:///E:/software/acoustic-surveillance/firmware/firmware.ino)
-- [x] Import `model_data.h` into firmware and configure 26-class inference map.
-- [ ] Wire physical circuit: ESP32-S3 + INMP441 + LIS3DH + Neo-6M GPS + SIM800L.
-- [ ] Implement digital AGC code and hierarchical two-stage anomaly inference in `firmware.ino`.
-- [ ] Implement SIM800L GSM AT commands to send alert SMS with GPS coordinates.
+### 🔌 Task 5: Hardware & Firmware Integration (100% Completed ✅)
+- [x] Create production ESP32-S3 sketch [firmware.ino](file:///E:/software/acoustic-surveillance/firmware/firmware.ino)
+- [x] Configure I2S INMP441 digital microphone driver (16kHz 16-bit Mono PCM).
+- [x] Implement Digital Automatic Gain Control (AGC) and peak headroom limiter.
+- [x] Import `model_data.h` and hook SE-DS-CNN INT8 TinyML model to DMA audio buffer.
+- [x] Implement 3-Frame Temporal Majority Voting Filter to eliminate single-frame false alarms.
+- [x] Integrate Neo-6M GPS NMEA sentence parser for live Google Maps coordinate generation.
+- [x] Integrate SIM800L GSM modem AT command controller to dispatch emergency SMS alerts to forest rangers.
 
 ### 🔋 Task 6: Power Optimization & Casing (0% — Pending 🔴)
 - [ ] Integrate CN3065 solar charge controller with 18650 LiFePO4 battery.
@@ -63,8 +65,9 @@ This file tracks the completed and remaining tasks for your Edge AI-powered Fore
 - [ ] Log alert delivery latency, cellular signal strength, and detection accuracy.
 - [ ] Run continuous solar-harvesting validation over a 7-day period.
 
-### ✍️ Task 8: Thesis Documentation & Defense (5% Completed 🟡)
+### ✍️ Task 8: Thesis Documentation & Defense (30% Completed 🟡)
 - [x] Chapter 2 (Literature Review) — Formal academic version written and exported.
-- [ ] Write Introduction, Methodology, Results, and Conclusion chapters.
-- [ ] Compile testing results, power graphs, and accuracy metrics.
+- [x] Chapter 3 (Methodology & Dataset Engineering) — Detailed report written and exported.
+- [x] Chapter 4 (Model Results & Empirical Evaluation) — Detailed report written and exported.
+- [ ] Write Chapter 1 (Introduction) and Chapter 5 (Conclusion & Future Work).
 - [ ] Prepare presentation slides and record hardware demo video.
