@@ -17,6 +17,6 @@ acoustic-surveillance/
 
 ## Getting Started
 
-1. **Active Workspace**: Please set this directory (`D:\software\acoustic-surveillance`) as your active workspace in your IDE.
+1. **Active Workspace**: Please set this directory (`E:\software\acoustic-surveillance`) as your active workspace in your IDE.
 2. **Audio Preprocessing**: Check the `data_prep` folder for tools to clean, format, and organize your audio samples for training your TinyML model.
 3. **Firmware Development**: The `firmware` folder will hold the C++ code to run on the ESP32-S3 microcontroller to interface with the digital microphone (I2S) and trigger notifications via the SIM800L module.

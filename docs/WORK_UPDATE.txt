@@ -117,7 +117,7 @@ TASK 5 — FIRMWARE  [25% DONE]
   A. Mendeley Gunshot Dataset
      Reason required: Requires free Mendeley account login.
      Action: Visit dataset_links.txt, log in, download ZIP, extract
-             to: D:\software\acoustic-surveillance\data_prep\raw_data\gunshot\
+             to: E:\software\acoustic-surveillance\data_prep\raw_data\gunshot\
 
   B. FSC22 Forest Sound Dataset (Kaggle)
      Reason required: Requires free Kaggle account login.

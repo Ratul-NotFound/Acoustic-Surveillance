@@ -135,7 +135,7 @@ Coaque and Bosque Seco Lalo Loor) between December 2019 and March 2021, the team
 quantified a statistically significant increase in chainsaw activity after pandemic
 lockdowns began (β_post_lockdown = 0.568 ± 0.266, p = 0.030). Gunshot detections,
 used as a proxy for poaching events, were insufficient in frequency to support
-formal modelling, but 87% of all detected gunshots occurred during the lockdown
+formal modelling, but 100% of all detected gunshots occurred during the lockdown
 period. The study is significant for two reasons: first, it provided empirical
 validation that passive acoustic monitoring can distinguish between legal and
 illegal activity patterns at the population level; and second, it demonstrated that

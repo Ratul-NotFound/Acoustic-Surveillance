@@ -128,7 +128,7 @@ pre { font-family: Courier New, monospace; font-size:10pt; background:#f5f5f5; p
 <p style="margin:3px 0;font-size:10.5pt;">  A. Mendeley Gunshot Dataset</p>
 <p style="margin:3px 0;font-size:10.5pt;">     Reason required: Requires free Mendeley account login.</p>
 <p style="margin:3px 0;font-size:10.5pt;">     Action: Visit dataset_links.txt, log in, download ZIP, extract</p>
-<p style="margin:3px 0;font-size:10.5pt;">             to: D:\software\acoustic-surveillance\data_prep\raw_data\gunshot\</p>
+<p style="margin:3px 0;font-size:10.5pt;">             to: E:\software\acoustic-surveillance\data_prep\raw_data\gunshot\</p>
 <br>
 <p style="margin:3px 0;font-size:10.5pt;">  B. FSC22 Forest Sound Dataset (Kaggle)</p>
 <p style="margin:3px 0;font-size:10.5pt;">     Reason required: Requires free Kaggle account login.</p>
