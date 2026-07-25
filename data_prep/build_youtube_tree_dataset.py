@@ -25,9 +25,9 @@ if os.path.exists(TEMP_YOUTUBE_DIR):
 os.makedirs(TEMP_YOUTUBE_DIR, exist_ok=True)
 
 VIDEO_URLS = [
-    "https://www.youtube.com/watch?v=QDGyPGLGQNw",
-    "https://www.youtube.com/watch?v=hExOFTpTLLI",
-    "https://www.youtube.com/watch?v=sLifNslAkWI"
+    "https://www.youtube.com/watch?v=mto27Oi1hM0", # Tree Falling Compilation
+    "https://www.youtube.com/watch?v=jQKO3aqrhJw", # Scottish Arborists tree felling
+    "https://www.youtube.com/watch?v=ZkFsdlAdoEE"  # Tree felling post-wildfire
 ]
 
 def load_random_env(duration=1.0, sr=16000):
