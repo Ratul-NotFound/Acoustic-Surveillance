@@ -18,3 +18,7 @@ scratch/
 # OS Files
 .DS_Store
 Thumbs.db
+
+data_prep/_temp_*/
+*.m4a.part
+*.part
