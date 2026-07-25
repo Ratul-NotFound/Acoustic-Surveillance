@@ -1,38 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>power_budget_guide</title>
 <style>
-body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 25px; color: #333; }
-h1 { color: #1a365d; border-bottom: 2px solid #2b6cb0; padding-bottom: 8px; }
-h2 { color: #2c5282; margin-top: 20px; border-bottom: 1px solid #cbd5e0; padding-bottom: 4px; }
-h3 { color: #2b6cb0; }
-table { border-collapse: collapse; width: 100%; margin: 15px 0; }
-th, td { border: 1px solid #cbd5e0; padding: 10px; text-align: left; }
-th { background-color: #ebf8ff; color: #2c5282; }
-code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-family: Consolas, monospace; }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
 </style>
 </head>
 <body>
-<h1>🔋 Task 6.1: Solar Power Budget, Battery Audit & Circuitry Guide<br><br>**System Target**: 24/7 Autonomous Solar Harvesting for Infinite Node Lifespan  
-**Microcontroller**: ESP32-S3 (Dual-Core LX7 @ 240MHz)  
-**Battery**: 18650 LiFePO4 Cell (3.2V - 3.6V, 2000 mAh Capacity)  
-**Solar Controller**: CN3065 Mini Solar Charger IC + 5V 5W Monocrystalline Panel  
-**Voltage Regulator**: HT7333-1 LDO (3.3V Output, Ultra-Low Quiescent Current $I_q < 4\mu\text{A}$)  <br><br>---<br><br>#<h1>📊 1. Power Consumption Audit Table<br><br>| System State | Active Modules | Voltage (V) | Current Draw | Power (mW) | Duty Cycle per Hour | Daily Energy (mWh) |
-|---|---|:---:|:---:|:---:|:---:|:---:|
-| **Deep Sleep Mode** | ESP32-S3 RTC + LIS3DH Accelerometer | 3.3V | **15 µA** | 0.0495 mW | 58.5 min/hr (97.5%) | **1.16 mWh** |
-| **Acoustic Surveillance** | ESP32-S3 @ 240MHz + INMP441 Mic | 3.3V | **18.5 mA** | 61.05 mW | 1.5 min/hr (2.5%) | **91.58 mWh** |
-| **GPS Fix Acquisition** | Neo-6M GPS Module (UART) | 3.3V | **25.0 mA** | 82.50 mW | 2 alerts/day (30s ea) | **1.38 mWh** |
-| **GSM SMS Transmission** | SIM800L Cellular Modem (TX Burst) | 3.7V | **200.0 mA** | 740.00 mW | 2 alerts/day (5s ea) | **2.06 mWh** |
-| **TOTAL DAILY ENERGY CONSUMED** | | | | | | **~96.18 mWh / day** |<br><br>---<br><br>#<h1>☀️ 2. Solar Energy Harvesting Equilibrium Calculation<br><br>* **5V 5W Mini Solar Panel Yield**:
-  - Average Peak Sun Hours (Forest Canopy Understory): **2.5 Hours / day**
-  - Solar Panel Output: $5\text{W} \times 0.20 \text{ (Canopy Loss)} = 1.0\text{W}$
-  - Daily Harvested Energy: $1.0\text{W} \times 2.5\text{ hrs} = 2,500\text{ mWh / day}$<br><br>$$\text{Energy Harvested } (2,500\text{ mWh}) \gg \text{Energy Consumed } (96.18\text{ mWh})$$<br><br>**Result**: The solar harvesting yield exceeds daily consumption by **over 25x**, guaranteeing **continuous 24/7/365 node operation** even during prolonged cloudy weather!<br><br>---<br><br>#<h1>⚡ 3. Battery Autonomy Without Sun (Cloudy Weather Buffer)<br><br>* **18650 LiFePO4 Energy Capacity**:
-  $$\text{Capacity} = 3.2\text{V} \times 2000\text{ mAh} = 6,400\text{ mWh}$$
-* **Days of Autonomy in Complete Darkness (Zero Sunlight)**:
-  $$\text{Autonomy Days} = \frac{6,400\text{ mWh}}{96.18\text{ mWh/day}} \approx \mathbf{66.5 \text{ Days}}$$<br><br>---<br><br>#<h1>🔌 4. Wiring Circuitry & Battery Protection Schematic<br><br>```
-  [ 5V 5W Solar Panel ]
+<h1>🔋 Task 6.1: Solar Power Budget, Battery Audit &amp; Circuitry Guide</h1>
+<p><strong>System Target</strong>: 24/7 Autonomous Solar Harvesting for Infinite Node Lifespan<br />
+<strong>Microcontroller</strong>: ESP32-S3 (Dual-Core LX7 @ 240MHz)<br />
+<strong>Battery</strong>: 18650 LiFePO4 Cell (3.2V - 3.6V, 2000 mAh Capacity)<br />
+<strong>Solar Controller</strong>: CN3065 Mini Solar Charger IC + 5V 5W Monocrystalline Panel<br />
+<strong>Voltage Regulator</strong>: HT7333-1 LDO (3.3V Output, Ultra-Low Quiescent Current $I_q &lt; 4\mu\text{A}$)  </p>
+<hr />
+<h2>📊 1. Power Consumption Audit Table</h2>
+<table>
+<thead>
+<tr>
+<th>System State</th>
+<th>Active Modules</th>
+<th style="text-align: center;">Voltage (V)</th>
+<th style="text-align: center;">Current Draw</th>
+<th style="text-align: center;">Power (mW)</th>
+<th style="text-align: center;">Duty Cycle per Hour</th>
+<th style="text-align: center;">Daily Energy (mWh)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deep Sleep Mode</strong></td>
+<td>ESP32-S3 RTC + LIS3DH Accelerometer</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>15 µA</strong></td>
+<td style="text-align: center;">0.0495 mW</td>
+<td style="text-align: center;">58.5 min/hr (97.5%)</td>
+<td style="text-align: center;"><strong>1.16 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>Acoustic Surveillance</strong></td>
+<td>ESP32-S3 @ 240MHz + INMP441 Mic</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>18.5 mA</strong></td>
+<td style="text-align: center;">61.05 mW</td>
+<td style="text-align: center;">1.5 min/hr (2.5%)</td>
+<td style="text-align: center;"><strong>91.58 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>GPS Fix Acquisition</strong></td>
+<td>Neo-6M GPS Module (UART)</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>25.0 mA</strong></td>
+<td style="text-align: center;">82.50 mW</td>
+<td style="text-align: center;">2 alerts/day (30s ea)</td>
+<td style="text-align: center;"><strong>1.38 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>GSM SMS Transmission</strong></td>
+<td>SIM800L Cellular Modem (TX Burst)</td>
+<td style="text-align: center;">3.7V</td>
+<td style="text-align: center;"><strong>200.0 mA</strong></td>
+<td style="text-align: center;">740.00 mW</td>
+<td style="text-align: center;">2 alerts/day (5s ea)</td>
+<td style="text-align: center;"><strong>2.06 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL DAILY ENERGY CONSUMED</strong></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>~96.18 mWh / day</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>☀️ 2. Solar Energy Harvesting Equilibrium Calculation</h2>
+<ul>
+<li><strong>5V 5W Mini Solar Panel Yield</strong>:</li>
+<li>Average Peak Sun Hours (Forest Canopy Understory): <strong>2.5 Hours / day</strong></li>
+<li>Solar Panel Output: $5\text{W} \times 0.20 \text{ (Canopy Loss)} = 1.0\text{W}$</li>
+<li>Daily Harvested Energy: $1.0\text{W} \times 2.5\text{ hrs} = 2,500\text{ mWh / day}$</li>
+</ul>
+<p>$$\text{Energy Harvested } (2,500\text{ mWh}) \gg \text{Energy Consumed } (96.18\text{ mWh})$$</p>
+<p><strong>Result</strong>: The solar harvesting yield exceeds daily consumption by <strong>over 25x</strong>, guaranteeing <strong>continuous 24/7/365 node operation</strong> even during prolonged cloudy weather!</p>
+<hr />
+<h2>⚡ 3. Battery Autonomy Without Sun (Cloudy Weather Buffer)</h2>
+<ul>
+<li><strong>18650 LiFePO4 Energy Capacity</strong>:<br />
+  $$\text{Capacity} = 3.2\text{V} \times 2000\text{ mAh} = 6,400\text{ mWh}$$</li>
+<li><strong>Days of Autonomy in Complete Darkness (Zero Sunlight)</strong>:<br />
+  $$\text{Autonomy Days} = \frac{6,400\text{ mWh}}{96.18\text{ mWh/day}} \approx \mathbf{66.5 \text{ Days}}$$</li>
+</ul>
+<hr />
+<h2>🔌 4. Wiring Circuitry &amp; Battery Protection Schematic</h2>
+<pre><code>  [ 5V 5W Solar Panel ]
            │
            ▼
      ┌───────────┐
@@ -51,7 +129,4 @@ code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-fam
            ├───────────────────────────────► ESP32-S3 3.3V VCC
            ├───────────────────────────────► INMP441 VDD
            └─[100kΩ/100kΩ Voltage Divider]──► GPIO 1 (ADC Battery Monitor)
-```
-
-</body>
-</html>
+</code></pre></body></html>

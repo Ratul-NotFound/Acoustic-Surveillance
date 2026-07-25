@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>enclosure_3d_design_guide</title>
 <style>
-body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 25px; color: #333; }
-h1 { color: #1a365d; border-bottom: 2px solid #2b6cb0; padding-bottom: 8px; }
-h2 { color: #2c5282; margin-top: 20px; border-bottom: 1px solid #cbd5e0; padding-bottom: 4px; }
-h3 { color: #2b6cb0; }
-table { border-collapse: collapse; width: 100%; margin: 15px 0; }
-th, td { border: 1px solid #cbd5e0; padding: 10px; text-align: left; }
-th { background-color: #ebf8ff; color: #2c5282; }
-code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-family: Consolas, monospace; }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
 </style>
 </head>
 <body>
-<h1>📦 Task 6.2: 3D Printed IP67 Weatherproof Camouflaged Tree Casing Design<br><br>**Ingress Protection Rating**: IP67 (Dust-tight + Waterproof immersion up to 1 meter)  
-**Material**: PETG or ABS (UV Resistant, High Impact Resistance, Temperature Rating $-20^\circ\text{C}$ to $+80^\circ\text{C}$)  
-**Physical Dimensions**: $120\text{mm} \times 80\text{mm} \times 45\text{mm}$  
-**Camouflage Texture**: Bark-Patterned Organic Mold (Blends with Pine, Oak, and Tropical Hardwood Tree Trunks)  <br><br>---<br><br>#<h1>📐 1. Enclosure Mechanical Design Breakdown<br><br>```
-        ┌─────────────────────────────────────────────────────────┐
+<h1>📦 Task 6.2: 3D Printed IP67 Weatherproof Camouflaged Tree Casing Design</h1>
+<p><strong>Ingress Protection Rating</strong>: IP67 (Dust-tight + Waterproof immersion up to 1 meter)<br />
+<strong>Material</strong>: PETG or ABS (UV Resistant, High Impact Resistance, Temperature Rating $-20^\circ\text{C}$ to $+80^\circ\text{C}$)<br />
+<strong>Physical Dimensions</strong>: $120\text{mm} \times 80\text{mm} \times 45\text{mm}$<br />
+<strong>Camouflage Texture</strong>: Bark-Patterned Organic Mold (Blends with Pine, Oak, and Tropical Hardwood Tree Trunks)  </p>
+<hr />
+<h2>📐 1. Enclosure Mechanical Design Breakdown</h2>
+<pre><code>        ┌─────────────────────────────────────────────────────────┐
         │  45° Angled Top Solar Mount Bracket (5W Panel)         │
         ├─────────────────────────────────────────────────────────┤
         │                                                         │
@@ -36,15 +46,28 @@ code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-fam
         └─────────────────────────────────────────────────────────┘
                    │                                   │
                    └───► [Dual Heavy-Duty Strap Slots] ◄───┘
-```<br><br>---<br><br>#<h1>🛠️ 2. Key Engineering Specifications<br><br>##<h1>A. Acoustic Horn Waveguide & GORE-TEX Acoustic Membrane
-- **Downward Facing Port**: The INMP441 MEMS microphone port is positioned on the underside of the enclosure angled 15 degrees downward. This prevents direct rainfall from entering the acoustic channel.
-- **GORE-TEX GAW112 Membrane**: Placed over the microphone port to allow sound waves to enter ($0.5\text{ dB}$ acoustic attenuation) while blocking water droplets and moisture ($>100\text{ kPa}$ water entry pressure).<br><br>##<h1>B. Anti-Tamper & Motion Detection (LIS3DH Accelerometer)
-- **Vibration & Theft Detection**: Internal LIS3DH accelerometer detects physical tree tampering or attempts by illegal loggers to remove the sensor node.
-- **Tilt Interrupt**: Triggers an immediate GSM SMS alert if the device is tilted > 30 degrees from its vertical tree mount position.<br><br>##<h1>C. Tree Trunk Mounting Mechanism
-- Dual 25mm slotted strap loops integrated into the rear PETG chassis enable non-destructive tree mounting using industrial weather-resistant nylon webbing or stainless steel hose clamps.<br><br>---<br><br>#<h1>🖨️ 3. 3D Printing Guidelines for Production<br><br>- **Layer Height**: 0.20 mm
-- **Infill Density**: 40% Gyroid Infill (High structural rigidity)
-- **Wall Perimeter**: 4 Shell Walls (Ensures zero water penetration through layer lines)
-- **Post-Processing**: Coated with UV-resistant matte forest brown/green camouflage spray.
-
-</body>
-</html>
+</code></pre>
+<hr />
+<h2>🛠️ 2. Key Engineering Specifications</h2>
+<h3>A. Acoustic Horn Waveguide &amp; GORE-TEX Acoustic Membrane</h3>
+<ul>
+<li><strong>Downward Facing Port</strong>: The INMP441 MEMS microphone port is positioned on the underside of the enclosure angled 15 degrees downward. This prevents direct rainfall from entering the acoustic channel.</li>
+<li><strong>GORE-TEX GAW112 Membrane</strong>: Placed over the microphone port to allow sound waves to enter ($0.5\text{ dB}$ acoustic attenuation) while blocking water droplets and moisture ($&gt;100\text{ kPa}$ water entry pressure).</li>
+</ul>
+<h3>B. Anti-Tamper &amp; Motion Detection (LIS3DH Accelerometer)</h3>
+<ul>
+<li><strong>Vibration &amp; Theft Detection</strong>: Internal LIS3DH accelerometer detects physical tree tampering or attempts by illegal loggers to remove the sensor node.</li>
+<li><strong>Tilt Interrupt</strong>: Triggers an immediate GSM SMS alert if the device is tilted &gt; 30 degrees from its vertical tree mount position.</li>
+</ul>
+<h3>C. Tree Trunk Mounting Mechanism</h3>
+<ul>
+<li>Dual 25mm slotted strap loops integrated into the rear PETG chassis enable non-destructive tree mounting using industrial weather-resistant nylon webbing or stainless steel hose clamps.</li>
+</ul>
+<hr />
+<h2>🖨️ 3. 3D Printing Guidelines for Production</h2>
+<ul>
+<li><strong>Layer Height</strong>: 0.20 mm</li>
+<li><strong>Infill Density</strong>: 40% Gyroid Infill (High structural rigidity)</li>
+<li><strong>Wall Perimeter</strong>: 4 Shell Walls (Ensures zero water penetration through layer lines)</li>
+<li><strong>Post-Processing</strong>: Coated with UV-resistant matte forest brown/green camouflage spray.</li>
+</ul></body></html>

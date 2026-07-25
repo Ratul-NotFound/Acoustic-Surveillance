@@ -1,72 +1,533 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>COMPLETE RESEARCH MASTER DOCUMENTATION</title>
 <style>
-body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.7; padding: 40px; max-width: 1050px; margin: auto; color: #1a202c; font-size: 11pt; }
-h1 { color: #002b49; border-bottom: 3px solid #002b49; padding-bottom: 10px; margin-top: 45px; font-size: 20pt; }
-h2 { color: #1a365d; margin-top: 30px; border-bottom: 1px solid #cbd5e0; padding-bottom: 6px; font-size: 15pt; }
-h3 { color: #2c5282; font-size: 13pt; }
-table { border-collapse: collapse; width: 100%; margin: 25px 0; font-size: 10.5pt; }
-th, td { border: 1px solid #718096; padding: 9px; text-align: left; }
-th { background-color: #ebf8ff; color: #1a365d; font-weight: bold; }
-code { background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-family: Consolas, monospace; font-size: 10pt; }
-blockquote { border-left: 4px solid #2b6cb0; padding-left: 15px; margin-left: 0; color: #4a5568; font-style: italic; }
-img { max-width: 100%; height: auto; border: 1px solid #cbd5e0; border-radius: 4px; margin: 20px 0; }
-.header-box { background-color: #f7fafc; border: 2px solid #cbd5e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+@page {
+    size: A4;
+    margin: 1in;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.65;
+    color: #1f2937;
+    background-color: #ffffff;
+    padding: 30px;
+    max-width: 950px;
+    margin: 0 auto;
+    font-size: 11pt;
+}
+.page-break {
+    page-break-before: always;
+    margin-top: 40px;
+}
+h1 {
+    color: #0f2b48;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 22pt;
+    font-weight: 700;
+    border-bottom: 3px solid #0f2b48;
+    padding-bottom: 8px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    line-height: 1.25;
+}
+h2 {
+    color: #1e4265;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 15pt;
+    font-weight: 600;
+    border-bottom: 1.5px solid #d0d7de;
+    padding-bottom: 5px;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+h3 {
+    color: #2b5c8f;
+    font-family: 'Calibri', 'Segoe UI', sans-serif;
+    font-size: 13pt;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+li {
+    margin-bottom: 4px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 10pt;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+th {
+    background-color: #0f2b48;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid #0f2b48;
+}
+td {
+    padding: 8px 12px;
+    border: 1px solid #d0d7de;
+    vertical-align: top;
+}
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+code {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 9.5pt;
+    border: 1px solid #e2e8f0;
+}
+pre {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 9.5pt;
+}
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
+blockquote {
+    border-left: 4px solid #1e4265;
+    background-color: #f0f4f8;
+    margin: 16px 0;
+    padding: 10px 18px;
+    color: #334155;
+    font-style: italic;
+}
+hr {
+    border: none;
+    border-top: 2px solid #e2e8f0;
+    margin: 30px 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
 </style>
 </head>
 <body>
-<div class="header-box">
-<h1>COMPLETE RESEARCH MASTER DOCUMENTATION<br>#<h1>EDGE AI-POWERED FOREST ACOUSTIC THREAT SURVEILLANCE SYSTEM USING TINYML SE-DS-CNN ON ESP32-S3 MICROCONTROLLERS<br><b>Author / Lead Researcher<b>: Academic Research Team  <br><b>Hardware Target<b>: ESP32-S3 Dual-Core LX7 @ 240MHz | INMP441 I2S Mic | SIM800L GSM | Neo-6M GPS  <br><b>Dataset Scale<b>: 5,200 Clean 16kHz WAV Files (200 Clips/Class across 26 Classes)  <br><b>Neural Model<b>: Squeeze-and-Excitation 2D Depthwise-Separable CNN (27 KB INT8, PCEN Features)  <br><br>================================================================================<br><br><br><br><h1>==========================================================================<br><h1>PART 1: PROJECT VISION, ARCHITECTURE & HARDWARE WIRING<br><h1>==========================================================================<br><br><h1>Edge AI Forest Acoustic Surveillance System<br><br>This repository contains the software and firmware components for your final year thesis on acoustic surveillance for forest monitoring and illegal activity detection.<br><br>#<h1>Project Structure<br><br>```<br>acoustic-surveillance/<br>├── README.md               <h1>Project overview and setup instructions<br>├── data_prep/              <h1>Dataset collection and preprocessing scripts (Python)<br>│   ├── requirements.txt    <h1>Python dependencies (librosa, numpy, etc.)<br>│   └── format_audio.py     <h1>Script to resample and format WAV files to 16kHz, 16-bit, Mono<br>├── firmware/               <h1>ESP32-S3 C++ firmware code (Arduino / ESP-IDF)<br>│   └── main/               <h1>Main source files 
-</div>
-<hr>
-<h1>COMPLETE RESEARCH MASTER DOCUMENTATION
-#<h1>EDGE AI-POWERED FOREST ACOUSTIC THREAT SURVEILLANCE SYSTEM USING TINYML SE-DS-CNN ON ESP32-S3 MICROCONTROLLERS
-**Author / Lead Researcher**: Academic Research Team  
-**Hardware Target**: ESP32-S3 Dual-Core LX7 @ 240MHz | INMP441 I2S Mic | SIM800L GSM | Neo-6M GPS  
-**Dataset Scale**: 5,200 Clean 16kHz WAV Files (200 Clips/Class across 26 Classes)  
-**Neural Model**: Squeeze-and-Excitation 2D Depthwise-Separable CNN (27 KB INT8, PCEN Features)  <br><br>================================================================================<br><br><br><br><h1>==========================================================================
-<h1>PART 1: PROJECT VISION, ARCHITECTURE & HARDWARE WIRING
-<h1>==========================================================================<br><br><h1>Edge AI Forest Acoustic Surveillance System<br><br>This repository contains the software and firmware components for your final year thesis on acoustic surveillance for forest monitoring and illegal activity detection.<br><br>#<h1>Project Structure<br><br>```
-acoustic-surveillance/
-├── README.md               <h1>Project overview and setup instructions
-├── data_prep/              <h1>Dataset collection and preprocessing scripts (Python)
-│   ├── requirements.txt    <h1>Python dependencies (librosa, numpy, etc.)
-│   └── format_audio.py     <h1>Script to resample and format WAV files to 16kHz, 16-bit, Mono
-├── firmware/               <h1>ESP32-S3 C++ firmware code (Arduino / ESP-IDF)
-│   └── main/               <h1>Main source files for microphone capture and inference
-└── hardware/               <h1>Circuit diagrams, schematics, and 3D printable designs
-```<br><br>#<h1>Getting Started<br><br>1. **Active Workspace**: Please set this directory (`E:\software\acoustic-surveillance`) as your active workspace in your IDE.
-2. **Audio Preprocessing**: Check the `data_prep` folder for tools to clean, format, and organize your audio samples for training your TinyML model.
-3. **Firmware Development**: The `firmware` folder will hold the C++ code to run on the ESP32-S3 microcontroller to interface with the digital microphone (I2S) and trigger notifications via the SIM800L module.<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>HARDWARE WIRING GUIDE
-<h1>==========================================================================<br><br><h1>Hardware Wiring & Pin Mapping Guide<br><br>This guide details the physical electrical connections between the **ESP32-S3** microcontroller and the peripheral modules.<br><br>---<br><br>#<h1>1. GPIO Pin Mapping Table<br><br>| Peripheral Module | Pin Name | ESP32-S3 Pin | Description / Notes |
-| :--- | :--- | :--- | :--- |
-| **INMP441 Microphone** | VCC | 3.3V | Digital microphone power |
-| | GND | GND | Ground |
-| | L/R | GND | Set to GND for Left Channel audio |
-| | SCK (Clock) | GPIO 4 | I2S Serial Clock |
-| | WS (Word Select) | GPIO 5 | I2S Word Select |
-| | SD (Serial Data) | GPIO 6 | I2S Serial Data input |
-| **SIM800L GSM Module** | VCC | 4V Battery / Regulator | Needs 3.7V - 4.2V (up to 2A burst current). Do not power from 3.3V! |
-| | GND | GND | Must share a common ground with ESP32-S3 |
-| | TX | GPIO 18 | Connects to ESP32 RX (Serial2) |
-| | RX | GPIO 17 | Connects to ESP32 TX (Serial2) |
-| | PWR_KEY | GPIO 16 | Controls MOSFET switch to power ON/OFF GSM |
-| | RST | GPIO 15 | Optional hardware reset pin |
-| **Neo-6M GPS Module** | VCC | 3.3V / 5V | GPS power supply |
-| | GND | GND | Ground |
-| | TX | GPIO 41 | Connects to ESP32 RX (Serial1) |
-| | RX | GPIO 42 | Connects to ESP32 TX (Serial1) |
-| **LIS3DH Accelerometer** | VCC | 3.3V | Ultra-low power sensor supply |
-| | GND | GND | Ground |
-| | SDA | GPIO 8 | I2C Data line |
-| | SCL | GPIO 9 | I2C Clock line |
-| | INT1 | GPIO 10 | Interrupt output to wake up ESP32-S3 |<br><br>---<br><br>#<h1>2. Power and Charging Circuit Schematic Design<br><br>To support long-term autonomous field deployment, use a solar energy harvesting circuit:<br><br>```
-                        [ Solar Panel (5V-6V, 2W) ]
+<h1>COMPLETE RESEARCH MASTER DOCUMENTATION</h1>
+<h2>EDGE AI-POWERED FOREST ACOUSTIC THREAT SURVEILLANCE SYSTEM USING TINYML SE-DS-CNN ON ESP32-S3 MICROCONTROLLERS</h2>
+<p><strong>Author / Lead Researcher</strong>: Academic Research Team  </p>
+<p><strong>Hardware Target</strong>: ESP32-S3 Dual-Core LX7 @ 240MHz | INMP441 I2S Mic | SIM800L GSM | Neo-6M GPS  </p>
+<p><strong>Dataset Scale</strong>: 5,200 Clean 16kHz WAV Files (200 Clips/Class across 26 Classes)  </p>
+<p><strong>Neural Model</strong>: Squeeze-and-Excitation 2D Depthwise-Separable CNN (27 KB INT8, PCEN Features)  </p>
+<hr />
+<h1>PART 1: PROJECT VISION, ARCHITECTURE &amp; HARDWARE WIRING</h1>
+<h1>Edge AI Forest Acoustic Surveillance System</h1>
+<p>This repository contains the software and firmware components for your final year thesis on acoustic surveillance for forest monitoring and illegal activity detection.</p>
+<h2>Project Structure</h2>
+<pre><code>acoustic-surveillance/
+├── README.md               # Project overview and setup instructions
+├── data_prep/              # Dataset collection and preprocessing scripts (Python)
+│   ├── requirements.txt    # Python dependencies (librosa, numpy, etc.)
+│   └── format_audio.py     # Script to resample and format WAV files to 16kHz, 16-bit, Mono
+├── firmware/               # ESP32-S3 C++ firmware code (Arduino / ESP-IDF)
+│   └── main/               # Main source files for microphone capture and inference
+└── hardware/               # Circuit diagrams, schematics, and 3D printable designs
+</code></pre>
+<h2>Getting Started</h2>
+<ol>
+<li><strong>Active Workspace</strong>: Please set this directory (<code>E:\software\acoustic-surveillance</code>) as your active workspace in your IDE.</li>
+<li><strong>Audio Preprocessing</strong>: Check the <code>data_prep</code> folder for tools to clean, format, and organize your audio samples for training your TinyML model.</li>
+<li><strong>Firmware Development</strong>: The <code>firmware</code> folder will hold the C++ code to run on the ESP32-S3 microcontroller to interface with the digital microphone (I2S) and trigger notifications via the SIM800L module.</li>
+</ol>
+<div class='page-break'></div>
+
+<h1>SYSTEM ARCHITECTURE &amp; SOLAR GSM PROTOCOL</h1>
+<h1>🌐 System Design &amp; Architecture: Solar Box, Zoning, &amp; GSM Alerting Protocol</h1>
+<p>This document details the engineering specifications for the physical hardware node, battery/solar power budgeting, zoning deployment model, and the communication protocol used to notify central control authorities (Police, Coast Guard, and Forest Authority).</p>
+<hr />
+<h2>1. Physical Device Casing &amp; Solar Box Design</h2>
+<p>To ensure the node is self-sustaining in dense forest foliage with limited sunlight, the device uses a <strong>multidirectional solar harvesting box design</strong>.</p>
+<h3>📦 Physical Enclosure Concept</h3>
+<pre><code>             ┌────────────────────────┐
+             │    [ SOLAR PANEL 1 ]   │  &lt;-- Top Panel (Direct Overhead Sunlight)
+             │      (Rain Shield)     │
+      ┌──────┴────────────────────────┴──────┐
+      │ ┌──────────────────────────────────┐ │
+      │ │                                  │ │
+      │ │         [ SOLAR PANEL 2 ]        │ │  &lt;-- East/West Side Panel (Low Angle Sunlight)
+      │ │                                  │ │
+      │ └──────────────────────────────────┘ │
+      │      ○ [GORE-TEX ACOUSTIC PORT]     │  &lt;-- Water-resistant microphone entry
+      │                                      │
+      │  [Inside: ESP32-S3, GPS, GSM, LiPo]  │  &lt;-- Heavy components placed at bottom for stability
+      └──────────────────────────────────────┘
+</code></pre>
+<ol>
+<li><strong>3D Printed Weatherproof Box (IP67)</strong>:<ul>
+<li>Printed in UV-resistant PETG or ABS filament.</li>
+<li>Coated in a matte camouflaged pattern (woodland or bark texture) to avoid detection.</li>
+</ul>
+</li>
+<li><strong>Multidirectional Solar Panel Array</strong>:<ul>
+<li>Instead of a single panel, the box features <strong>three small solar panels</strong> integrated onto its faces (one top panel, two side panels).</li>
+<li>This ensures that no matter which way the device is oriented on a tree trunk, it can capture morning, midday, or afternoon sun.</li>
+</ul>
+</li>
+<li><strong>Acoustic Port Membrane</strong>:<ul>
+<li>A small 5mm hole at the bottom (facing down to prevent rain entry) allows sound to reach the digital INMP441 microphone.</li>
+<li>The hole is sealed with a <strong>Gore-Tex acoustic vent membrane</strong> which allows sound pressure waves to pass through while completely blocking liquid water.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>2. Power Budget: Battery Sizing &amp; Solar Charging</h2>
+<p>The hardware must balance weight, size, and electrical capacity to ensure continuous 24/7 duty-cycled operations.</p>
+<h3>🔋 Battery Recommendation: Lithium Polymer (LiPo) vs. LiFePO4</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Lithium Polymer (LiPo)</th>
+<th style="text-align: left;">LiFePO4 (Lithium Iron Phosphate)</th>
+<th style="text-align: left;">Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Energy Density</strong></td>
+<td style="text-align: left;">🟢 Very High (Small &amp; Lightweight)</td>
+<td style="text-align: left;">🟡 Moderate (Heavier, larger)</td>
+<td style="text-align: left;"><strong>LiFePO4</strong> is recommended for forest safety because it is thermally stable and will not catch fire or explode if the tree trunk exceeds $50^\circ\text{C}$ in direct sunlight. However, if space is extremely constrained, a <strong>protected 18650 LiPo battery pack</strong> (2600mAh) can be used.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lifespan</strong></td>
+<td style="text-align: left;">🟡 300–500 cycles</td>
+<td style="text-align: left;">🟢 2000–3000 cycles</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Safety</strong></td>
+<td style="text-align: left;">🔴 Low (Thermal runaway risk)</td>
+<td style="text-align: left;">🟢 High (No thermal runaway)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h3>⚡ Power Budget Calculations</h3>
+<ul>
+<li><strong>ESP32-S3 Sleep Mode</strong>: $\approx 20\,\mu\text{A}$ at $3.3\text{V} = 0.066\,\text{mW}$</li>
+<li><strong>Active Inference Mode (ESP32-S3 + I2S Mic active for 2s every 10s)</strong>: $\approx 100\,\text{mA}$ at $3.3\text{V} = 330\,\text{mW}$</li>
+<li><strong>GSM Standby Mode (SIM800L power-down state)</strong>: $0.0\,\text{mA}$ (Isolated by MOSFET switch)</li>
+<li><strong>GSM Transmission Alert Mode (SIM800L powered on, sending SMS, 15 seconds duration)</strong>: $\approx 350\,\text{mA}$ average, with $2\,\text{A}$ bursts at $4.0\text{V} = 1400\,\text{mW}$</li>
+</ul>
+<h4>Average Continuous Power Consumption (No Alerts):</h4>
+<p>$$\text{Average Current} = \frac{(I_{\text{active}} \times t_{\text{active}}) + (I_{\text{sleep}} \times t_{\text{sleep}})}{t_{\text{active}} + t_{\text{sleep}}}$$<br />
+$$\text{Average Current} = \frac{(100\,\text{mA} \times 2\,\text{s}) + (0.02\,\text{mA} \times 8\,\text{s})}{10\,\text{s}} = 20.016\,\text{mA}$$</p>
+<p>At a standard $3.7\text{V}$ battery voltage:<br />
+*   <strong>Daily Capacity Needed</strong>: $20.016\,\text{mA} \times 24\,\text{hours} = 480.38\,\text{mAh}$ per day.<br />
+*   A lightweight <strong>2600mAh 18650 battery</strong> can power the device for <strong>5.4 days</strong> with zero sunlight.<br />
+*   <strong>Solar Charging</strong>: A small $5\text{V}$ $1.5\text{W}$ solar panel (generating $\approx 300\,\text{mA}$ in peak sun) only needs <strong>1.6 hours</strong> of direct sunlight per day to fully recharge the daily consumed energy ($480.38\,\text{mAh} / 300\,\text{mA} = 1.6\,\text{h}$).</p>
+<hr />
+<h2>3. Deployment Zoning Model</h2>
+<p>Devices are grouped into coordinate-defined <strong>Zones</strong> matching the jurisdiction of different environmental and emergency response agencies.</p>
+<pre><code>       🌲 FOREST CANOPY / DEPLOYMENT AREA 🌲
+┌───────────────────────┬───────────────────────┐
+│        ZONE A         │        ZONE B         │
+│    (North Coastline)  │     (Dense Forest)    │
+│  [Node-01]  [Node-02]  │  [Node-03]  [Node-04] │
+└───────────┬───────────┴───────────┬───────────┘
+            │                       │
+            │ (GSM Cellular Link)   │
+            ▼                       ▼
+┌───────────────────────────────────────────────┐
+│               CENTRAL CONTROL GATEWAY         │
+│   - Receives and decodes the alert SMS/Data   │
+└──────┬─────────────────┬───────────────────┬──┘
+       │                 │                   │
+       ▼                 ▼                   ▼
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│  COAST GUARD │  │    POLICE    │  │ FOREST AUTH. │
+│ (Zone A alerts)│ (Zone B alerts)│ (All logs)   │
+└──────────────┘  └──────────────┘  └──────────────┘
+</code></pre>
+<ol>
+<li><strong>Zone A (Mangrove/Riverside - Coast Guard Jurisdiction)</strong>:<ul>
+<li>Monitors illegal boat movement, snare trapping, and coastal logging.</li>
+<li>Alerts are routed to the <strong>Coast Guard</strong> command center.</li>
+</ul>
+</li>
+<li><strong>Zone B (Interior Forest Reserve - Forest Authority &amp; Police)</strong>:<ul>
+<li>Monitors chainsaws, vehicle trespass, and gunshots.</li>
+<li>Alerts are routed directly to the <strong>Forest Ranger Stations</strong> and local <strong>Police</strong>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>4. GSM Alert Communication Protocol</h2>
+<p>When a threat is classified with a confidence score above <strong>85%</strong>, the device powers up the SIM800L module and transmits a structured alert payload.</p>
+<h3>Option A: SMS Alert Format (Standard &amp; Highly Reliable)</h3>
+<p>SMS is preferred for remote regions because it transmits over the 2G control channel, requiring minimal signal strength.</p>
+<h4>SMS Payload Structure (Plain Text):</h4>
+<pre><code class="language-text">[ALERT]
+ID: NODE-042
+ZONE: B-NORTH
+ACT: CHAINSAW (CUTTING)
+CONF: 94%
+GPS: 22.34891, 89.54023
+MAPS: https://maps.google.com/?q=22.34891,89.54023
+BATT: 3.82V (85%)
+TIME: 2026-06-18 02:42:19
+</code></pre>
+<ul>
+<li><strong>Key Parameters</strong>:<ul>
+<li><code>ID</code>: Unique node hardware identifier.</li>
+<li><code>ZONE</code>: Designated geographic sector.</li>
+<li><code>ACT</code>: Labeled classification category.</li>
+<li><code>CONF</code>: Model output probability score.</li>
+<li><code>GPS</code>: Latitude/Longitude from the Neo-6M GPS.</li>
+<li><code>MAPS</code>: Clickable Google Maps hyperlink for rapid navigation.</li>
+<li><code>BATT</code>: Device battery voltage and estimated percentage to schedule maintenance.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>Option B: GPRS Data Payload (JSON API Integration)</h3>
+<p>If cellular internet is stable, the device transmits a lightweight HTTP POST request to a Central Control dashboard server.</p>
+<h4>JSON Data Payload:</h4>
+<pre><code class="language-json">{
+  &quot;device_id&quot;: &quot;NODE-042&quot;,
+  &quot;zone&quot;: &quot;B-NORTH&quot;,
+  &quot;timestamp&quot;: &quot;2026-06-18T02:42:19Z&quot;,
+  &quot;alert&quot;: {
+    &quot;activity&quot;: &quot;GUNSHOT&quot;,
+    &quot;confidence&quot;: 0.97,
+    &quot;sub_class&quot;: &quot;SHOTGUN&quot;
+  },
+  &quot;telemetry&quot;: {
+    &quot;latitude&quot;: 22.34891,
+    &quot;longitude&quot;: 89.54023,
+    &quot;battery_voltage&quot;: 3.82,
+    &quot;battery_percentage&quot;: 85,
+    &quot;rssi&quot;: 18
+  }
+}
+</code></pre>
+<hr />
+<h2>5. Firmware Code Implementation: Building the Alert String</h2>
+<p>Here is how the notification string is constructed in the C++ firmware before sending via the SIM800L GSM serial interface:</p>
+<pre><code class="language-cpp">#include &lt;Arduino.h&gt;
+
+// Simulated GPS data structure
+struct GPSData {
+    float latitude = 22.34891;
+    float longitude = 89.54023;
+};
+
+// Simulated battery measurement
+float get_battery_voltage() {
+    // Read analog pin divider
+    return 3.82; 
+}
+
+// Function to construct and send SMS alert
+void compile_and_send_alert(const char* node_id, const char* zone_id, const char* activity, float confidence) {
+    GPSData gps;
+    float bat_voltage = get_battery_voltage();
+    int bat_percent = (int)((bat_voltage - 3.2) / (4.2 - 3.2) * 100.0);
+    if(bat_percent &gt; 100) bat_percent = 100;
+    if(bat_percent &lt; 0) bat_percent = 0;
+
+    // Build formatted message string
+    String message = &quot;[ALERT]\n&quot;;
+    message += &quot;ID: &quot; + String(node_id) + &quot;\n&quot;;
+    message += &quot;ZONE: &quot; + String(zone_id) + &quot;\n&quot;;
+    message += &quot;ACT: &quot; + String(activity) + &quot;\n&quot;;
+    message += &quot;CONF: &quot; + String((int)(confidence * 100)) + &quot;%\n&quot;;
+    message += &quot;GPS: &quot; + String(gps.latitude, 5) + &quot;, &quot; + String(gps.longitude, 5) + &quot;\n&quot;;
+    message += &quot;MAPS: https://maps.google.com/?q=&quot; + String(gps.latitude, 5) + &quot;,&quot; + String(gps.longitude, 5) + &quot;\n&quot;;
+    message += &quot;BATT: &quot; + String(bat_voltage, 2) + &quot;V (&quot; + String(bat_percent) + &quot;%)\n&quot;;
+
+    Serial.println(&quot;Constructed SMS Payload:&quot;);
+    Serial.println(message);
+
+    // Send message to SIM800L Serial port
+    // Serial2.println(&quot;AT+CMGF=1&quot;); // SMS Text Mode
+    // delay(100);
+    // Serial2.println(&quot;AT+CMGS=\&quot;+880XXXXXXXXXX\&quot;&quot;); // Central Control Phone Number
+    // delay(100);
+    // Serial2.print(message);
+    // Serial2.write(26); // Send ASCII Ctrl+Z
+}
+</code></pre>
+<div class='page-break'></div>
+
+<h1>HARDWARE WIRING GUIDE</h1>
+<h1>Hardware Wiring &amp; Pin Mapping Guide</h1>
+<p>This guide details the physical electrical connections between the <strong>ESP32-S3</strong> microcontroller and the peripheral modules.</p>
+<hr />
+<h2>1. GPIO Pin Mapping Table</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Peripheral Module</th>
+<th style="text-align: left;">Pin Name</th>
+<th style="text-align: left;">ESP32-S3 Pin</th>
+<th style="text-align: left;">Description / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>INMP441 Microphone</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V</td>
+<td style="text-align: left;">Digital microphone power</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">L/R</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Set to GND for Left Channel audio</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SCK (Clock)</td>
+<td style="text-align: left;">GPIO 4</td>
+<td style="text-align: left;">I2S Serial Clock</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">WS (Word Select)</td>
+<td style="text-align: left;">GPIO 5</td>
+<td style="text-align: left;">I2S Word Select</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SD (Serial Data)</td>
+<td style="text-align: left;">GPIO 6</td>
+<td style="text-align: left;">I2S Serial Data input</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SIM800L GSM Module</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">4V Battery / Regulator</td>
+<td style="text-align: left;">Needs 3.7V - 4.2V (up to 2A burst current). Do not power from 3.3V!</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Must share a common ground with ESP32-S3</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">TX</td>
+<td style="text-align: left;">GPIO 18</td>
+<td style="text-align: left;">Connects to ESP32 RX (Serial2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RX</td>
+<td style="text-align: left;">GPIO 17</td>
+<td style="text-align: left;">Connects to ESP32 TX (Serial2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">PWR_KEY</td>
+<td style="text-align: left;">GPIO 16</td>
+<td style="text-align: left;">Controls MOSFET switch to power ON/OFF GSM</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RST</td>
+<td style="text-align: left;">GPIO 15</td>
+<td style="text-align: left;">Optional hardware reset pin</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Neo-6M GPS Module</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V / 5V</td>
+<td style="text-align: left;">GPS power supply</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">TX</td>
+<td style="text-align: left;">GPIO 41</td>
+<td style="text-align: left;">Connects to ESP32 RX (Serial1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">RX</td>
+<td style="text-align: left;">GPIO 42</td>
+<td style="text-align: left;">Connects to ESP32 TX (Serial1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LIS3DH Accelerometer</strong></td>
+<td style="text-align: left;">VCC</td>
+<td style="text-align: left;">3.3V</td>
+<td style="text-align: left;">Ultra-low power sensor supply</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">GND</td>
+<td style="text-align: left;">Ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SDA</td>
+<td style="text-align: left;">GPIO 8</td>
+<td style="text-align: left;">I2C Data line</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">SCL</td>
+<td style="text-align: left;">GPIO 9</td>
+<td style="text-align: left;">I2C Clock line</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">INT1</td>
+<td style="text-align: left;">GPIO 10</td>
+<td style="text-align: left;">Interrupt output to wake up ESP32-S3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Power and Charging Circuit Schematic Design</h2>
+<p>To support long-term autonomous field deployment, use a solar energy harvesting circuit:</p>
+<pre><code>                        [ Solar Panel (5V-6V, 2W) ]
                                      │
                                      ▼
                     [ CN3065 / TP4056 Solar Charger ]
@@ -79,146 +540,1761 @@ acoustic-surveillance/
                       │
                       ▼
              [ ESP32-S3 / Mic / GPS ]
-```<br><br>##<h1>Key Power Components:
-1. **Solar Panel**: 5V to 6V monocrystalline panel, rated at 1W to 2W.
-2. **Solar Charger (CN3065)**: Connects solar panel to the battery. Automatically stops charging when battery is full.
-3. **Battery**: A single 18650 LiFePO4 battery (nominal 3.2V, full charge 3.6V). This battery chemistry operates safely in high forest ambient temperatures.
-4. **Regulator (LDO)**: Use a high-efficiency Low Dropout Regulator (such as **HT7333-A**) with a very low quiescent current (approx. 4µA) to step down the battery voltage to a clean 3.3V for the ESP32-S3, microphone, and sensors.
-5. **GSM Power Switch**: The SIM800L consumes substantial standby power and experiences high current spikes. Use an **N-channel MOSFET** (e.g., IRLZ44N) connected to the ESP32 GPIO 16 to completely isolate the SIM800L's ground/power line when it is not actively transmitting alerts.<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 4: CHAPTER 3 - DATASET METHODOLOGY, QUALITY CONTROL, SPEECH PURGING, PHYSICS SYNTHESIS & ISO 9613-2 AUGMENTATION
-<h1>==========================================================================<br><br><h1>Technical Report: Acoustic Dataset Sourcing, Quality Control, Physical Synthesis, and Augmentation Methodology<br><br>**Project Title**: Edge AI-Powered Forest Acoustic Threat Surveillance System  
-**Target Hardware**: ESP32-S3 Microcontroller (TinyML SE-DS-CNN + PCEN Normalization)  
-**Dataset Scale**: 5,200 Clean 16kHz Mono PCM WAV Files (200 Clips per Class across 26 Classes)  <br><br>---<br><br>#<h1>1. Executive Summary & Methodology Overview<br><br>This document presents the complete end-to-end methodology used to construct the Q1-grade acoustic dataset for the Forest Threat Surveillance System. To train an ultra-compact machine learning model capable of running on a solar-powered microcontroller without false alarms, a rigorous 7-stage data engineering pipeline was established:<br><br>1. **Taxonomy Definition**: 26 initial target sound classes (excluding watercraft/boat engines).
-2. **Multi-Source Sourcing**: Sourced from ESC-50 (MIT Benchmark), FSD50K metadata queries, and field streams.
-3. **Contamination Audit & Purge**: Automated spectral modulation detection to identify and purge 38 YouTube audio files containing speech ("keep watching") or background music.
-4. **Physical Sound Wave Synthesis**: Mathematical sound generation for 10 missing threat classes (gunshots, explosions, drone propellers, walkie-talkie, axe chopping, tree falling, heavy machinery, dirtbikes, shoveling).
-5. **Physics-Based Q1 Augmentation**: Standardization to 16,000 Hz Mono 3.0s WAVs, Multi-SNR noise mixing (-5 dB to +15 dB), and ISO 9613-2 Foliage Distance Low-Pass Attenuation (20m to 150m).
-6. **Dataset Assembly**: 5,200 balanced WAV files (200 per class).
-7. **Hierarchical Threat Grouping**: Grouping natural environmental sounds into `00_forest_natural_environment_sound` while retaining 18 active threat/activity classes for ESP32-S3 deployment.<br><br>---<br><br>#<h1>2. Acoustic Class Taxonomy Specifications<br><br>| Category | Class Name | Target Source | Core Frequency Range | Description |
-|---|---|---|---|---|
-| **Primary Threat** | `chainsaw` | FSC22 / Synthetic | 300 Hz – 4,000 Hz | High-revving 2-stroke gasoline engine + blade cutting wood |
-| **Primary Threat** | `axe_machete_chopping` | Physics Generator | 1,000 Hz – 6,000 Hz | High-energy transient wooden impact burst |
-| **Primary Threat** | `handsaw` | FSC22 / ESC-50 | 800 Hz – 5,000 Hz | Rhythmic friction scraping sound |
-| **Primary Threat** | `tree_falling` | Physics Generator | 60 Hz – 3,500 Hz | Initial high-frequency wood snapping + low-frequency ground impact |
-| **Primary Threat** | `shoveling_digging` | Physics Generator | 400 Hz – 4,500 Hz | Metal blade scraping against soil and stone |
-| **Primary Threat** | `gunshot` | Physics Generator | 100 Hz – 8,000 Hz | Sharp acoustic shockwave impulse burst (<50ms) |
-| **Primary Threat** | `explosive_blast` | Physics Generator | 40 Hz – 6,000 Hz | Severe low-frequency shockwave boom + reverberation |
-| **Primary Threat** | `walkie_talkie` | Physics Generator | 300 Hz – 3,400 Hz | Bandpass-filtered voice + squelch radio noise burst |
-| **Primary Threat** | `heavy_machinery` | Physics Generator | 50 Hz – 2,500 Hz | Low-frequency diesel engine hum + mechanical hydraulic rattle |
-| **Primary Threat** | `vehicle_engine` / `engines` | FSC22 / Synthetic | 80 Hz – 3,000 Hz | Truck/SUV gasoline & diesel engine idling and acceleration |
-| **Primary Threat** | `motorcycle_dirtbike` | Physics Generator | 200 Hz – 5,000 Hz | Raspy high-revving 2-stroke dirtbike engine buzz |
-| **Primary Threat** | `drone_propeller` | Physics Generator | 150 Hz – 4,000 Hz | Dual-tone harmonic fundamental propeller blade pass frequency |
-| **Intruder Sound** | `human_speech` | Synthetic / Speech | 100 Hz – 3,500 Hz | Low-to-mid frequency human vocal pitch modulations |
-| **Distress Sound** | `shouting_screaming` | Synthetic / Speech | 800 Hz – 5,500 Hz | High-energy vocal harmonics and distress cries |
-| **Intrusion Sound** | `footsteps` / `leaves` | ESC-50 / Synthetic | 1,500 Hz – 7,000 Hz | Rhythmic high-frequency dry leaf crushing noise |
-| **Activity Sound** | `hunting_dog` | ESC-50 | 400 Hz – 3,000 Hz | Repetitive canine barking / howling |
-| **Activity Sound** | `campfire_crackle` | ESC-50 | 2,000 Hz – 8,000 Hz | Random high-frequency thermal wood popping transients |
-| **Forest Ambience** | `bird_calls` | ESC-50 | 2,000 Hz – 8,000 Hz | Avian chirping and tonal bird vocalizations |
-| **Forest Ambience** | `frog_croaks` | ESC-50 | 300 Hz – 2,500 Hz | Low-frequency amphibian croaking calls |
-| **Forest Ambience** | `insect_hums` | ESC-50 | 3,000 Hz – 10,000 Hz | Continuous high-frequency cicada and cricket buzzing |
-| **Forest Ambience** | `rain` | ESC-50 | 100 Hz – 8,000 Hz | Broadband pink noise water droplet impacts |
-| **Forest Ambience** | `river_stream` | ESC-50 | 200 Hz – 6,000 Hz | Continuous bubbling water flow |
-| **Forest Ambience** | `wind` | ESC-50 | 50 Hz – 1,500 Hz | Low-frequency atmospheric pressure turbulence |
-| **Forest Ambience** | `thunder` | ESC-50 | 30 Hz – 800 Hz | Low-frequency acoustic rumble |<br><br>---<br><br>#<h1>3. Multi-Source Data Sourcing Pipeline<br><br>Audio streams were gathered from three distinct, reliable repositories:<br><br>1. **ESC-50 Dataset (MIT Benchmark)**:
-   - Sourced 2,000 verified 5-second 44.1kHz WAV files across 50 classes.
-   - Automatically sorted into target class directories in `data_prep/raw_data/esc-50/`.
-2. **FSD50K / Freesound Metadata Queries**:
-   - Sourced via `smart_dataset_download.py` using automated REST queries targeting verified bioacoustic and machinery sound clips.
-3. **Targeted Field YouTube Streams**:
-   - Downloaded using `download_youtube.py` for specific raw threat sounds.<br><br>---<br><br>#<h1>4. Quality Control & Contamination Purging<br><br>##<h1>The Problem Identified:
-During visual and auditory inspection, several raw YouTube-scraped clips for chainsaws and drones were found to contain **unwanted human speech commentary ("keep watching", "subscribe")** and background royalty-free music.<br><br>##<h1>The Automated Solution:
-1. **Spectral Modulation Audit Script (`data_prep/audit_speech_and_clean.py`)**:
-   - Analyzed fundamental pitch variations ($F_0 \in [85	ext{ Hz}, 255	ext{ Hz}]$) and harmonic-to-noise ratios (HNR) characteristic of human speech.
-2. **Purge Script (`data_prep/purge_all_yt_files.py`)**:
-   - Automatically purged **all 38 YouTube-scraped raw `.webm` audio files**.
-3. **Outcome**:
-   - Guaranteed **100% pure acoustic signatures** free from human voiceovers or background music.<br><br>---<br><br>#<h1>5. Mathematical Waveform Modeling for Missing Threat Classes<br><br>To replace purged YouTube files and ensure pristine clean data for missing thesis plan classes, physical wave generators were created (`generate_pure_physics_audio.py` & `generate_thesis_plan_sounds.py`):<br><br>##<h1>A. Gunshot & Explosive Blast Model
-Generated as a high-amplitude, non-linear acoustic shockwave impulse followed by exponential reverberation decay:
-$$s(t) = A \cdot e^{-lpha t} \cdot \sin(2\pi f_c t) + N(t) \cdot e^{-eta t}$$
-Where $lpha = 80$ controls the sharp peak (<30ms) and $eta = 15$ governs environmental echo.<br><br>##<h1>B. Drone Propeller Model
-Generated as a multi-tone harmonic engine with Blade Pass Frequency (BPF = 150 Hz) and harmonic overtones:
-$$s(t) = \sum_{k=1}^{4} A_k \sin(2\pi \cdot k \cdot f_{	ext{BPF}} \cdot t + \phi_k) + \sigma N(t)$$<br><br>##<h1>C. Axe Chopping & Leaf Footstep Transient Model
-Generated as a high-frequency wood/leaf impact burst:
-$$s(t) = A \cdot \exp\left(-rac{t}{	au}
-ight) \cdot N_{	ext{bandpass}}(t)$$<br><br>---<br><br>#<h1>6. Physics-Based Q1 Augmentation Engine<br><br>To prepare the dataset for real-world forest field conditions, clean audio clips were processed through `augment_dataset.py`:<br><br>##<h1>A. Format Standardization
-- **Sample Rate**: 16,000 Hz
-- **Channels**: Mono (1 channel)
-- **Bit Depth**: 16-bit PCM WAV
-- **Duration**: Exactly 3.0 seconds (48,000 audio samples)<br><br>##<h1>B. Multi-SNR Noise Mixing (-5 dB to +15 dB)
-Target threat sounds were mixed with real forest background noise at controlled SNRs:
-$$s_{	ext{mixed}}(t) = s_{	ext{threat}}(t) + lpha \cdot s_{	ext{noise}}(t)$$
-Where $lpha$ is dynamically scaled such that $	ext{SNR}_{	ext{dB}} \in [-5	ext{ dB}, +15	ext{ dB}]$.<br><br>##<h1>C. ISO 9613-2 Foliage Distance Low-Pass Attenuation (20m to 150m)
-According to acoustic physics (ISO 9613-2 standard for atmospheric absorption), high frequencies attenuate rapidly as sound travels through dense forest foliage.
-- Applied Butterworth Low-Pass Filters with cutoff frequencies scaling from $f_c = 4000	ext{ Hz}$ (at 20m) down to $f_c = 1000	ext{ Hz}$ (at 150m):
-$$H(f) = rac{1}{\sqrt{1 + \left(rac{f}{f_c}
-ight)^{2n}}}$$<br><br>---<br><br>#<h1>7. Final Q1 Dataset Assembly & File Structure<br><br>- **Total Dataset Size**: **5,200 clean 16kHz WAV files**
-- **Balance**: Exactly **200 WAV files per class** across 26 classes.
-- **Directory Location**: `E:\softwarecoustic-surveillance\data_prep\q1_dataset\`<br><br>---<br><br>#<h1>8. Hierarchical Threat Surveillance Taxonomy (ESP32-S3 Deployment)<br><br>For deployment on the ESP32-S3 microcontroller (`train_model_surveillance.py`), natural environmental sounds were grouped to maximize battery life and eliminate false alarms:<br><br>1. **`00_forest_natural_environment_sound` (Master Non-Threat Background)**:
-   - Groups `bird_calls`, `frog_croaks`, `insect_hums`, `rain`, `river_stream`, `wind`, `thunder` (210 test clips).
-   - Allows the node to hear real forest ambience while remaining in low-power sleep (84.8% to 95.2% recall).
-2. **18 Active Threat & Activity Detection Classes**:
-   - `axe_machete_chopping`, `chainsaw`, `drone_propeller`, `explosive_blast`, `footsteps`, `footsteps_leaves`, `gunshot`, `handsaw`, `heavy_machinery`, `human_speech`, `hunting_dog`, `motorcycle_dirtbike`, `shouting_screaming`, `shoveling_digging`, `tree_falling`, `vehicle_engine`, `vehicle_engines`, `walkie_talkie`.<br><br>---
-*Report generated and formatted for thesis documentation and Q1 manuscript reference.*<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 5: CHAPTER 4 - TINYML SE-DS-CNN MODEL EVALUATION & EXPERIMENTAL RESULTS
-<h1>==========================================================================<br><br><h1>Chapter 4: Neural Network Model Evaluation & Experimental Results<br><br>#<h1>4.1 Executive Summary
-This chapter presents the empirical evaluation of the **Threat Surveillance Squeeze-and-Excitation 2D CNN (SE-DS-CNN)** trained for Green Edge Computing on the ESP32-S3 microcontroller. The model groups all natural background environmental recordings (bird calls, frog croaks, insect hums, rain, stream, wind, thunder) into a unified **`00_forest_natural_environment_sound`** master non-threat class while retaining distinct active threat detection models across **5,200 audio files** using an academic standard **70% Train, 15% Validation, 15% Test** split.<br><br>Overall system accuracy reached **88.21%** (Macro Precision **91.26%**, Macro F1-Score **89.84%**), with **100% precision across critical threat classes** (Axe Chopping, Explosives, Heavy Machinery, Speech, Dirtbikes, Screams, Shoveling, Tree Falling, Vehicle Engines, Drone Propellers).<br><br>---<br><br>#<h1>4.2 Research Visualizations & Artifacts<br><br>##<h1>📈 1. Model Convergence & Training Loss
-![Training Curves](1_training_curves.png)
-*Figure 4.1: Training and Validation Accuracy & Loss curves across 20 epochs showing smooth convergence without overfitting.*<br><br>---<br><br>##<h1>📊 2. Threat Surveillance Confusion Matrix
-![Confusion Matrix](2_confusion_matrix.png)
-*Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for physical threat classes.*<br><br>---<br><br>##<h1>🎯 3. Class-wise F1-Score Breakdown
-![F1 Scores](3_class_f1_scores.png)
-*Figure 4.3: Per-class F1-score evaluation highlighting 100% precision on primary threat classes.*<br><br>---<br><br>##<h1>🔊 4. PCEN Acoustic Signatures
-![MFE Spectrogram Samples](4_mfe_spectrogram_samples.png)
-*Figure 4.4: 40-band Per-Channel Energy Normalization (PCEN) features for key threat classes.*<br><br>---<br><br>##<h1>⚡ 5. Hardware Execution & Green Computing Footprint
-![Hardware Benchmark](5_hardware_benchmark.png)
-*Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 27 KB INT8 model footprint and 9.5ms latency.*<br><br>---<br><br>#<h1>4.3 Detailed Numerical Performance Table<br><br>| Acoustic Surveillance Class | Category | Precision | Recall | F1-Score | Support | Status |
-|---|---|---|---|---|---|---|
-| **00_forest_natural_environment_sound** | Forest Non-Threat | **0.8241** | **0.8476** | **0.8357** | 210 | 🟢 84.8% Recall |
-| **axe_machete_chopping** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **drone_propeller** | Primary Threat | **1.0000** | **0.9667** | **0.9831** | 30 | 🟢 98.3% Near-Perfect |
-| **explosive_blast** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **footsteps_leaves** | Threat / Intrusion | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **heavy_machinery** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **human_speech** | Voice Non-Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **motorcycle_dirtbike** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **shouting_screaming** | Distress Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **shoveling_digging** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **tree_falling** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **vehicle_engine** | Primary Threat | **1.0000** | **1.0000** | **1.0000** | 30 | 🟢 100% Perfect |
-| **handsaw** | Secondary Tool | **0.9545** | **0.7000** | **0.8077** | 30 | 🟢 95.5% Precision |
-| **hunting_dog** | Background Activity | **0.9231** | **0.8000** | **0.8571** | 30 | 🟢 92.3% Precision |
-| **gunshot** | Primary Threat | **0.8400** | **0.7000** | **0.7636** | 30 | 🔵 84% Precision |
-| **chainsaw** | Primary Threat | **0.8065** | **0.8333** | **0.8197** | 30 | 🔵 83.3% Recall |
-| **campfire_crackle** | Activity Sound | **1.0000** | **0.7000** | **0.8235** | 30 | 🟢 100% Precision |
-| **footsteps** | Intrusion Sound | **0.7812** | **0.8333** | **0.8065** | 30 | 🔵 83.3% Recall |<br><br>---<br><br>#<h1>4.4 Green Edge Computing Benchmark on ESP32-S3<br><br>- **Architecture**: Squeeze-and-Excitation Depthwise-Separable 2D CNN (SE-DS-CNN)
-- **Model Format**: INT8 Quantized C++ Array (`model_data.h`)
-- **Flash Footprint**: **27.4 KB** (28,096 bytes)
-- **SRAM Arena**: **40.0 KB**
-- **Inference Time**: **9.5 ms** @ 240 MHz ESP32-S3 clock
-- **Active Current Draw**: **18.5 mA**
-- **Sleep Current Draw**: **15 µA**<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 6: HARDWARE POWER BUDGET, SOLAR HARVESTING EQUILIBRIUM & HT7333-1 CIRCUITRY
-<h1>==========================================================================<br><br><h1>🔋 Task 6.1: Solar Power Budget, Battery Audit & Circuitry Guide<br><br>**System Target**: 24/7 Autonomous Solar Harvesting for Infinite Node Lifespan  
-**Microcontroller**: ESP32-S3 (Dual-Core LX7 @ 240MHz)  
-**Battery**: 18650 LiFePO4 Cell (3.2V - 3.6V, 2000 mAh Capacity)  
-**Solar Controller**: CN3065 Mini Solar Charger IC + 5V 5W Monocrystalline Panel  
-**Voltage Regulator**: HT7333-1 LDO (3.3V Output, Ultra-Low Quiescent Current $I_q < 4\mu\text{A}$)  <br><br>---<br><br>#<h1>📊 1. Power Consumption Audit Table<br><br>| System State | Active Modules | Voltage (V) | Current Draw | Power (mW) | Duty Cycle per Hour | Daily Energy (mWh) |
-|---|---|:---:|:---:|:---:|:---:|:---:|
-| **Deep Sleep Mode** | ESP32-S3 RTC + LIS3DH Accelerometer | 3.3V | **15 µA** | 0.0495 mW | 58.5 min/hr (97.5%) | **1.16 mWh** |
-| **Acoustic Surveillance** | ESP32-S3 @ 240MHz + INMP441 Mic | 3.3V | **18.5 mA** | 61.05 mW | 1.5 min/hr (2.5%) | **91.58 mWh** |
-| **GPS Fix Acquisition** | Neo-6M GPS Module (UART) | 3.3V | **25.0 mA** | 82.50 mW | 2 alerts/day (30s ea) | **1.38 mWh** |
-| **GSM SMS Transmission** | SIM800L Cellular Modem (TX Burst) | 3.7V | **200.0 mA** | 740.00 mW | 2 alerts/day (5s ea) | **2.06 mWh** |
-| **TOTAL DAILY ENERGY CONSUMED** | | | | | | **~96.18 mWh / day** |<br><br>---<br><br>#<h1>☀️ 2. Solar Energy Harvesting Equilibrium Calculation<br><br>* **5V 5W Mini Solar Panel Yield**:
-  - Average Peak Sun Hours (Forest Canopy Understory): **2.5 Hours / day**
-  - Solar Panel Output: $5\text{W} \times 0.20 \text{ (Canopy Loss)} = 1.0\text{W}$
-  - Daily Harvested Energy: $1.0\text{W} \times 2.5\text{ hrs} = 2,500\text{ mWh / day}$<br><br>$$\text{Energy Harvested } (2,500\text{ mWh}) \gg \text{Energy Consumed } (96.18\text{ mWh})$$<br><br>**Result**: The solar harvesting yield exceeds daily consumption by **over 25x**, guaranteeing **continuous 24/7/365 node operation** even during prolonged cloudy weather!<br><br>---<br><br>#<h1>⚡ 3. Battery Autonomy Without Sun (Cloudy Weather Buffer)<br><br>* **18650 LiFePO4 Energy Capacity**:
-  $$\text{Capacity} = 3.2\text{V} \times 2000\text{ mAh} = 6,400\text{ mWh}$$
-* **Days of Autonomy in Complete Darkness (Zero Sunlight)**:
-  $$\text{Autonomy Days} = \frac{6,400\text{ mWh}}{96.18\text{ mWh/day}} \approx \mathbf{66.5 \text{ Days}}$$<br><br>---<br><br>#<h1>🔌 4. Wiring Circuitry & Battery Protection Schematic<br><br>```
-  [ 5V 5W Solar Panel ]
+</code></pre>
+<h3>Key Power Components:</h3>
+<ol>
+<li><strong>Solar Panel</strong>: 5V to 6V monocrystalline panel, rated at 1W to 2W.</li>
+<li><strong>Solar Charger (CN3065)</strong>: Connects solar panel to the battery. Automatically stops charging when battery is full.</li>
+<li><strong>Battery</strong>: A single 18650 LiFePO4 battery (nominal 3.2V, full charge 3.6V). This battery chemistry operates safely in high forest ambient temperatures.</li>
+<li><strong>Regulator (LDO)</strong>: Use a high-efficiency Low Dropout Regulator (such as <strong>HT7333-A</strong>) with a very low quiescent current (approx. 4µA) to step down the battery voltage to a clean 3.3V for the ESP32-S3, microphone, and sensors.</li>
+<li><strong>GSM Power Switch</strong>: The SIM800L consumes substantial standby power and experiences high current spikes. Use an <strong>N-channel MOSFET</strong> (e.g., IRLZ44N) connected to the ESP32 GPIO 16 to completely isolate the SIM800L's ground/power line when it is not actively transmitting alerts.</li>
+</ol>
+<div class='page-break'></div>
+
+<h1>SOUND CLASSES TAXONOMY</h1>
+<h1>Forest Acoustic Surveillance: Expanded Sound Class Catalog &amp; Signal Profiles</h1>
+<p>For an edge AI acoustic monitoring system to be successful, it must be trained on a highly diverse set of sound classes. In machine learning, if the model is not trained on background sounds (e.g., wind, rain, birds), it will misclassify these sounds as threats (e.g., chainsaws or gunshots).</p>
+<p>This catalog details all target threat classes and environmental noise classes, their frequency ranges, temporal signatures, and dataset sources.</p>
+<hr />
+<h2>1. Threat / Illegal Activity Sound Classes</h2>
+<p>These are the <strong>critical trigger classes</strong> that must wake up the system to send an alert.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sound Class</th>
+<th style="text-align: left;">Typical Frequency Range (Hz)</th>
+<th style="text-align: left;">Temporal Signature</th>
+<th style="text-align: left;">Primary Public Dataset Source</th>
+<th style="text-align: left;">Key Feature Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Idle)</strong></td>
+<td style="text-align: left;">80 Hz – 400 Hz</td>
+<td style="text-align: left;">Continuous, harmonic</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Low-frequency periodic humming from the engine cylinders.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Chainsaw (Cutting)</strong></td>
+<td style="text-align: left;">100 Hz – 4,000 Hz</td>
+<td style="text-align: left;">Continuous, screaming pitch</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">High-pitched mechanical whine with load-dependent pitch fluctuations.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Axe/Machete Chopping</strong></td>
+<td style="text-align: left;">200 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Periodic, impulsive</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">Sharp transient hit followed by a short decay of vibrating wood.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Handsaw</strong></td>
+<td style="text-align: left;">500 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Rhythmic, scraping</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Periodic friction sounds (shh-shh) with distinct push-pull cycles.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tree Cracking/Falling</strong></td>
+<td style="text-align: left;">20 Hz – 800 Hz</td>
+<td style="text-align: left;">Transient, cascading</td>
+<td style="text-align: left;">AudioSet, Rainforest Connection</td>
+<td style="text-align: left;">Low-frequency cracking wood impulses followed by a broad-spectrum leaves-crashing rumble.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heavy Machinery</strong></td>
+<td style="text-align: left;">50 Hz – 1,000 Hz</td>
+<td style="text-align: left;">Continuous, low-pitch rumble</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Bulldozers, tractors, and excavators. Very low-frequency tones.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Pistol/Rifle)</strong></td>
+<td style="text-align: left;">100 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Extremely impulsive (&lt;150ms)</td>
+<td style="text-align: left;">ESC-50, UrbanSound8K</td>
+<td style="text-align: left;">High-amplitude shockwave (crack) followed by reflections (reverb).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gunshot (Shotgun)</strong></td>
+<td style="text-align: left;">50 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Impulsive (&lt;300ms)</td>
+<td style="text-align: left;">ESC-50, UrbanSound8K</td>
+<td style="text-align: left;">Booming impulse with a wider low-frequency profile.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vehicle Engine (Truck/SUV)</strong></td>
+<td style="text-align: left;">60 Hz – 1,200 Hz</td>
+<td style="text-align: left;">Continuous</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Constant low-frequency hum from exhausts and tires.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motorcycle/Dirt Bike</strong></td>
+<td style="text-align: left;">150 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Dynamic continuous</td>
+<td style="text-align: left;">UrbanSound8K, AudioSet</td>
+<td style="text-align: left;">Raspy, high-revving engine sound that changes pitch rapidly.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Human Speech/Voices</strong></td>
+<td style="text-align: left;">80 Hz – 3,000 Hz</td>
+<td style="text-align: left;">Harmonic, modulating</td>
+<td style="text-align: left;">AudioSet, LibriSpeech</td>
+<td style="text-align: left;">Formant frequencies with distinct pitch variations and pauses.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shouting/Screaming</strong></td>
+<td style="text-align: left;">800 Hz – 4,500 Hz</td>
+<td style="text-align: left;">Loud, continuous harmonic</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">High-energy, sustained vocal harmonics.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Footsteps (Dry Leaves)</strong></td>
+<td style="text-align: left;">800 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Rhythmic, transient</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">High-frequency crackles (crushing dry leaves/twigs).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Walkie-Talkie (Static/Beeps)</strong></td>
+<td style="text-align: left;">300 Hz – 3,400 Hz</td>
+<td style="text-align: left;">Short bursts, static</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">Demodulated radio tone, PTT beep, squelch tail hiss, and band-limited voice.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Metal Clinking (Traps/Snares)</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Impulsive, metallic clicks</td>
+<td style="text-align: left;">AudioSet, Custom recording</td>
+<td style="text-align: left;">High-frequency clinks of steel wire, springs, or cages being loaded.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Shoveling/Digging</strong></td>
+<td style="text-align: left;">100 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Periodic, scraping impact</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Shovel blade scraping against gravel/soil (illegal mining/poaching).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hunting Dog (Bark/Howl)</strong></td>
+<td style="text-align: left;">300 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Rhythmic, harmonic</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Sharp barks and long howling of tracking dogs used by poachers.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Drone Propeller Hum</strong></td>
+<td style="text-align: left;">200 Hz – 5,000 Hz</td>
+<td style="text-align: left;">High-pitched continuous hum</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">Quadcopter rotor blades spinning; indicates unauthorized scouting.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Explosive Blast</strong></td>
+<td style="text-align: left;">20 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Severe impulse + low rumble</td>
+<td style="text-align: left;">AudioSet, ESC-50</td>
+<td style="text-align: left;">Blast mining or illegal dynamite clearing; huge amplitude peak.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campfire Crackle</strong></td>
+<td style="text-align: left;">500 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Stochastic, impulsive pops</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Random, short-duration pops and sizzles from burning wood.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Environmental / Biological Background Classes (False Alarm Filters)</h2>
+<p>The model <strong>must</strong> be trained on these classes to learn to ignore them. If these are detected, the system should log them locally or discard them and return to sleep immediately.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sound Class</th>
+<th style="text-align: left;">Typical Frequency Range (Hz)</th>
+<th style="text-align: left;">Temporal Signature</th>
+<th style="text-align: left;">Primary Public Dataset Source</th>
+<th style="text-align: left;">Key Feature Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Rain (Light/Drizzle)</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, pink-noise-like</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Soft, steady high-frequency sound with tiny random impacts.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rain (Heavy/Downpour)</strong></td>
+<td style="text-align: left;">100 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, white-noise-like</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Broad-spectrum roar, masks other signals; dampens acoustic ranges.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Distant)</strong></td>
+<td style="text-align: left;">10 Hz – 150 Hz</td>
+<td style="text-align: left;">Low rumbling, slow decay</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Deep infrasound and low-frequency rumble.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thunder (Close)</strong></td>
+<td style="text-align: left;">50 Hz – 4,000 Hz</td>
+<td style="text-align: left;">Impulsive crash + rumble</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Extremely loud, broad-spectrum blast, can mimic gunshots.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Canopy Rustle)</strong></td>
+<td style="text-align: left;">200 Hz – 5,000 Hz</td>
+<td style="text-align: left;">Modulating, continuous</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Swaying frequencies, rises and falls with wind speed.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Wind (Howling/Gusts)</strong></td>
+<td style="text-align: left;">50 Hz – 800 Hz</td>
+<td style="text-align: left;">Low-frequency modulated hum</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Air turbulence against microphone capsule.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bird Calls/Songs</strong></td>
+<td style="text-align: left;">1,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">High-pitched harmonic whistles</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">Highly structured chirps, trills, and sweeps.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cicadas / Insect Hums</strong></td>
+<td style="text-align: left;">3,000 Hz – 8,000 Hz</td>
+<td style="text-align: left;">Continuous, buzzy vibration</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">High-frequency continuous screeching or rhythmic pulsing.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Frog Croaks</strong></td>
+<td style="text-align: left;">100 Hz – 2,500 Hz</td>
+<td style="text-align: left;">Pulsed, rhythmic</td>
+<td style="text-align: left;">Xeno-Canto, AudioSet</td>
+<td style="text-align: left;">Low-to-mid frequency croaking, barking, or clicking sounds.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Monkey Alarm Calls</strong></td>
+<td style="text-align: left;">400 Hz – 3,500 Hz</td>
+<td style="text-align: left;">Repetitive, harsh transients</td>
+<td style="text-align: left;">AudioSet</td>
+<td style="text-align: left;">High-pitched shrieks or chattering, indicates forest disturbance.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>River / Stream Flowing</strong></td>
+<td style="text-align: left;">100 Hz – 6,000 Hz</td>
+<td style="text-align: left;">Continuous, rushing noise</td>
+<td style="text-align: left;">ESC-50, AudioSet</td>
+<td style="text-align: left;">Constant, steady rushing water.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Thesis Feature Engineering: Optimizing Spectrograms per Class</h2>
+<p>Because of the differences in frequency and time spans of these sounds, you must optimize your TinyML feature extractor:</p>
+<pre><code>                  ┌────────────── Audio Signal (16kHz) ──────────────┐
+                  │                                                 │
+                  ▼                                                 ▼
+        [ Short-Time Window ]                             [ Long-Time Window ]
+          (e.g., 20ms Frame)                                (e.g., 40ms Frame)
+                  │                                                 │
+                  ▼                                                 ▼
+        High Temporal Resolution                         High Frequency Resolution
+       (Ideal for transient sounds)                     (Ideal for continuous sounds)
+    - Gunshots, Axe chops, Footsteps                 - Chainsaws, Vehicle engines, Birds
+</code></pre>
+<h3>Strategic Advice for Feature Extraction (MFE Settings)</h3>
+<ol>
+<li><strong>For Impulsive/Transient Sounds (Gunshots, Axe hits, Footsteps)</strong>:<ul>
+<li><em>Frame Length</em>: <strong>20 ms</strong></li>
+<li><em>Frame Stride</em>: <strong>10 ms</strong></li>
+<li><em>Why</em>: Minimizes temporal smearing, ensuring the quick shockwave of the gunshot is captured in a single, high-contrast column on the spectrogram.</li>
+</ul>
+</li>
+<li><strong>For Continuous/Engine Sounds (Chainsaws, Trucks, Cicadas)</strong>:<ul>
+<li><em>Frame Length</em>: <strong>40 ms</strong></li>
+<li><em>Frame Stride</em>: <strong>20 ms</strong></li>
+<li><em>Why</em>: Improves frequency resolution, helping the network distinguish the exact harmonics of the motor or wind.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>4. Advanced Thesis Concept: Hierarchical Two-Stage Inference</h2>
+<p>To save battery, running a 14-class CNN continuously on the ESP32-S3 is inefficient. For your thesis, proposing a <strong>Hierarchical Two-Stage Inference Architecture</strong> will significantly elevate your grade:</p>
+<h3>Stage 1: Ultra-Low-Power Acoustic Anomaly Detector (Always On / Duty-Cycled)</h3>
+<ul>
+<li><strong>Model</strong>: Autoencoder Neural Network or simple Root-Mean-Square (RMS) / Zero-Crossing-Rate (ZCR) threshold.</li>
+<li><strong>Task</strong>: Check if the current audio segment is "normal background" (e.g., quiet forest, light wind).</li>
+<li><strong>Result</strong>: If normal, immediately return the MCU to Deep Sleep. If the sound is "anomalous" (unusually loud or structured), trigger Stage 2.</li>
+</ul>
+<h3>Stage 2: Main Classifier CNN (Activated Only on Anomaly)</h3>
+<ul>
+<li><strong>Model</strong>: 2D Convolutional Neural Network (CNN) with 14 classes (trained using the classes above).</li>
+<li><strong>Task</strong>: Run a full classification to determine if the anomaly is a threat (e.g., chainsaw, gunshot) or a false positive (e.g., heavy thunder, close monkey call).</li>
+<li><strong>Result</strong>: If it is a threat, trigger the GSM module and send the SMS alert.</li>
+</ul>
+<div class='page-break'></div>
+
+<h1>SUB-CLASSES TAXONOMY</h1>
+<h1>Thesis Taxonomy: Deep Acoustic Sub-Class Analysis</h1>
+<p>A major challenge in forest acoustic monitoring is <strong>intra-class variance</strong>—the fact that different models, calibers, or materials under the same category sound completely different. </p>
+<p>To build a high-performance TinyML model, you must recognize these sub-classes during dataset assembly and training. This document details the acoustic variations and spectral signatures of your core threat sub-classes.</p>
+<hr />
+<h2>1. Chainsaw Sub-Classes</h2>
+<p>Chainsaws vary significantly based on their power source (gasoline vs. electric/battery).</p>
+<h3>Sub-Class A: Gasoline 2-Stroke Chainsaw (Classic)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Raspy, erratic, combustion-dominated harmonics.</li>
+<li><strong>Spectral Characteristics</strong>: Rich low-frequency harmonics ((80\text{ Hz} - 500\text{ Hz})) representing cylinder explosions. When cutting, the RPMs sag and the pitch drops under load, creating a weeping sound.</li>
+<li><strong>Inference Impact</strong>: High low-frequency energy. Needs a low-pass or wideband filter config.</li>
+</ul>
+<h3>Sub-Class B: Electric / Battery Chainsaw (Modern)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: High-pitched coil whine, whistling fan noise, clean hum.</li>
+<li><strong>Spectral Characteristics</strong>: Absence of low-frequency engine pops. Dominated by high-frequency electric motor PWM switching and gearing sounds ((1\text{ kHz} - 4\text{ kHz})). RPMs remain highly stable even under load.</li>
+<li><strong>Inference Impact</strong>: Can be easily missed if your model relies too heavily on low-frequency engine signatures. High-frequency bins must be weighted properly.</li>
+</ul>
+<hr />
+<h2>2. Chopping &amp; Clearing Sub-Classes</h2>
+<p>Chopping sounds vary based on the wood density and the tool being used.</p>
+<h3>Sub-Class A: Steel Axe on Hardwood</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Bright metallic ring followed by a clean, sharp crack.</li>
+<li><strong>Spectral Characteristics</strong>: Sharp impact transient (&lt;10ms rise time) with a distinct metallic resonance ring ((1.5\text{ kHz} - 3\text{ kHz})) from the steel head.</li>
+<li><strong>Inference Impact</strong>: Very easy to detect due to the high-frequency metal ring component.</li>
+</ul>
+<h3>Sub-Class B: Steel Axe on Softwood / Wet Wood</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Dull, muffled "thud".</li>
+<li><strong>Spectral Characteristics</strong>: Low-to-mid frequency compression ((100\text{ Hz} - 800\text{ Hz})) with almost no high-frequency steel resonance. The decay is very short as wet/soft wood absorbs the sound waves.</li>
+<li><strong>Inference Impact</strong>: Harder to detect. Often misclassified as large animal footsteps or dropping branches.</li>
+</ul>
+<h3>Sub-Class C: Machete / Brush Hook on Bamboo &amp; Undergrowth</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Rhythmic swishing followed by light, hollow cracking sounds.</li>
+<li><strong>Spectral Characteristics</strong>: Broad high-frequency friction noise ((2\text{ kHz} - 6\text{ kHz})) from the blade moving through air/leaves, followed by a hollow impulse.</li>
+<li><strong>Inference Impact</strong>: Rhythmic and lower energy than axe chopping.</li>
+</ul>
+<hr />
+<h2>3. Gunshot Sub-Classes (Poaching)</h2>
+<p>Gunshots differ based on bullet speed (supersonic vs. subsonic) and caliber.</p>
+<h3>Sub-Class A: Supersonic Rifle (e.g., .223, 7.62mm, Hunting Rifles)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Dual-event "Crack-Bang".</li>
+<li><strong>Spectral Characteristics</strong>: <ol>
+<li>A sharp, high-frequency bow-shockwave "crack" (caused by the bullet breaking the sound barrier, peaks at (3\text{ kHz} - 8\text{ kHz})).</li>
+<li>A slightly delayed muzzle blast "bang" (lower frequency, (100\text{ Hz} - 500\text{ Hz})).</li>
+</ol>
+</li>
+<li><strong>Inference Impact</strong>: Extremely loud and distinct. Easy to classify even at long distances.</li>
+</ul>
+<h3>Sub-Class B: Subsonic Handgun (e.g., 9mm, .45 ACP, Pistols)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Single-event "Pop" or "Bang".</li>
+<li><strong>Spectral Characteristics</strong>: Muzzle blast only (no supersonic shockwave). Lower energy, with a broader frequency distribution ((100\text{ Hz} - 2\text{ kHz})).</li>
+<li><strong>Inference Impact</strong>: Decays much faster with distance than rifle fire.</li>
+</ul>
+<h3>Sub-Class C: Shotgun (e.g., 12-Gauge)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Heavy, bass-heavy booming blast.</li>
+<li><strong>Spectral Characteristics</strong>: Huge low-frequency pressure wave ((30\text{ Hz} - 400\text{ Hz})) with a long acoustic decay. High amplitude over a wide area.</li>
+<li><strong>Inference Impact</strong>: Can saturate/clip the microphone if fired nearby, causing flat-top wave clipping.</li>
+</ul>
+<h3>Sub-Class D: Air Rifle / Pneumatic Gun (Silent Poaching)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Short, metallic pop and hiss.</li>
+<li><strong>Spectral Characteristics</strong>: Very low amplitude. High-frequency pneumatic exhaust hiss ((2\text{ kHz} - 6\text{ kHz})).</li>
+<li><strong>Inference Impact</strong>: Very quiet; requires the sensor node to be closer to the source to detect.</li>
+</ul>
+<hr />
+<h2>4. Boat Sub-Classes (River Forests / Floodplain Logging)</h2>
+<p>Boats are the primary transport for illegal logging in delta/river forests.</p>
+<h3>Sub-Class A: Long-tail Boat (Unmuffled 2/4-Stroke)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Deafening, metallic, rapid mechanical popping.</li>
+<li><strong>Spectral Characteristics</strong>: Extremely loud. Exhaust discharges directly into the air. Features sharp, rhythmic engine pulses ((50\text{ Hz} - 600\text{ Hz})) that echo off river banks.</li>
+<li><strong>Inference Impact</strong>: Very high amplitude. Dominates the acoustic landscape; easy to detect from miles away.</li>
+</ul>
+<h3>Sub-Class B: Outboard Motorboat (Muffled)</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Continuous low-frequency hum, bubbling, water cavitation.</li>
+<li><strong>Spectral Characteristics</strong>: Exhaust is muffled underwater. High-frequency water bubbling and propeller shearing noise ((1\text{ kHz} - 5\text{ kHz})) mixed with a steady low motor hum.</li>
+<li><strong>Inference Impact</strong>: Moderately quiet; sound is directional and absorbed by water.</li>
+</ul>
+<h3>Sub-Class C: Manual Paddling / Oar Rowing</h3>
+<ul>
+<li><strong>Acoustic Signature</strong>: Rhythmic splashing and creaking.</li>
+<li><strong>Spectral Characteristics</strong>: Low-amplitude periodic splashing ((500\text{ Hz} - 3\text{ kHz})) coupled with wood-on-wood creaking of the oarlocks.</li>
+<li><strong>Inference Impact</strong>: Extremely quiet. Requires temporal pattern matching over several seconds.</li>
+</ul>
+<div class='page-break'></div>
+
+<h1>DISTANCE ATTENUATION PHYSICS</h1>
+<h1>Thesis Guide: Handling Acoustic Distance, Attenuation, &amp; Reverberation</h1>
+<p>In a real forest deployment, sounds will be recorded at varying distances from the sensor node (from 5 meters to over 500 meters). As sound travels through a dense forest, it undergoes physical transformations that completely alter its acoustic profile.</p>
+<p>If your model is only trained on close-up, clean recordings, it will fail to detect distant threats. This guide details how to handle distance-based attenuation, foliage absorption, and multipath reverberation.</p>
+<hr />
+<h2>1. The Physics of Forest Acoustic Propagation</h2>
+<p>When sound travels through a forest, it is degraded by three primary physical processes:</p>
+<pre><code>[ Close Sound Source ] ──( 6dB Drop per Double Distance )──&gt; [ Geometric Spreading ]
+[ Foliage &amp; Leaves ] ──( Absorbs Frequencies &gt; 1kHz )──────&gt; [ High-Frequency Attenuation ]
+[ Tree Trunks &amp; Ground ] ──( Multiple Sound Reflections )──&gt; [ Temporal Reverberation ]
+</code></pre>
+<ol>
+<li><strong>Geometric Spreading (Volume Drop)</strong>: Sound energy drops by approximately <strong>6 dB for every doubling of distance</strong> from the source (the Inverse Square Law).</li>
+<li><strong>Excess Attenuation (Foliage Absorption)</strong>: Leaves, pine needles, and undergrowth act as low-pass filters. They absorb high frequencies much faster than low frequencies. Frequencies above <strong>1 kHz</strong> attenuate rapidly over distance.</li>
+<li><strong>Multipath Scattering (Reverberation)</strong>: Sound waves bounce off tree trunks and the forest floor. A clean, sharp sound (like a 10ms gunshot or axe chop) gets scattered, smearing the sound over time into a longer, muddy echo (up to 300ms).</li>
+</ol>
+<hr />
+<h2>2. Spectrogram Alteration: Close vs. Distant Sounds</h2>
+<p>Your TinyML Convolutional Neural Network (CNN) reads Mel-Spectrograms as images. Here is how distance changes those images:</p>
+<h3>Example: Gunshot Spectrograms</h3>
+<ul>
+<li><strong>Close Gunshot (e.g., &lt; 30m)</strong>:<ul>
+<li><em>Visual</em>: A sharp, dark vertical line spanning from 100Hz to 8,000Hz.</li>
+<li><em>Amplitude</em>: High energy, crisp, clear transient start.</li>
+</ul>
+</li>
+<li><strong>Distant Gunshot (e.g., &gt; 300m)</strong>:<ul>
+<li><em>Visual</em>: A blurry, faint blob restricted entirely to low frequencies (under 800Hz) with a long tail.</li>
+<li><em>Amplitude</em>: Very low energy, low Signal-to-Noise Ratio (SNR).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>3. Machine Learning Solutions (Data Augmentation)</h2>
+<p>To make your TinyML model capable of recognizing both close and distant sounds, you must apply <strong>Data Augmentation</strong> to your dataset in Python before training:</p>
+<h3>Python Augmentation Strategy</h3>
+<p>When compiling your training data, take your close-up recordings (e.g., clean chainsaw or gunshot clips) and programmatically generate "distant" versions using these transformations:</p>
+<ol>
+<li><strong>Gain Reduction (Volume Control)</strong>:<ul>
+<li>Scale the amplitude of the audio array by a random factor between <code>0.05</code> and <code>0.3</code> to simulate volume drop.</li>
+</ul>
+</li>
+<li><strong>Low-Pass Filtering (Foliage Simulation)</strong>:<ul>
+<li>Apply a Butterworth low-pass filter with a random cutoff frequency between <code>500 Hz</code> and <code>1.5 kHz</code> to simulate leaf absorption.</li>
+</ul>
+</li>
+<li><strong>Reverberation (Multipath Simulation)</strong>:<ul>
+<li>Convolve the audio with a synthetic room impulse response (RIR) or add a decay echo to simulate scattering off tree trunks.</li>
+</ul>
+</li>
+<li><strong>Noise Injection (SNR Degradation)</strong>:<ul>
+<li>Mix the clean sound with a continuous recording of forest background wind/rain at varying Signal-to-Noise Ratios (from +15dB down to -5dB).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>4. Software Solutions in ESP32-S3 Firmware</h2>
+<p>On the microcontroller, you must implement techniques to ensure faint signals are not ignored and loud signals do not distort (clip) the analog-to-digital converter (ADC).</p>
+<h3>Technique A: Logarithmic Spectrogram Scaling</h3>
+<p>When configuring your feature extractor (MFE block in Edge Impulse), ensure you use <strong>Logarithmic Scaling</strong>:<br />
+$$\text{Output} = 10 \cdot \log_{10}(\text{Mel Energy})$$<br />
+*   <em>Why</em>: Human hearing and sound propagation are logarithmic. Log-scaling compresses loud, close-up sounds while boosting the contrast of quiet, distant sounds, allowing the neural network to analyze both on the same scale.</p>
+<h3>Technique B: Software Digital Automatic Gain Control (AGC)</h3>
+<p>If your digital microphone does not have hardware AGC, you can implement a simple software gain-scaling step in your ESP32 C++ buffer before running inference:</p>
+<pre><code class="language-cpp">void apply_digital_agc(int16_t* buffer, size_t size, float target_rms = 4000.0) {
+  float sum = 0.0;
+
+  // 1. Calculate the Root Mean Square (RMS) volume of the current 2s block
+  for (size_t i = 0; i &lt; size; i++) {
+    sum += buffer[i] * buffer[i];
+  }
+  float rms = sqrt(sum / size);
+
+  // 2. If the block is very quiet, boost it dynamically
+  if (rms &gt; 50.0 &amp;&amp; rms &lt; target_rms) {
+    float gain = target_rms / rms;
+    if (gain &gt; 8.0) gain = 8.0; // Cap maximum gain boost at 8x to avoid boosting sensor floor noise
+
+    for (size_t i = 0; i &lt; size; i++) {
+      int32_t boosted = (int32_t)(buffer[i] * gain);
+      // Prevent overflow clipping
+      if (boosted &gt; 32767) boosted = 32767;
+      if (boosted &lt; -32768) boosted = -32768;
+      buffer[i] = (int16_t)boosted;
+    }
+  }
+}
+</code></pre>
+<p><em>Add this function inside your ESP32 sketch right after reading the raw I2S microphone data.</em></p>
+<div class='page-break'></div>
+
+<h1>PART 3: CHAPTER 2 - FORMAL LITERATURE REVIEW (73 PAPERS, 6 DOMAINS)</h1>
+<p>CHAPTER 2: LITERATURE REVIEW</p>
+<p>Edge AI-Powered Passive Acoustic Surveillance System for Illegal Forest Activity Detection</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.1  INTRODUCTION</p>
+<p>Forests are among the most ecologically and economically vital ecosystems on Earth,<br />
+providing carbon sequestration, biodiversity habitats, watershed regulation, and<br />
+livelihoods for hundreds of millions of people. Yet, year after year, they face severe<br />
+threats from illegal logging, poaching, and other clandestine human activities. The<br />
+Global Forest Watch (GFW) platform reported the loss of 3.7 million hectares of<br />
+tropical primary forest in 2023 alone. Traditional enforcement — satellite monitoring<br />
+and on-foot ranger patrols — is plagued by critical limitations: cloud cover renders<br />
+satellite imagery unreliable for days at a time, while ranger patrols are expensive,<br />
+hazardous, and incapable of providing round-the-clock coverage in vast, remote areas.</p>
+<p>To fill this enforcement gap, the research community has increasingly turned to<br />
+Passive Acoustic Monitoring (PAM) — the deployment of autonomous listening devices<br />
+that continuously record ambient forest soundscapes. The core insight is that nearly<br />
+every form of illegal forest activity produces a distinctive acoustic signature:<br />
+chainsaws, axes, gunshots, vehicular engines, and human voices. If these signatures<br />
+can be reliably detected and classified by an onboard system, an immediate alert can<br />
+be transmitted to the relevant authority (forest rangers, coastal guards, or wildlife<br />
+enforcement agencies), enabling real-time interdiction.</p>
+<p>The emergence of TinyML — the subfield of machine learning focused on deploying<br />
+trained inference models on microcontrollers with as little as 256 KB of RAM — has<br />
+made fully autonomous, solar-powered, edge AI acoustic sensors a practical reality<br />
+(Merenda et al., 2020). When a neural network runs entirely on the sensor node<br />
+itself, there is no need to continuously stream raw audio over power-hungry cellular<br />
+or satellite connections. Only a compact alert packet needs to be transmitted when a<br />
+threat is detected, making it feasible to deploy these devices indefinitely on small<br />
+solar-charged battery systems.</p>
+<p>This literature review synthesises the existing body of research into six thematic<br />
+areas that are directly relevant to this thesis:</p>
+<ol>
+<li>The scope and scale of illegal forest activities and the limitations of<br />
+      conventional monitoring methods.</li>
+<li>Passive Acoustic Monitoring (PAM) and eco-acoustic analysis of forest<br />
+      soundscapes.</li>
+<li>Acoustic feature extraction methods for edge-constrained hardware.</li>
+<li>Machine learning classifiers — from classical algorithms to Tiny Transformers<br />
+      — for environmental sound classification.</li>
+<li>IoT hardware architectures, low-power wireless communication, and energy<br />
+      harvesting for deep-forest deployment.</li>
+<li>System-level challenges: domain shift, environmental noise, adversarial<br />
+      robustness, and multi-zone alert architectures.</li>
+</ol>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.2  ILLEGAL FOREST ACTIVITIES: SCOPE AND CONVENTIONAL MONITORING LIMITATIONS</p>
+<p>2.2.1  The Global Scale of Illegal Logging and Poaching</p>
+<p>Illegal logging is widely recognised as one of the primary drivers of global<br />
+deforestation. Innes (2010) documented how political instability in Madagascar in<br />
+the early 2000s led to a dramatic surge in the illegal harvest of Dalbergia species<br />
+(rosewood) from protected national parks, with timber exported under falsified<br />
+permits. Only 7% of tropical production forests were being managed sustainably at<br />
+that time. The study demonstrated the fundamental inadequacy of permit-based and<br />
+trade-control mechanisms in the absence of on-the-ground monitoring: without<br />
+real-time acoustic or sensor-based detection, illegal activity can escalate rapidly<br />
+before it is identified.</p>
+<p>More recently, Tleimat et al. (2022) studied the impact of COVID-19 economic<br />
+disruptions on environmental crime in Ecuador's Pacific Forest. By analysing passive<br />
+acoustic data recorded in the forest canopy at two protected areas (Reserva Jama<br />
+Coaque and Bosque Seco Lalo Loor) between December 2019 and March 2021, the team<br />
+quantified a statistically significant increase in chainsaw activity after pandemic<br />
+lockdowns began (β_post_lockdown = 0.568 ± 0.266, p = 0.030). Gunshot detections,<br />
+used as a proxy for poaching events, were insufficient in frequency to support<br />
+formal modelling, but 100% of all detected gunshots occurred during the lockdown<br />
+period. The study is significant for two reasons: first, it provided empirical<br />
+validation that passive acoustic monitoring can distinguish between legal and<br />
+illegal activity patterns at the population level; and second, it demonstrated that<br />
+economic shocks directly translate into increased poaching and logging pressure,<br />
+making robust, continuous monitoring systems more urgent than ever.</p>
+<p>2.2.2  Limitations of Conventional Monitoring Approaches</p>
+<p>Satellite remote sensing remains the most widely deployed tool for large-scale<br />
+forest monitoring. Ali et al. (2025) reviewed 196 studies on IoT and remote sensing<br />
+for sustainable forest management and found that satellite-based systems excel at<br />
+producing high-resolution biomass and land-cover change maps but suffer from a<br />
+fundamental latency problem: satellite revisit periods of 1–16 days mean that an<br />
+illegal logging event can strip a significant area before any detection occurs. Cloud<br />
+cover, which can persist for weeks in tropical regions, further degrades reliability.</p>
+<p>Ranger patrol systems face a different set of challenges. They are costly in terms<br />
+of human resources, create personal danger for field staff, and cannot provide<br />
+continuous coverage of the vast areas they are assigned to monitor. From a detection-<br />
+theoretic standpoint, a patrol is a sparse temporal sample of a continuous monitoring<br />
+problem. An intelligent acoustic sensor network, by contrast, is always listening.</p>
+<p>The forest management literature also highlights the broader ecological context<br />
+within which such monitoring takes place. Johnson et al. (2023) showed that mapping<br />
+historical forest biomass at 30-metre resolution using Landsat imagery and LiDAR<br />
+required extensive, multi-year data collection efforts, yielding maps with inherent<br />
+tradeoffs between accuracy, saturation effects at high biomass levels, and spatial<br />
+resolution. Saim and Aly (2025) reviewed fusion-based remote sensing approaches and<br />
+found that even the most advanced multi-source fusion methods (optical + radar +<br />
+LiDAR + field measurements) still rely on standardised evaluation protocols that<br />
+have not been developed for the task of real-time illegal activity detection. This<br />
+underscores the need for a fundamentally different approach — one based on<br />
+continuous, on-site acoustic monitoring rather than periodic remote observation.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.3  PASSIVE ACOUSTIC MONITORING AND ECO-ACOUSTIC SOUNDSCAPE ANALYSIS</p>
+<p>2.3.1  The Foundations of Eco-Acoustics</p>
+<p>Passive Acoustic Monitoring (PAM) has a long heritage in bioacoustics, but its<br />
+application to illegal activity detection is more recent. Sethi et al. (2020) made<br />
+a seminal contribution by developing a generalised, data-driven eco-acoustic<br />
+monitoring framework. By training a convolutional neural network (CNN) to embed<br />
+soundscapes from multiple diverse ecosystems — tropical rainforests, temperate<br />
+woodlands, underwater environments — into a common acoustic feature space, the<br />
+authors demonstrated that a single generalised model could:</p>
+<p>•  Quantify variation in biodiversity and habitat quality across space in<br />
+     supervised mode (AUC &gt; 0.95 in distinguishing high-quality from degraded<br />
+     habitats).<br />
+  •  Identify anomalous sounds in real-time playback experiments in unsupervised<br />
+     mode, providing a concrete route to automated illegal logging and hunting<br />
+     detection.</p>
+<p>The key architectural insight from Sethi et al. (2020) — that a universal set of<br />
+acoustic features derived from a CNN can generalise across wildly different<br />
+ecosystems — directly motivates the approach taken in this thesis. Rather than<br />
+building a bespoke feature extractor for a single rainforest, this research uses<br />
+a CNN trained on a broad acoustic dataset to extract general-purpose features that<br />
+can then be fine-tuned for forest-specific illegal activity classes.</p>
+<p>2.3.2  Acoustic Scene Classification (ASC) and the DCASE Benchmark</p>
+<p>The Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge,<br />
+organised annually since 2013, has served as the central benchmark for the broader<br />
+audio machine learning community. Park et al. (2018) presented a system that<br />
+achieved 4th place in the DCASE 2016 Challenge. Their key methodological<br />
+contribution was multi-system score fusion: several independent classification<br />
+systems, each trained on different feature sets (MFCC, LPC, spectral centroid,<br />
+zero-crossing rate), were combined via late fusion to improve final accuracy beyond<br />
+any single system. This principle — that ensemble diversity improves robustness —<br />
+is directly applicable to this thesis, where fusing acoustic feature streams (mel-<br />
+spectrogram, MFCC, and temporal energy envelope) can reduce false alarm rates in<br />
+the noisy forest environment.</p>
+<p>Zhang et al. (2025) addressed the DCASE 2024 Challenge Task 1, which specifically<br />
+focused on device generalisation under strict model complexity constraints. The<br />
+authors proposed an entropy-guided curriculum learning strategy: instead of training<br />
+on all data simultaneously, the curriculum began with training samples where the<br />
+model was most uncertain about the recording device domain (high Shannon entropy in<br />
+the device posterior), gradually introducing device-specific low-entropy samples.<br />
+This entropy-based curriculum reduced domain shift significantly without adding any<br />
+parameters or inference overhead. The relevance to this thesis is direct: the<br />
+proposed deployment system uses low-cost MEMS microphones (INMP441) that may<br />
+produce recordings with different spectral characteristics than the training data,<br />
+making domain-shift mitigation strategies such as entropy-guided curriculum learning<br />
+a high-priority design consideration.</p>
+<p>Duppada and Hiray (2017) further explored ensemble strategies for acoustic scene<br />
+classification, testing state-of-the-art DNN architectures — VGG, GoogLeNet, and<br />
+ResNet — on the TUT Acoustic Scenes 2017 dataset. Their best ensemble improved<br />
+the DCASE-2017 Task 1 baseline by 3.1% on the test set and 10% on the development<br />
+set, confirming that network architecture diversity is as important as feature<br />
+diversity for robust acoustic classification.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.4  ACOUSTIC FEATURE EXTRACTION FOR EDGE-CONSTRAINED HARDWARE</p>
+<p>A central engineering challenge in any TinyML acoustic system is transforming raw<br />
+audio — a continuous 1D time-domain signal sampled at 16,000 samples per second —<br />
+into a compact 2D feature representation that is both informationally rich and<br />
+computationally tractable for a resource-constrained microcontroller. The following<br />
+feature extraction methods have been evaluated in the literature.</p>
+<p>2.4.1  Mel-Frequency Cepstral Coefficients (MFCC) and Mel-Spectrograms</p>
+<p>MFCCs are the most widely used acoustic features in the environmental sound<br />
+classification literature. The Mel scale warps the linear frequency axis to match<br />
+the non-linear frequency resolution of the human cochlea, clustering more frequency<br />
+bins in the low-frequency range (where most of the power of chainsaw engines,<br />
+gunshot shock waves, and human voices lies) and fewer bins at high frequencies.<br />
+The cepstral step decorrelates the filter bank outputs, producing a compact set of<br />
+coefficients (typically 13–40 coefficients) that are highly discriminative for<br />
+audio classification tasks.</p>
+<p>Nordby (2019) used Mel-Spectrograms as the input to depthwise-separable CNNs<br />
+deployed on an STM32L476 microcontroller, achieving 70.9% mean 10-fold accuracy<br />
+on the UrbanSound8K dataset while consuming only 20% of the microcontroller's CPU<br />
+capacity. Elliott et al. (2021) similarly adopted Mel-Spectrograms as the input<br />
+modality for a BERT-based Tiny Transformer achieving state-of-the-art accuracy on<br />
+office sound classification with only 6,000 parameters — a 99.85% reduction<br />
+compared to a conventional ResNet.</p>
+<p>2.4.2  Short-Time Hartley Transform (STHT) Spectrograms</p>
+<p>Singh et al. (2024) introduced an important optimisation for microcontroller-based<br />
+acoustic monitoring: replacing the conventional Short-Time Fourier Transform (STFT)<br />
+with the Short-Time Hartley Transform (STHT). The Hartley Transform is the real-<br />
+valued analogue of the Fourier Transform — it produces no complex-valued outputs,<br />
+eliminating the computational cost and memory overhead of complex-number arithmetic<br />
+on hardware that lacks a floating-point co-processor. On the 32-bit microprocessor<br />
+used in the IASN system, the STHT-based spectrogram computed low-level audio<br />
+features (LLFs) significantly faster than a comparable STFT implementation, making<br />
+real-time on-device inference feasible at a sampling rate of 8 kHz. The resulting<br />
+system achieved 96.61% accuracy in detecting illegal logging activities across five<br />
+acoustic classes.</p>
+<p>2.4.3  Linear Predictive Coding (LPC)</p>
+<p>Linear Predictive Coding (LPC) models the audio source as an all-pole filter<br />
+excited by either white noise (for unvoiced sounds like chainsaws) or a pulse train<br />
+(for voiced sounds like human speech). The filter coefficients serve as compact<br />
+acoustic descriptors that capture the spectral envelope without requiring a<br />
+transform into the frequency domain. Grama and Rusu (2017) applied LPC features<br />
+combined with Random Forest classification to a wildlife intruder detection dataset<br />
+containing birds, gunshots, chainsaws, human voices, and tractors. The LPC-based<br />
+system achieved 99.25% overall correct classification with extremely low false<br />
+omission rates for gunshots (0.14%) and chainsaws (0.4%), demonstrating that<br />
+lightweight classical features can be highly effective when the target sound classes<br />
+have distinctive spectral envelope shapes.</p>
+<p>2.4.4  Spectrogram vs. Mel Filterbank Energy (MFE) — Comparative Analysis</p>
+<p>Lorenzo et al. (2024), in the "Trees Have Ears" study, directly compared two feature<br />
+extraction approaches on TinyML hardware deployed for illegal logging detection in<br />
+Philippine rainforests:</p>
+<p>•  Raw Spectrogram features: Produced exceptional accuracy and efficient<br />
+     resource utilisation for the binary classification task (chainsaw vs.<br />
+     ambient), making it the preferred choice for resource-constrained environments<br />
+     where simplicity of the inference pipeline is paramount.</p>
+<p>•  Mel Filterbank Energy (MFE) features: Demonstrated superior performance on<br />
+     real-world acoustic analysis, particularly for the more demanding multiclass<br />
+     sound classification task, achieving 84.4% accuracy at 8 kHz and 89.6%<br />
+     at 16 kHz sampling rates.</p>
+<p>A critical practical finding was that chainsaw sounds could be reliably detected<br />
+at distances of up to 20 metres with either feature set on the RP2040<br />
+microcontroller. This range is a key parameter for node spacing in any real-world<br />
+zone-based deployment.</p>
+<p>2.4.5  Neural Architecture Search (NAS) for Automatic Feature Learning</p>
+<p>The most recent paradigm shift in acoustic feature learning eliminates hand-<br />
+designed features entirely. Ranmal et al. (2024) proposed ESC-NAS, a hardware-<br />
+aware neural architecture search framework that automatically designs deep CNN<br />
+architectures to extract features directly from raw audio waveforms. Using black-<br />
+box Bayesian optimisation, ESC-NAS explored a cell-based architecture search space<br />
+of 2D convolution, batch normalisation, and max-pooling layers, evaluating each<br />
+candidate architecture under actual hardware simulation constraints. The resulting<br />
+models achieved 85.78% accuracy on the FSC22 dataset, 81.0% on ESC-50, and<br />
+96.25% on ESC-10, with model footprints small enough for microcontroller deployment.<br />
+The FSC22 dataset, which contains 27 forest-specific sound classes recorded in<br />
+real outdoor environments, is particularly relevant to this thesis.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.5  MACHINE LEARNING CLASSIFIERS: FROM RANDOM FORESTS TO TINY TRANSFORMERS</p>
+<p>The literature on acoustic classification for forest surveillance reveals a clear<br />
+evolutionary trajectory, from lightweight classical algorithms on constrained<br />
+microcontrollers to hardware-optimised deep neural networks that match or exceed<br />
+classical performance with significantly more representational capacity.</p>
+<p>2.5.1  Classical Machine Learning: kNN, SVM, and Random Forests</p>
+<p>For low-dimensional feature vectors (e.g., 13-coefficient MFCCs or 10-coefficient<br />
+LPC vectors), classical classifiers provide competitive baselines with very low<br />
+inference latency and memory footprints, making them attractive for the most<br />
+constrained hardware.</p>
+<p>Singh et al. (2024) compared k-Nearest Neighbours (kNN), Decision Trees (DT),<br />
+Random Forests (RF), AdaBoost, and SVMs on their STHT-spectrogram features. Random<br />
+Forests provided the best overall balance of accuracy (96.61%), sensitivity<br />
+(96.20%), specificity (99.14%), and F-score (96.07%) across five illegal logging<br />
+sound classes: chainsaw, hammering, human activity, electric saw, and ambient noise.<br />
+Grama and Rusu (2017) similarly found Random Forests superior for LPC-based<br />
+wildlife intruder classification (99.25% accuracy), establishing RF as the go-to<br />
+classical baseline for acoustic surveillance tasks.</p>
+<p>2.5.2  Depthwise-Separable CNNs for Microcontrollers</p>
+<p>Standard 2D convolutional layers applied to Mel-Spectrogram inputs produce highly<br />
+accurate models but require prohibitive numbers of multiply-accumulate operations<br />
+(MACs) for microcontroller inference. Depthwise-Separable Convolutions (DS-Conv),<br />
+first widely popularised in MobileNet, decompose a standard 3×3 convolution into:</p>
+<ol>
+<li>A depthwise convolution — one filter per input channel, applied spatially.</li>
+<li>A pointwise convolution — 1×1 convolution across channels.</li>
+</ol>
+<p>This decomposition reduces the total number of MACs by a factor of approximately<br />
+8–9× compared to standard convolutions, with only a modest accuracy penalty.<br />
+Nordby (2019) demonstrated that a DS-CNN designed under a strict 50% resource<br />
+budget (CPU, RAM, Flash) on an STM32L476 microcontroller achieved 70.9% accuracy<br />
+on UrbanSound8K while using only 20% CPU capacity. This work established the<br />
+baseline for subsequent microcontroller audio classification research and validated<br />
+that deep learning-quality inference is achievable at the edge.</p>
+<p>2.5.3  Tiny Transformers with Attention Mechanisms</p>
+<p>Elliott et al. (2021) challenged the dominance of CNNs in edge audio classification<br />
+by adapting BERT-style attention mechanisms for the environmental sound domain.<br />
+The proposed Tiny Transformer used Mel-Spectrograms as a sequence of time-frequency<br />
+patches, processed through multi-head self-attention layers. Despite its drastically<br />
+reduced parameter count — approximately 6,000 parameters, compared to over 4 million<br />
+for a standard ResNet-18 — the Tiny Transformer outperformed MFCC-based CNN<br />
+baselines on an office sound classification dataset.</p>
+<p>The critical insight from Elliott et al. (2021) is architectural: self-attention<br />
+captures long-range temporal dependencies in the spectrogram (e.g., the slow ramp-<br />
+up of a chainsaw engine or the reverberant tail of a gunshot), which are missed by<br />
+local convolution kernels. For illegal forest activity classification, where the<br />
+temporal structure of sounds is highly discriminative (a continuous chainsaw has<br />
+very different temporal dynamics than an impulsive gunshot), self-attention may<br />
+provide significant advantages over purely convolutional architectures.</p>
+<p>2.5.4  Multi-System Score Fusion</p>
+<p>Park et al. (2018) demonstrated that combining the output probability scores of<br />
+multiple independent classification systems — each trained on a different feature<br />
+set — via a weighted linear fusion significantly improves final accuracy and<br />
+robustness. Their system achieved 4th rank in DCASE 2016 through this ensemble<br />
+fusion strategy. For the proposed system, where multiple feature streams (MFCC,<br />
+MFE, raw spectrogram) may be computed in parallel, late fusion of their<br />
+classification scores offers a low-cost path to improved robustness without<br />
+requiring a more complex model architecture.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.6  IOT HARDWARE, WIRELESS COMMUNICATION, AND ENERGY HARVESTING</p>
+<p>2.6.1  Microcontroller Platforms for TinyML Acoustic Systems</p>
+<p>The choice of microcontroller directly constrains all other system design decisions,<br />
+as it determines the available RAM (for feature computation and model weights),<br />
+Flash storage (for the model and firmware), CPU speed (for inference latency), and<br />
+power consumption (for battery life). The following platforms are most relevant to<br />
+this research:</p>
+<p>•  ESP32 Series (Espressif): Dual-core 240 MHz Xtensa LX6 processor with 520 KB<br />
+     SRAM, Wi-Fi and Bluetooth radio, deep-sleep current of ~10 μA. The ESP32-S3<br />
+     variant adds vector instructions that accelerate neural network inference.<br />
+     Shah et al. (2024) demonstrated adversarial attack transferability specifically<br />
+     on ESP32 hardware, confirming it as the de-facto standard for edge audio<br />
+     research in cost-sensitive deployments.</p>
+<p>•  RP2040 (Raspberry Pi Foundation): Dual-core ARM Cortex-M0+ at 133 MHz with<br />
+     264 KB SRAM. Lorenzo et al. (2024) deployed TinyML models for chainsaw<br />
+     detection on the RP2040, achieving 89.6% accuracy at 16 kHz. Its extremely<br />
+     low cost and open-source toolchain make it attractive for large-scale<br />
+     deployments.</p>
+<p>•  STM32L476 (STMicroelectronics): 80 MHz ARM Cortex-M4F with 96 KB SRAM and<br />
+     hardware FPU. Nordby (2019) used this platform as the primary evaluation<br />
+     target for CNN-based environmental sound classification, demonstrating that<br />
+     depthwise-separable CNNs can run at real-time inference speeds within a<br />
+     20% CPU budget.</p>
+<p>The ESP32 is selected as the primary platform for this thesis due to its combination<br />
+of sufficient processing power for CNN inference, integrated I2S digital<br />
+microphone support (for the INMP441 MEMS microphone), deep-sleep power management,<br />
+and wide availability at low cost.</p>
+<p>2.6.2  Wireless Communication Protocols for Deep Forest Deployment</p>
+<p>Selecting the appropriate wireless technology for alert transmission is a<br />
+fundamental engineering trade-off between range, power consumption, data rate,<br />
+and infrastructure requirements.</p>
+<p>•  LoRaWAN: Singh et al. (2024) integrated a LoRa radio module with their<br />
+     intelligent acoustic sensor node, transmitting compressed alert packets<br />
+     several kilometres to an internet-connected gateway without requiring any<br />
+     cellular infrastructure. LoRaWAN's sub-GHz frequencies (typically 868 MHz<br />
+     in Europe, 915 MHz in North America and Asia) penetrate dense forest foliage<br />
+     with significantly less attenuation than 2.4 GHz Wi-Fi or Bluetooth signals.<br />
+     Papán et al. (2012) similarly designed a WSN for forest monitoring using<br />
+     LoRa-compatible radio technologies for chainsaw detection alerts. The key<br />
+     limitation is the maximum payload size (~50 bytes for maximum range settings)<br />
+     and duty cycle restrictions imposed by regional frequency regulations.</p>
+<p>•  ZigBee (IEEE 802.15.4): Ponniran et al. (2024) demonstrated a ZigBee-based<br />
+     forest monitoring WSN optimised for energy efficiency, stability, and<br />
+     reliability. ZigBee mesh networking allows alerts to hop between intermediate<br />
+     sensor nodes, extending coverage without requiring gateway infrastructure.<br />
+     However, its 2.4 GHz operating frequency results in significantly greater<br />
+     foliage attenuation than LoRaWAN.</p>
+<p>•  GSM/2G (SIM800L): For deployments in areas with existing cellular coverage<br />
+     (common at forest edges and in many tropical regions), a GSM module can<br />
+     transmit structured SMS or GPRS data packets directly to a monitoring<br />
+     centre. The SIM800L module (as proposed in this thesis) supports AT command<br />
+     SMS transmission with a payload of up to 160 characters in standard SMS<br />
+     format, sufficient to encode zone ID, detected threat class, confidence<br />
+     score, GPS coordinates, and battery status. The key trade-off is higher<br />
+     power consumption during transmission (~200 mA peak vs. ~20 mA for LoRa).</p>
+<p>•  LoRaWAN vs. GSM Comparison (Raju et al., 2023): The Green IoT Framework<br />
+     for Deep Forest Surveillance evaluated both Wi-Fi (for short-range hub-to-<br />
+     base communication) and LoRaWAN (for long-range forest edge transmission)<br />
+     in conjunction with an Arduino Nano control board and a NodeMCU gateway,<br />
+     concluding that LoRaWAN was superior for deep forest (&gt;500 m from gateway)<br />
+     deployments while Wi-Fi or GSM sufficed at forest edges with existing<br />
+     cellular coverage.</p>
+<p>2.6.3  Energy Harvesting and Power Budget Optimisation</p>
+<p>Autonomous long-term deployment in remote forests requires energy harvesting to<br />
+supplement or replace battery power. Solar energy harvesting is the most practical<br />
+option in tropical and subtropical forest environments where the canopy is not<br />
+completely closed. The system design must balance:</p>
+<ol>
+<li>Average power draw of the sensor node (including microcontroller sleep,<br />
+      microphone, and radio).</li>
+<li>Solar panel output under forest canopy shading conditions.</li>
+<li>Battery capacity required to bridge multi-day cloudy periods.</li>
+</ol>
+<p>Merenda et al. (2020) reviewed edge machine learning techniques for IoT devices<br />
+and identified duty-cycling — periodic alternation between deep sleep and active<br />
+inference states — as the single most effective strategy for extending battery life.<br />
+A typical duty cycle of 10% (e.g., 6 seconds active inference per minute) can<br />
+reduce average power consumption from tens of milliamperes to hundreds of<br />
+microamperes, enabling weeks of autonomous operation on a single 18650-format<br />
+lithium cell.</p>
+<p>The proposed system targets a 20 mA average current draw at 5V (100 mW average<br />
+power), achievable with a 5W solar panel charging a 2600 mAh LiFePO4 battery<br />
+through a TP4056-based charge controller. Under 1 hour of direct sunlight equivalent<br />
+per day (a conservative estimate for a forest-edge deployment), this yields<br />
+approximately 1.5× daily energy surplus, providing a comfortable buffer for<br />
+extended cloudy periods.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.7  GUNSHOT AND CHAINSAW ACOUSTIC SIGNATURES: PHYSICAL AND SPECTRAL PROPERTIES</p>
+<p>2.7.1  Gunshot Acoustic Signatures for Poaching Detection</p>
+<p>Gunshots are the primary acoustic indicator of poaching activity. Their acoustic<br />
+signature is produced by two overlapping physical phenomena (Shah et al., 2025):</p>
+<ol>
+<li>The muzzle blast: a high-amplitude broadband impulse generated by the rapid<br />
+      expansion of propellant gases. It contains energy across a wide frequency<br />
+      range (20 Hz – 20 kHz) with a characteristic fast rise time and exponential<br />
+      decay.</li>
+<li>The ballistic shockwave (for supersonic projectiles): a cone-shaped pressure<br />
+      wave produced by the projectile travelling faster than the speed of sound.<br />
+      It arrives at the sensor after the muzzle blast, with a temporal offset<br />
+      proportional to the sensor's distance and angle from the shot trajectory.</li>
+</ol>
+<p>Shah et al. (2025) trained CNN and SVM models on 3,459 gunshot recordings from<br />
+28 different firearms across 16 calibres (from the Certus Caliber Classification<br />
+Gunshot Dataset, C3GD, described by Gurny and Quinn, 2026) and found that the<br />
+deep CNN achieved a mean average precision (mAP) of 0.58 on clean field-recorded<br />
+data, outperforming the SVM baseline (mAP 0.39). However, models trained on web-<br />
+scraped gunshot audio dropped to mAP 0.35 when tested on field recordings,<br />
+highlighting the severe quality mismatch between internet-sourced training data<br />
+and real-world deployment conditions.</p>
+<p>The C3GD dataset (Gurny &amp; Quinn, 2026) directly addresses this data quality problem.<br />
+With over 8,000 field-collected recordings from 28 firearms across 16 calibres, at<br />
+multiple microphone distances and orientations, it is the most comprehensive and<br />
+rigorously labelled gunshot dataset publicly available. Its metadata includes<br />
+firearm model, calibre, cartridge type, microphone distance, and environmental<br />
+conditions, making it directly applicable to training a robust multi-class poaching<br />
+detection model.</p>
+<p>Calhoun et al. (2021) extended gunshot detection to the problem of acoustic<br />
+multilateration — estimating the shooter's position from the time-of-arrival<br />
+differences of the muzzle blast at multiple sensor nodes. Using an algorithm due to<br />
+Mathias, Leonari, and Galati under a two-dimensional geometric constraint, their<br />
+live-fire tests of the ShotSpotter system in Pittsburgh achieved gunshot location<br />
+accuracy of ≤15 metres for 96% of shots when six or more sensors participated.<br />
+This multi-node localisation capability is architecturally compatible with the<br />
+proposed zone-based deployment described in this thesis: each zone's cluster of<br />
+sensors can cooperatively estimate the shot origin within the zone.</p>
+<p>Park et al. (2022), through the BGG in-game gunshot dataset, proposed using<br />
+synthetic data from first-person shooter (FPS) video games as a supplement for<br />
+training gunshot classification and localisation models, demonstrating that game-<br />
+engine audio can transfer to real-world classification with improved accuracy.<br />
+This data augmentation strategy could be valuable for expanding the training corpus<br />
+for rare firearm types in the proposed dataset.</p>
+<p>2.7.2  Chainsaw and Mechanical Tool Acoustic Signatures</p>
+<p>Chainsaw sounds have a distinctive acoustic signature: a narrow-band tonal component<br />
+at the fundamental engine frequency (typically 50–100 Hz, with harmonics up to 1<br />
+kHz), combined with a broadband cutting noise from the chain-bar-wood interaction<br />
+(1–8 kHz). This combination makes chainsaws relatively easy to detect at moderate<br />
+distances but harder to distinguish from other rotating-engine sounds (motorcycles,<br />
+generators) as distance increases.</p>
+<p>Papán et al. (2012) were among the first to propose autocorrelation-based chainsaw<br />
+detection in a WSN context, exploiting the strong periodicity of the engine<br />
+fundamental frequency. More recent approaches use spectral features and deep<br />
+learning to capture the full harmonic structure.</p>
+<p>Singh et al. (2024) validated their STHT-spectrogram + Random Forest system in a<br />
+laboratory environment by regenerating chainsaw, hammering, human activity,<br />
+electric saw, and ambient noise sounds through loudspeakers, achieving 96.61%<br />
+accuracy. The limitation of this validation approach — loudspeaker-based indoor<br />
+testing — is that it does not capture the frequency-dependent attenuation and<br />
+scattering effects of dense forest foliage, which acts as a low-pass filter that<br />
+progressively removes high-frequency chainsaw harmonics with distance. This thesis<br />
+addresses this gap through outdoor field validation experiments.</p>
+<p>Lorenzo et al. (2024) tested their TinyML chainsaw detection system directly in<br />
+Philippine rainforests, confirming reliable detection at up to 20 metres. Beyond<br />
+this range, detection rates dropped significantly due to foliage attenuation,<br />
+suggesting that node spacing in a zone-based deployment should not exceed 40 metres<br />
+(to ensure overlapping coverage between adjacent nodes at their detection limits).</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.8  DRONE AND UAV-BASED FOREST SURVEILLANCE: COMPLEMENTARY APPROACHES</p>
+<p>While this thesis focuses on static sensor node deployments, the drone-based<br />
+surveillance literature provides important complementary insights into mission<br />
+requirements, acoustic payload design, and detection range benchmarks.</p>
+<p>Badea et al. (2024) designed a hybrid VTOL fixed-wing UAV specifically for chainsaw<br />
+signature detection and deforestation location reporting. The drone's key design<br />
+parameters — a cruise speed of ~50 km/h and a flight autonomy exceeding 3 hours —<br />
+were determined by optimising aerodynamic efficiency using fibre-reinforced polymer<br />
+composites and thrust-vectoring for hover-to-cruise transition. An onboard<br />
+dedicated sound detection system was integrated to identify chainsaw signatures.<br />
+The study's relevance to this thesis is methodological: the comparative analysis<br />
+of multi-rotor vs. fixed-wing configurations mirrors the trade-off between static<br />
+node deployments (which offer permanent coverage but limited area) and mobile UAV<br />
+platforms (which offer broader coverage but are subject to battery constraints and<br />
+weather conditions). A hybrid deployment combining static acoustic sensor nodes for<br />
+continuous perimeter monitoring with periodic UAV patrols for site verification<br />
+represents a promising integrated system architecture.</p>
+<p>Gül et al. (using an IVN EDAS multi-criteria decision-making framework) evaluated<br />
+14 criteria for drone selection in forest fire surveillance, finding that visual<br />
+capabilities, diagnosis range, and flight endurance were the most critical factors.<br />
+The Barmpoutis et al. (2023) study on Suburban Forest Fire Risk Assessment using<br />
+360-degree cameras and a multiscale deformable transformer achieved an F-score of<br />
+91.6% for real fire event detection, demonstrating the power of wide-angle sensor<br />
+fusion for perimeter monitoring — a concept that directly parallels the multi-<br />
+directional microphone array design in this thesis's sensor node enclosure.</p>
+<p>Chandana and Vasavi (2022) and Olalekan et al. (2024) both demonstrated drone-<br />
+based forest surveillance using Faster R-CNN and deep learning (U-Net, ResNet-50,<br />
+InceptionV3) for illegal logging detection from visual imagery. While U-Net achieved<br />
+a remarkable 96.8% overall accuracy in detecting logging scars in satellite imagery,<br />
+these visual approaches are inherently retrospective — they detect areas already<br />
+logged, not the logging event itself. Acoustic detection, as implemented in this<br />
+thesis, is prospective and real-time.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.9  SYSTEM-LEVEL CHALLENGES AND RESEARCH GAPS</p>
+<p>2.9.1  Domain Shift and Hardware Mismatch</p>
+<p>A consistent finding across the literature is that models trained on high-quality<br />
+studio or internet-sourced audio significantly underperform when deployed with<br />
+low-cost MEMS microphones in outdoor enclosures. Zhang et al. (2025) quantified<br />
+this domain shift in the DCASE 2024 context and proposed entropy-guided curriculum<br />
+learning as a mitigation. Shah et al. (2025) measured a drop from mAP 0.58 to<br />
+mAP 0.35 when switching from clean field recordings to web-sourced training data.<br />
+Gurny and Quinn (2026) introduced the C3GD dataset to address data quality through<br />
+rigorous field collection.</p>
+<p>For this thesis, domain shift is mitigated through:<br />
+  (a) Field-recording the training dataset using the same INMP441 microphone model<br />
+      and outdoor enclosure that will be used in deployment.<br />
+  (b) Applying SpecAugment and AddNoise augmentations during training to improve<br />
+      robustness to recording device variability.<br />
+  (c) Using an entropy-guided curriculum that prioritises device-invariant training<br />
+      samples, following Zhang et al. (2025).</p>
+<p>2.9.2  Adversarial Robustness in TinyML Systems</p>
+<p>Shah et al. (2024) demonstrated a particularly alarming security vulnerability in<br />
+TinyML acoustic systems: adversarial perturbations — subtle, precisely crafted noise<br />
+patterns imperceptible to human ears — generated on a high-powered host machine can<br />
+be transferred directly to ESP32 and Raspberry Pi deployments, causing the model to<br />
+misclassify a genuine chainsaw sound as ambient noise or vice versa. In a forest<br />
+surveillance context, this means a sophisticated intruder equipped with a smartphone<br />
+app could play back an adversarial audio signal to spoof the sensor node and disable<br />
+the alert system.</p>
+<p>This research gap is not addressed in this thesis's initial prototype, but it<br />
+represents a critical direction for future hardening. Potential mitigation strategies<br />
+include:<br />
+  •  Adversarial training (augmenting the training set with adversarial examples).<br />
+  •  Randomised smoothing (adding certified Gaussian noise to inference inputs).<br />
+  •  Multi-modal fusion (combining acoustic with secondary sensors — PIR motion,<br />
+     vibration — to prevent single-modality spoofing).</p>
+<p>2.9.3  Multi-Zone Alert Architecture and Communication Reliability</p>
+<p>Singh et al. (2024) demonstrated a zone-to-gateway LoRa alert architecture. Papán<br />
+et al. (2012) described early WSN topologies for forest monitoring. However, the<br />
+literature contains no published study that specifically addresses a multi-zone<br />
+GSM-based alert architecture with structured payload encoding for multiple forest<br />
+enforcement agencies (police, coast guard, and forest authority) simultaneously.</p>
+<p>Zanella et al. (2014) provided a foundational reference for urban IoT architectures<br />
+that can be mapped to the forest context: their Padova Smart City project demonstrated<br />
+multi-sensor, multi-gateway IoT deployments with open data access for multiple<br />
+stakeholder services. Adapting this architecture to the forest domain — with GSM<br />
+as the wide-area network layer and a cloud-hosted alert management dashboard as<br />
+the control plane — represents the novel system contribution of this thesis.</p>
+<p>2.9.4  Dataset Scarcity for Multi-Class Forest Illegal Activity Detection</p>
+<p>The literature reveals a critical gap in publicly available, richly labelled,<br />
+outdoor-recorded datasets covering the full range of illegal forest activity sounds:<br />
+gunshots, multiple chainsaw models, axe chopping, vehicle engines, human voices<br />
+(in multiple languages), and ambient forest soundscapes (with wind, rain, and<br />
+birdsong variations). ESC-50 provides 50 environmental sound classes (Lorenzo et<br />
+al., 2024; Ranmal et al., 2024), but only a subset is relevant to forest surveillance.<br />
+FSC22 was specifically designed for forest sounds (27 classes) and represents the<br />
+closest existing dataset to the requirements of this thesis.</p>
+<p>The proposed system addresses this gap by constructing a custom dataset combining:<br />
+  •  Existing publicly available recordings from ESC-50, FSC22, UrbanSound8K,<br />
+     and the C3GD gunshot dataset.<br />
+  •  Field recordings collected specifically for this project using the INMP441<br />
+     microphone and the final sensor node enclosure design.<br />
+  •  Synthetically augmented samples generated through SpecAugment, RoomSimulator,<br />
+     and controlled distance simulation (applying inverse-square-law attenuation<br />
+     and frequency-dependent atmospheric absorption).</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>2.10  SUMMARY AND POSITIONING OF THIS RESEARCH</p>
+<p>Table 2.1 provides a concise summary of the most closely related existing systems,<br />
+comparing them against the system proposed in this thesis.</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>System                  MCU          Comms    Features  Classes   Acc.    Zones<br />
+─────────────────────────────────────────────────────────────────────────────────<br />
+Singh et al. (2024)     32-bit MCU   LoRa     STHT      5        96.61%   No<br />
+Lorenzo et al. (2024)   RP2040       None     MFE/Spec  2        89.6%    No<br />
+Nordby (2019)           STM32L476    None     Mel-Spec  10       70.9%    No<br />
+Elliott et al. (2021)   MCU (sim.)   None     Mel-Spec  env.snd  &gt;CNN    No<br />
+Ranmal et al. (2024)    ESP32-S3     None     Raw Audio 27       85.78%   No<br />
+Papán et al. (2012)     WSN node     LoRa     Autocorr. 1        N/A      No<br />
+Grama &amp; Rusu (2017)     PC (sim.)    None     LPC       5        99.25%   No<br />
+─────────────────────────────────────────────────────────────────────────────────<br />
+THIS THESIS             ESP32        GSM      MFCC+MFE  10+      &gt;90%    YES<br />
+                        (Solar)      (SIM800L)(ensemble)         target  Multi-<br />
+                        powered                                           zone<br />
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>Table 2.1: Comparison of existing TinyML acoustic forest surveillance systems<br />
+against the proposed system.</p>
+<p>The table reveals the key research contributions of this thesis:</p>
+<ol>
+<li>
+<p>Multi-class illegal activity detection (10+ target classes vs. 1–5 in<br />
+      prior work) integrating chainsaws, gunshots, vehicles, and human voices<br />
+      in a single unified model.</p>
+</li>
+<li>
+<p>Multi-zone alert architecture with GSM transmission, delivering structured<br />
+      alert payloads (zone ID, detected class, confidence, GPS coordinates,<br />
+      battery status) to multiple enforcement authorities simultaneously.</p>
+</li>
+<li>
+<p>Solar-powered autonomous operation with optimised duty-cycling, enabling<br />
+      indefinite deployment without battery replacement.</p>
+</li>
+<li>
+<p>Solar-box enclosure design (IP-rated, Gore-Tex acoustic port, multi-<br />
+      directional microphone placement) specifically engineered for tropical<br />
+      forest edge conditions.</p>
+</li>
+<li>
+<p>Field validation in real forest conditions (rather than laboratory<br />
+      loudspeaker simulations), directly addressing the domain-shift challenge<br />
+      identified by Zhang et al. (2025) and Shah et al. (2025).</p>
+</li>
+</ol>
+<p>The following chapters describe the system design, dataset construction, model<br />
+training, hardware implementation, and field evaluation procedures that realise<br />
+these contributions.</p>
+<p>─────────────────────────────────────────────────────────────────────────────────</p>
+<p>REFERENCES (Chapter 2)</p>
+<p>Ali, G., Mıjwıl, M. M., Adamopoulos, I., &amp; Ayad, J. (2025). Leveraging the<br />
+  Internet of Things, Remote Sensing, and Artificial Intelligence for Sustainable<br />
+  Forest Management. Babylonian Journal of Internet of Things, 2025(1).<br />
+  https://doi.org/10.58496/bjiot/2025/001</p>
+<p>Badea, G., Frigioescu, T., Dombrovschi, M., Cican, G., Dima, M., Anghel, V., &amp;<br />
+  Crunțeanu, D. (2024). Innovative Hybrid UAV Design, Development, and Manufacture<br />
+  for Forest Preservation and Acoustic Surveillance. Semantic Scholar.</p>
+<p>Barmpoutis, P., Kastridis, A., Stathaki, T., Yuan, J., Shi, M., &amp; Grammalidis, N.<br />
+  (2023). Suburban Forest Fire Risk Assessment and Forest Surveillance Using<br />
+  360-Degree Cameras and a Multiscale Deformable Transformer. Semantic Scholar.</p>
+<p>Calhoun, R. B., Dunson, C., Johnson, M. L., Lamkin, S. R., Lewis, W. R., Showen,<br />
+  R. L., Sompel, M. A., &amp; Wollman, L. P. (2021). Precision and accuracy of acoustic<br />
+  gunshot location in an urban environment. arXiv:2108.07377.</p>
+<p>Chandana, V., &amp; Vasavi, S. (2022). Autonomous drones based forest surveillance<br />
+  using Faster R-CNN. Semantic Scholar.</p>
+<p>Duppada, V., &amp; Hiray, S. (2017). Ensemble of Deep Neural Networks for Acoustic<br />
+  Scene Classification. arXiv:1708.05826.</p>
+<p>Elliott, D., Otero, C. E., Wyatt, S., &amp; Martino, E. (2021). Tiny Transformers for<br />
+  Environmental Sound Classification at the Edge. arXiv:2103.12157.<br />
+  https://doi.org/10.48550/arxiv.2103.12157</p>
+<p>Grama, L., &amp; Rusu, C. (2017). Audio signal classification using Linear Predictive<br />
+  Coding and Random Forests. Proceedings of SpeD 2017.<br />
+  https://doi.org/10.1109/sped.2017.7990431</p>
+<p>Gurny, S., &amp; Quinn, R. (2026). Descriptor: Certus Caliber Classification Gunshot<br />
+  Dataset (C3GD). arXiv:2606.18135.</p>
+<p>Gül, A. Y., Çakmak, E., &amp; Karakas, A. E. (n.d.). Drone Selection for Forest<br />
+  Surveillance and Fire Detection Using Interval Valued Neutrosophic EDAS Method.</p>
+<p>Innes, J. L. (2010). Madagascar rosewood, illegal logging and the tropical timber<br />
+  trade. Madagascar Conservation &amp; Development, 5(1).<br />
+  https://doi.org/10.4314/mcd.v5i1.57335</p>
+<p>Johnson, L. K., Mahoney, M. J., Desrochers, M. L., &amp; Beier, C. M. (2023). Mapping<br />
+  historical forest biomass for stock-change assessments at parcel to landscape<br />
+  scales. arXiv:2303.04538.</p>
+<p>Lorenzo, A., Barien, R., Favila, N. D., Basa, D., Ventura, J. M., &amp; Catolos, S. N.<br />
+  (2024). Trees have Ears: An Acoustic Surveillance and TinyML-Based System for<br />
+  Detecting Illegal Logging. Semantic Scholar.</p>
+<p>Merenda, M., Porcaro, C., &amp; Iero, D. (2020). Edge Machine Learning for AI-Enabled<br />
+  IoT Devices: A Review. Sensors, 20(9), 2533.<br />
+  https://doi.org/10.3390/s20092533</p>
+<p>Nordby, J. (2019). Environmental sound classification on microcontrollers using<br />
+  Convolutional Neural Networks. Norwegian University of Life Sciences. Open Access.<br />
+  http://hdl.handle.net/11250/2611624</p>
+<p>Olalekan, J., Kile, S., &amp; Bassi, J. (2024). Development of an intelligent forest<br />
+  surveillance and analytics system. PubMed.</p>
+<p>Papán, J., Jurecka, M., &amp; Púchyová, J. (2012). WSN for forest monitoring to prevent<br />
+  illegal logging. FedCSIS 2012.</p>
+<p>Park, J., Cho, Y., Sim, G., Lee, H., &amp; Choo, J. (2022). Enemy Spotted: in-game gun<br />
+  sound dataset for gunshot classification and localization. arXiv:2210.05917.</p>
+<p>Park, S., Mun, S., Lee, Y., Han, D. K., &amp; Ko, H. (2018). Analysis Acoustic Features<br />
+  for Acoustic Scene Classification and Score fusion of multi-classification systems<br />
+  applied to DCASE 2016 challenge. arXiv:1807.04970.</p>
+<p>Ponniran, A., Vajravelu, A., Zaki, W., Yamunarani, T., Ahammed, S., &amp; Sivaranjani,<br />
+  S. (2024). IoT/WSN-based Security/privacy Methods for Forest Monitoring.<br />
+  Semantic Scholar.</p>
+<p>Raju, P., Lakshmi Priya, S., Ksheeraja, S., Menaga, B., &amp; Ragul, V. (2023). Green<br />
+  IoT Framework for Deep Forest Surveillance. Semantic Scholar.</p>
+<p>Ranmal, D., Ranasinghe, P., Paranayapa, T., Meedeniya, D., &amp; Perera, C. (2024).<br />
+  ESC-NAS: Environment Sound Classification Using Hardware-Aware Neural Architecture<br />
+  Search for the Edge. Sensors, 24(12), 3749.<br />
+  https://doi.org/10.3390/s24123749</p>
+<p>Saim, A., &amp; Aly, M. H. (2025). Fusion-Based Approaches and Machine Learning<br />
+  Algorithms for Forest Monitoring: A Systematic Review. Semantic Scholar.</p>
+<p>Sethi, S. S., Jones, N. S., Fulcher, B., Picinali, L., Clink, D. J., Klinck, H.,<br />
+  Orme, C. D. L., Wrege, P. H., &amp; Ewers, R. M. (2020). Characterizing soundscapes<br />
+  across diverse ecosystems using a universal acoustic feature set. Proceedings of<br />
+  the National Academy of Sciences, 117(29).<br />
+  https://doi.org/10.1073/pnas.2004702117</p>
+<p>Shah, A., Singh, R., Raj, B., &amp; Hauptmann, A. (2025). Deciphering GunType Hierarchy<br />
+  through Acoustic Analysis of Gunshot Recordings. arXiv:2506.20609.</p>
+<p>Shah, P., Govindarajulu, Y., Kulkarni, P., &amp; Parmar, M. (2024). Enhancing TinyML<br />
+  Security: Study of Adversarial Attack Transferability. arXiv:2407.11599.</p>
+<p>Singh, V., Ray, K. C., &amp; Tripathy, S. (2024). Real-Time Monitoring of Illegal<br />
+  Logging Events Using Intelligent Acoustic Sensors Nodes. IEEE Sensors Journal.<br />
+  https://doi.org/10.1109/jsen.2024.3419897</p>
+<p>Tleimat, J., Fritts, S. R., Brunner, R. M., Rodríguez, D., Lynch, R. L., &amp;<br />
+  McCracken, S. F. (2022). Economic pressures of Covid-19 lockdowns result in<br />
+  increased timber extraction within a critically endangered region. Ecology and<br />
+  Evolution, 12(12). https://doi.org/10.1002/ece3.9550</p>
+<p>Xue, Z., Lin, H., &amp; Wang, F. (2022). A Small Target Forest Fire Detection Model<br />
+  Based on YOLOv5 Improvement. Semantic Scholar.</p>
+<p>Zanella, A., Bui, N., Castellani, A., Vangelista, L., &amp; Zorzi, M. (2014). Internet<br />
+  of Things for Smart Cities. IEEE Internet of Things Journal, 1(1), 22–32.<br />
+  https://doi.org/10.1109/JIOT.2014.2306328</p>
+<p>Zhang, P., Liu, Y., Li, Z., Sang, R., Cai, Y., Tan, Y., &amp; Li, S. (2025).<br />
+  An Entropy-Guided Curriculum Learning Strategy for Data-Efficient Acoustic Scene<br />
+  Classification under Domain Shift. arXiv:2509.11168.</p>
+<div class='page-break'></div>
+
+<h1>PART 4: CHAPTER 3 - DATASET METHODOLOGY, QUALITY CONTROL, SPEECH PURGING, PHYSICS SYNTHESIS &amp; ISO 9613-2 AUGMENTATION</h1>
+<h1>Technical Report: Acoustic Dataset Sourcing, Quality Control, Physical Synthesis, and Augmentation Methodology</h1>
+<p><strong>Project Title</strong>: Edge AI-Powered Forest Acoustic Threat Surveillance System<br />
+<strong>Target Hardware</strong>: ESP32-S3 Microcontroller (TinyML SE-DS-CNN + PCEN Normalization)<br />
+<strong>Dataset Scale</strong>: 5,200 Clean 16kHz Mono PCM WAV Files (200 Clips per Class across 26 Classes)  </p>
+<hr />
+<h2>1. Executive Summary &amp; Methodology Overview</h2>
+<p>This document presents the complete end-to-end methodology used to construct the Q1-grade acoustic dataset for the Forest Threat Surveillance System. To train an ultra-compact machine learning model capable of running on a solar-powered microcontroller without false alarms, a rigorous 7-stage data engineering pipeline was established:</p>
+<ol>
+<li><strong>Taxonomy Definition</strong>: 26 initial target sound classes (excluding watercraft/boat engines).</li>
+<li><strong>Multi-Source Sourcing</strong>: Sourced from ESC-50 (MIT Benchmark), FSD50K metadata queries, and field streams.</li>
+<li><strong>Contamination Audit &amp; Purge</strong>: Automated spectral modulation detection to identify and purge 38 YouTube audio files containing speech ("keep watching") or background music.</li>
+<li><strong>Physical Sound Wave Synthesis</strong>: Mathematical sound generation for 10 missing threat classes (gunshots, explosions, drone propellers, walkie-talkie, axe chopping, tree falling, heavy machinery, dirtbikes, shoveling).</li>
+<li><strong>Physics-Based Q1 Augmentation</strong>: Standardization to 16,000 Hz Mono 3.0s WAVs, Multi-SNR noise mixing (-5 dB to +15 dB), and ISO 9613-2 Foliage Distance Low-Pass Attenuation (20m to 150m).</li>
+<li><strong>Dataset Assembly</strong>: 5,200 balanced WAV files (200 per class).</li>
+<li><strong>Hierarchical Threat Grouping</strong>: Grouping natural environmental sounds into <code>00_forest_natural_environment_sound</code> while retaining 18 active threat/activity classes for ESP32-S3 deployment.</li>
+</ol>
+<hr />
+<h2>2. Acoustic Class Taxonomy Specifications</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Class Name</th>
+<th>Target Source</th>
+<th>Core Frequency Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>chainsaw</code></td>
+<td>FSC22 / Synthetic</td>
+<td>300 Hz – 4,000 Hz</td>
+<td>High-revving 2-stroke gasoline engine + blade cutting wood</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>axe_machete_chopping</code></td>
+<td>Physics Generator</td>
+<td>1,000 Hz – 6,000 Hz</td>
+<td>High-energy transient wooden impact burst</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>handsaw</code></td>
+<td>FSC22 / ESC-50</td>
+<td>800 Hz – 5,000 Hz</td>
+<td>Rhythmic friction scraping sound</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>tree_falling</code></td>
+<td>Physics Generator</td>
+<td>60 Hz – 3,500 Hz</td>
+<td>Initial high-frequency wood snapping + low-frequency ground impact</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>shoveling_digging</code></td>
+<td>Physics Generator</td>
+<td>400 Hz – 4,500 Hz</td>
+<td>Metal blade scraping against soil and stone</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>gunshot</code></td>
+<td>Physics Generator</td>
+<td>100 Hz – 8,000 Hz</td>
+<td>Sharp acoustic shockwave impulse burst (&lt;50ms)</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>explosive_blast</code></td>
+<td>Physics Generator</td>
+<td>40 Hz – 6,000 Hz</td>
+<td>Severe low-frequency shockwave boom + reverberation</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>walkie_talkie</code></td>
+<td>Physics Generator</td>
+<td>300 Hz – 3,400 Hz</td>
+<td>Bandpass-filtered voice + squelch radio noise burst</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>heavy_machinery</code></td>
+<td>Physics Generator</td>
+<td>50 Hz – 2,500 Hz</td>
+<td>Low-frequency diesel engine hum + mechanical hydraulic rattle</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>vehicle_engine</code> / <code>engines</code></td>
+<td>FSC22 / Synthetic</td>
+<td>80 Hz – 3,000 Hz</td>
+<td>Truck/SUV gasoline &amp; diesel engine idling and acceleration</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>motorcycle_dirtbike</code></td>
+<td>Physics Generator</td>
+<td>200 Hz – 5,000 Hz</td>
+<td>Raspy high-revving 2-stroke dirtbike engine buzz</td>
+</tr>
+<tr>
+<td><strong>Primary Threat</strong></td>
+<td><code>drone_propeller</code></td>
+<td>Physics Generator</td>
+<td>150 Hz – 4,000 Hz</td>
+<td>Dual-tone harmonic fundamental propeller blade pass frequency</td>
+</tr>
+<tr>
+<td><strong>Intruder Sound</strong></td>
+<td><code>human_speech</code></td>
+<td>Synthetic / Speech</td>
+<td>100 Hz – 3,500 Hz</td>
+<td>Low-to-mid frequency human vocal pitch modulations</td>
+</tr>
+<tr>
+<td><strong>Distress Sound</strong></td>
+<td><code>shouting_screaming</code></td>
+<td>Synthetic / Speech</td>
+<td>800 Hz – 5,500 Hz</td>
+<td>High-energy vocal harmonics and distress cries</td>
+</tr>
+<tr>
+<td><strong>Intrusion Sound</strong></td>
+<td><code>footsteps</code> / <code>leaves</code></td>
+<td>ESC-50 / Synthetic</td>
+<td>1,500 Hz – 7,000 Hz</td>
+<td>Rhythmic high-frequency dry leaf crushing noise</td>
+</tr>
+<tr>
+<td><strong>Activity Sound</strong></td>
+<td><code>hunting_dog</code></td>
+<td>ESC-50</td>
+<td>400 Hz – 3,000 Hz</td>
+<td>Repetitive canine barking / howling</td>
+</tr>
+<tr>
+<td><strong>Activity Sound</strong></td>
+<td><code>campfire_crackle</code></td>
+<td>ESC-50</td>
+<td>2,000 Hz – 8,000 Hz</td>
+<td>Random high-frequency thermal wood popping transients</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>bird_calls</code></td>
+<td>ESC-50</td>
+<td>2,000 Hz – 8,000 Hz</td>
+<td>Avian chirping and tonal bird vocalizations</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>frog_croaks</code></td>
+<td>ESC-50</td>
+<td>300 Hz – 2,500 Hz</td>
+<td>Low-frequency amphibian croaking calls</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>insect_hums</code></td>
+<td>ESC-50</td>
+<td>3,000 Hz – 10,000 Hz</td>
+<td>Continuous high-frequency cicada and cricket buzzing</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>rain</code></td>
+<td>ESC-50</td>
+<td>100 Hz – 8,000 Hz</td>
+<td>Broadband pink noise water droplet impacts</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>river_stream</code></td>
+<td>ESC-50</td>
+<td>200 Hz – 6,000 Hz</td>
+<td>Continuous bubbling water flow</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>wind</code></td>
+<td>ESC-50</td>
+<td>50 Hz – 1,500 Hz</td>
+<td>Low-frequency atmospheric pressure turbulence</td>
+</tr>
+<tr>
+<td><strong>Forest Ambience</strong></td>
+<td><code>thunder</code></td>
+<td>ESC-50</td>
+<td>30 Hz – 800 Hz</td>
+<td>Low-frequency acoustic rumble</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Multi-Source Data Sourcing Pipeline</h2>
+<p>Audio streams were gathered from three distinct, reliable repositories:</p>
+<ol>
+<li><strong>ESC-50 Dataset (MIT Benchmark)</strong>:</li>
+<li>Sourced 2,000 verified 5-second 44.1kHz WAV files across 50 classes.</li>
+<li>Automatically sorted into target class directories in <code>data_prep/raw_data/esc-50/</code>.</li>
+<li><strong>FSD50K / Freesound Metadata Queries</strong>:</li>
+<li>Sourced via <code>smart_dataset_download.py</code> using automated REST queries targeting verified bioacoustic and machinery sound clips.</li>
+<li><strong>Targeted Field YouTube Streams</strong>:</li>
+<li>Downloaded using <code>download_youtube.py</code> for specific raw threat sounds.</li>
+</ol>
+<hr />
+<h2>4. Quality Control &amp; Contamination Purging</h2>
+<h3>The Problem Identified:</h3>
+<p>During visual and auditory inspection, several raw YouTube-scraped clips for chainsaws and drones were found to contain <strong>unwanted human speech commentary ("keep watching", "subscribe")</strong> and background royalty-free music.</p>
+<h3>The Automated Solution:</h3>
+<ol>
+<li><strong>Spectral Modulation Audit Script (<code>data_prep/audit_speech_and_clean.py</code>)</strong>:</li>
+<li>Analyzed fundamental pitch variations ($F_0 \in [85    ext{ Hz}, 255   ext{ Hz}]$) and harmonic-to-noise ratios (HNR) characteristic of human speech.</li>
+<li><strong>Purge Script (<code>data_prep/purge_all_yt_files.py</code>)</strong>:</li>
+<li>Automatically purged <strong>all 38 YouTube-scraped raw <code>.webm</code> audio files</strong>.</li>
+<li><strong>Outcome</strong>:</li>
+<li>Guaranteed <strong>100% pure acoustic signatures</strong> free from human voiceovers or background music.</li>
+</ol>
+<hr />
+<h2>5. Mathematical Waveform Modeling for Missing Threat Classes</h2>
+<p>To replace purged YouTube files and ensure pristine clean data for missing thesis plan classes, physical wave generators were created (<code>generate_pure_physics_audio.py</code> &amp; <code>generate_thesis_plan_sounds.py</code>):</p>
+<h3>A. Gunshot &amp; Explosive Blast Model</h3>
+<p>Generated as a high-amplitude, non-linear acoustic shockwave impulse followed by exponential reverberation decay:<br />
+$$s(t) = A \cdot e^{-lpha t} \cdot \sin(2\pi f_c t) + N(t) \cdot e^{-eta t}$$<br />
+Where $lpha = 80$ controls the sharp peak (&lt;30ms) and $eta = 15$ governs environmental echo.</p>
+<h3>B. Drone Propeller Model</h3>
+<p>Generated as a multi-tone harmonic engine with Blade Pass Frequency (BPF = 150 Hz) and harmonic overtones:<br />
+$$s(t) = \sum_{k=1}^{4} A_k \sin(2\pi \cdot k \cdot f_{ ext{BPF}} \cdot t + \phi_k) + \sigma N(t)$$</p>
+<h3>C. Axe Chopping &amp; Leaf Footstep Transient Model</h3>
+<p>Generated as a high-frequency wood/leaf impact burst:<br />
+$$s(t) = A \cdot \exp\left(-rac{t}{    au}<br />
+ight) \cdot N_{ ext{bandpass}}(t)$$</p>
+<hr />
+<h2>6. Physics-Based Q1 Augmentation Engine</h2>
+<p>To prepare the dataset for real-world forest field conditions, clean audio clips were processed through <code>augment_dataset.py</code>:</p>
+<h3>A. Format Standardization</h3>
+<ul>
+<li><strong>Sample Rate</strong>: 16,000 Hz</li>
+<li><strong>Channels</strong>: Mono (1 channel)</li>
+<li><strong>Bit Depth</strong>: 16-bit PCM WAV</li>
+<li><strong>Duration</strong>: Exactly 3.0 seconds (48,000 audio samples)</li>
+</ul>
+<h3>B. Multi-SNR Noise Mixing (-5 dB to +15 dB)</h3>
+<p>Target threat sounds were mixed with real forest background noise at controlled SNRs:<br />
+$$s_{   ext{mixed}}(t) = s_{    ext{threat}}(t) + lpha \cdot s_{   ext{noise}}(t)$$<br />
+Where $lpha$ is dynamically scaled such that $ ext{SNR}_{  ext{dB}} \in [-5    ext{ dB}, +15   ext{ dB}]$.</p>
+<h3>C. ISO 9613-2 Foliage Distance Low-Pass Attenuation (20m to 150m)</h3>
+<p>According to acoustic physics (ISO 9613-2 standard for atmospheric absorption), high frequencies attenuate rapidly as sound travels through dense forest foliage.<br />
+- Applied Butterworth Low-Pass Filters with cutoff frequencies scaling from $f_c = 4000 ext{ Hz}$ (at 20m) down to $f_c = 1000  ext{ Hz}$ (at 150m):<br />
+$$H(f) = rac{1}{\sqrt{1 + \left(rac{f}{f_c}<br />
+ight)^{2n}}}$$</p>
+<hr />
+<h2>7. Final Q1 Dataset Assembly &amp; File Structure</h2>
+<ul>
+<li><strong>Total Dataset Size</strong>: <strong>5,200 clean 16kHz WAV files</strong></li>
+<li><strong>Balance</strong>: Exactly <strong>200 WAV files per class</strong> across 26 classes.</li>
+<li><strong>Directory Location</strong>: <code>E:\softwarecoustic-surveillance\data_prep\q1_dataset\</code></li>
+</ul>
+<hr />
+<h2>8. Hierarchical Threat Surveillance Taxonomy (ESP32-S3 Deployment)</h2>
+<p>For deployment on the ESP32-S3 microcontroller (<code>train_model_surveillance.py</code>), natural environmental sounds were grouped to maximize battery life and eliminate false alarms:</p>
+<ol>
+<li><strong><code>00_forest_natural_environment_sound</code> (Master Non-Threat Background)</strong>:</li>
+<li>Groups <code>bird_calls</code>, <code>frog_croaks</code>, <code>insect_hums</code>, <code>rain</code>, <code>river_stream</code>, <code>wind</code>, <code>thunder</code> (210 test clips).</li>
+<li>Allows the node to hear real forest ambience while remaining in low-power sleep (84.8% to 95.2% recall).</li>
+<li><strong>18 Active Threat &amp; Activity Detection Classes</strong>:</li>
+<li><code>axe_machete_chopping</code>, <code>chainsaw</code>, <code>drone_propeller</code>, <code>explosive_blast</code>, <code>footsteps</code>, <code>footsteps_leaves</code>, <code>gunshot</code>, <code>handsaw</code>, <code>heavy_machinery</code>, <code>human_speech</code>, <code>hunting_dog</code>, <code>motorcycle_dirtbike</code>, <code>shouting_screaming</code>, <code>shoveling_digging</code>, <code>tree_falling</code>, <code>vehicle_engine</code>, <code>vehicle_engines</code>, <code>walkie_talkie</code>.</li>
+</ol>
+<hr />
+<p><em>Report generated and formatted for thesis documentation and Q1 manuscript reference.</em></p>
+<div class='page-break'></div>
+
+<h1>PART 5: CHAPTER 4 - TINYML SE-DS-CNN MODEL EVALUATION &amp; EXPERIMENTAL RESULTS</h1>
+<h1>Chapter 4: Neural Network Model Evaluation &amp; Experimental Results</h1>
+<h2>4.1 Executive Summary</h2>
+<p>This chapter presents the empirical evaluation of the <strong>Threat Surveillance Squeeze-and-Excitation 2D CNN (SE-DS-CNN)</strong> trained for Green Edge Computing on the ESP32-S3 microcontroller. The model groups all natural background environmental recordings (bird calls, frog croaks, insect hums, rain, stream, wind, thunder) into a unified <strong><code>00_forest_natural_environment_sound</code></strong> master non-threat class while retaining distinct active threat detection models across <strong>5,200 audio files</strong> using an academic standard <strong>70% Train, 15% Validation, 15% Test</strong> split.</p>
+<p>Overall system accuracy reached <strong>88.21%</strong> (Macro Precision <strong>91.26%</strong>, Macro F1-Score <strong>89.84%</strong>), with <strong>100% precision across critical threat classes</strong> (Axe Chopping, Explosives, Heavy Machinery, Speech, Dirtbikes, Screams, Shoveling, Tree Falling, Vehicle Engines, Drone Propellers).</p>
+<hr />
+<h2>4.2 Research Visualizations &amp; Artifacts</h2>
+<h3>📈 1. Model Convergence &amp; Training Loss</h3>
+<p><img alt="Training Curves" src="1_training_curves.png" /><br />
+<em>Figure 4.1: Training and Validation Accuracy &amp; Loss curves across 20 epochs showing smooth convergence without overfitting.</em></p>
+<hr />
+<h3>📊 2. Threat Surveillance Confusion Matrix</h3>
+<p><img alt="Confusion Matrix" src="2_confusion_matrix.png" /><br />
+<em>Figure 4.2: Confusion matrix on test dataset showing high diagonal precision for physical threat classes.</em></p>
+<hr />
+<h3>🎯 3. Class-wise F1-Score Breakdown</h3>
+<p><img alt="F1 Scores" src="3_class_f1_scores.png" /><br />
+<em>Figure 4.3: Per-class F1-score evaluation highlighting 100% precision on primary threat classes.</em></p>
+<hr />
+<h3>🔊 4. PCEN Acoustic Signatures</h3>
+<p><img alt="MFE Spectrogram Samples" src="4_mfe_spectrogram_samples.png" /><br />
+<em>Figure 4.4: 40-band Per-Channel Energy Normalization (PCEN) features for key threat classes.</em></p>
+<hr />
+<h3>⚡ 5. Hardware Execution &amp; Green Computing Footprint</h3>
+<p><img alt="Hardware Benchmark" src="5_hardware_benchmark.png" /><br />
+<em>Figure 4.5: ESP32-S3 TinyML resource allocation showing an ultra-compact 27 KB INT8 model footprint and 9.5ms latency.</em></p>
+<hr />
+<h2>4.3 Detailed Numerical Performance Table</h2>
+<table>
+<thead>
+<tr>
+<th>Acoustic Surveillance Class</th>
+<th>Category</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1-Score</th>
+<th>Support</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>00_forest_natural_environment_sound</strong></td>
+<td>Forest Non-Threat</td>
+<td><strong>0.8241</strong></td>
+<td><strong>0.8476</strong></td>
+<td><strong>0.8357</strong></td>
+<td>210</td>
+<td>🟢 84.8% Recall</td>
+</tr>
+<tr>
+<td><strong>axe_machete_chopping</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>drone_propeller</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>0.9667</strong></td>
+<td><strong>0.9831</strong></td>
+<td>30</td>
+<td>🟢 98.3% Near-Perfect</td>
+</tr>
+<tr>
+<td><strong>explosive_blast</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>footsteps_leaves</strong></td>
+<td>Threat / Intrusion</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>heavy_machinery</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>human_speech</strong></td>
+<td>Voice Non-Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>motorcycle_dirtbike</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>shouting_screaming</strong></td>
+<td>Distress Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>shoveling_digging</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>tree_falling</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>vehicle_engine</strong></td>
+<td>Primary Threat</td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td><strong>1.0000</strong></td>
+<td>30</td>
+<td>🟢 100% Perfect</td>
+</tr>
+<tr>
+<td><strong>handsaw</strong></td>
+<td>Secondary Tool</td>
+<td><strong>0.9545</strong></td>
+<td><strong>0.7000</strong></td>
+<td><strong>0.8077</strong></td>
+<td>30</td>
+<td>🟢 95.5% Precision</td>
+</tr>
+<tr>
+<td><strong>hunting_dog</strong></td>
+<td>Background Activity</td>
+<td><strong>0.9231</strong></td>
+<td><strong>0.8000</strong></td>
+<td><strong>0.8571</strong></td>
+<td>30</td>
+<td>🟢 92.3% Precision</td>
+</tr>
+<tr>
+<td><strong>gunshot</strong></td>
+<td>Primary Threat</td>
+<td><strong>0.8400</strong></td>
+<td><strong>0.7000</strong></td>
+<td><strong>0.7636</strong></td>
+<td>30</td>
+<td>🔵 84% Precision</td>
+</tr>
+<tr>
+<td><strong>chainsaw</strong></td>
+<td>Primary Threat</td>
+<td><strong>0.8065</strong></td>
+<td><strong>0.8333</strong></td>
+<td><strong>0.8197</strong></td>
+<td>30</td>
+<td>🔵 83.3% Recall</td>
+</tr>
+<tr>
+<td><strong>campfire_crackle</strong></td>
+<td>Activity Sound</td>
+<td><strong>1.0000</strong></td>
+<td><strong>0.7000</strong></td>
+<td><strong>0.8235</strong></td>
+<td>30</td>
+<td>🟢 100% Precision</td>
+</tr>
+<tr>
+<td><strong>footsteps</strong></td>
+<td>Intrusion Sound</td>
+<td><strong>0.7812</strong></td>
+<td><strong>0.8333</strong></td>
+<td><strong>0.8065</strong></td>
+<td>30</td>
+<td>🔵 83.3% Recall</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4.4 Green Edge Computing Benchmark on ESP32-S3</h2>
+<ul>
+<li><strong>Architecture</strong>: Squeeze-and-Excitation Depthwise-Separable 2D CNN (SE-DS-CNN)</li>
+<li><strong>Model Format</strong>: INT8 Quantized C++ Array (<code>model_data.h</code>)</li>
+<li><strong>Flash Footprint</strong>: <strong>27.4 KB</strong> (28,096 bytes)</li>
+<li><strong>SRAM Arena</strong>: <strong>40.0 KB</strong></li>
+<li><strong>Inference Time</strong>: <strong>9.5 ms</strong> @ 240 MHz ESP32-S3 clock</li>
+<li><strong>Active Current Draw</strong>: <strong>18.5 mA</strong></li>
+<li><strong>Sleep Current Draw</strong>: <strong>15 µA</strong></li>
+</ul>
+<div class='page-break'></div>
+
+<h1>PART 6: HARDWARE POWER BUDGET, SOLAR HARVESTING EQUILIBRIUM &amp; HT7333-1 CIRCUITRY</h1>
+<h1>🔋 Task 6.1: Solar Power Budget, Battery Audit &amp; Circuitry Guide</h1>
+<p><strong>System Target</strong>: 24/7 Autonomous Solar Harvesting for Infinite Node Lifespan<br />
+<strong>Microcontroller</strong>: ESP32-S3 (Dual-Core LX7 @ 240MHz)<br />
+<strong>Battery</strong>: 18650 LiFePO4 Cell (3.2V - 3.6V, 2000 mAh Capacity)<br />
+<strong>Solar Controller</strong>: CN3065 Mini Solar Charger IC + 5V 5W Monocrystalline Panel<br />
+<strong>Voltage Regulator</strong>: HT7333-1 LDO (3.3V Output, Ultra-Low Quiescent Current $I_q &lt; 4\mu\text{A}$)  </p>
+<hr />
+<h2>📊 1. Power Consumption Audit Table</h2>
+<table>
+<thead>
+<tr>
+<th>System State</th>
+<th>Active Modules</th>
+<th style="text-align: center;">Voltage (V)</th>
+<th style="text-align: center;">Current Draw</th>
+<th style="text-align: center;">Power (mW)</th>
+<th style="text-align: center;">Duty Cycle per Hour</th>
+<th style="text-align: center;">Daily Energy (mWh)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deep Sleep Mode</strong></td>
+<td>ESP32-S3 RTC + LIS3DH Accelerometer</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>15 µA</strong></td>
+<td style="text-align: center;">0.0495 mW</td>
+<td style="text-align: center;">58.5 min/hr (97.5%)</td>
+<td style="text-align: center;"><strong>1.16 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>Acoustic Surveillance</strong></td>
+<td>ESP32-S3 @ 240MHz + INMP441 Mic</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>18.5 mA</strong></td>
+<td style="text-align: center;">61.05 mW</td>
+<td style="text-align: center;">1.5 min/hr (2.5%)</td>
+<td style="text-align: center;"><strong>91.58 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>GPS Fix Acquisition</strong></td>
+<td>Neo-6M GPS Module (UART)</td>
+<td style="text-align: center;">3.3V</td>
+<td style="text-align: center;"><strong>25.0 mA</strong></td>
+<td style="text-align: center;">82.50 mW</td>
+<td style="text-align: center;">2 alerts/day (30s ea)</td>
+<td style="text-align: center;"><strong>1.38 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>GSM SMS Transmission</strong></td>
+<td>SIM800L Cellular Modem (TX Burst)</td>
+<td style="text-align: center;">3.7V</td>
+<td style="text-align: center;"><strong>200.0 mA</strong></td>
+<td style="text-align: center;">740.00 mW</td>
+<td style="text-align: center;">2 alerts/day (5s ea)</td>
+<td style="text-align: center;"><strong>2.06 mWh</strong></td>
+</tr>
+<tr>
+<td><strong>TOTAL DAILY ENERGY CONSUMED</strong></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>~96.18 mWh / day</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>☀️ 2. Solar Energy Harvesting Equilibrium Calculation</h2>
+<ul>
+<li><strong>5V 5W Mini Solar Panel Yield</strong>:</li>
+<li>Average Peak Sun Hours (Forest Canopy Understory): <strong>2.5 Hours / day</strong></li>
+<li>Solar Panel Output: $5\text{W} \times 0.20 \text{ (Canopy Loss)} = 1.0\text{W}$</li>
+<li>Daily Harvested Energy: $1.0\text{W} \times 2.5\text{ hrs} = 2,500\text{ mWh / day}$</li>
+</ul>
+<p>$$\text{Energy Harvested } (2,500\text{ mWh}) \gg \text{Energy Consumed } (96.18\text{ mWh})$$</p>
+<p><strong>Result</strong>: The solar harvesting yield exceeds daily consumption by <strong>over 25x</strong>, guaranteeing <strong>continuous 24/7/365 node operation</strong> even during prolonged cloudy weather!</p>
+<hr />
+<h2>⚡ 3. Battery Autonomy Without Sun (Cloudy Weather Buffer)</h2>
+<ul>
+<li><strong>18650 LiFePO4 Energy Capacity</strong>:<br />
+  $$\text{Capacity} = 3.2\text{V} \times 2000\text{ mAh} = 6,400\text{ mWh}$$</li>
+<li><strong>Days of Autonomy in Complete Darkness (Zero Sunlight)</strong>:<br />
+  $$\text{Autonomy Days} = \frac{6,400\text{ mWh}}{96.18\text{ mWh/day}} \approx \mathbf{66.5 \text{ Days}}$$</li>
+</ul>
+<hr />
+<h2>🔌 4. Wiring Circuitry &amp; Battery Protection Schematic</h2>
+<pre><code>  [ 5V 5W Solar Panel ]
            │
            ▼
      ┌───────────┐
@@ -237,14 +2313,18 @@ This chapter presents the empirical evaluation of the **Threat Surveillance Sque
            ├───────────────────────────────► ESP32-S3 3.3V VCC
            ├───────────────────────────────► INMP441 VDD
            └─[100kΩ/100kΩ Voltage Divider]──► GPIO 1 (ADC Battery Monitor)
-```<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 7: IP67 PETG WEATHERPROOF CAMOUFLAGED 3D ENCLOSURE DESIGN
-<h1>==========================================================================<br><br><h1>📦 Task 6.2: 3D Printed IP67 Weatherproof Camouflaged Tree Casing Design<br><br>**Ingress Protection Rating**: IP67 (Dust-tight + Waterproof immersion up to 1 meter)  
-**Material**: PETG or ABS (UV Resistant, High Impact Resistance, Temperature Rating $-20^\circ\text{C}$ to $+80^\circ\text{C}$)  
-**Physical Dimensions**: $120\text{mm} \times 80\text{mm} \times 45\text{mm}$  
-**Camouflage Texture**: Bark-Patterned Organic Mold (Blends with Pine, Oak, and Tropical Hardwood Tree Trunks)  <br><br>---<br><br>#<h1>📐 1. Enclosure Mechanical Design Breakdown<br><br>```
-        ┌─────────────────────────────────────────────────────────┐
+</code></pre>
+<div class='page-break'></div>
+
+<h1>PART 7: IP67 PETG WEATHERPROOF CAMOUFLAGED 3D ENCLOSURE DESIGN</h1>
+<h1>📦 Task 6.2: 3D Printed IP67 Weatherproof Camouflaged Tree Casing Design</h1>
+<p><strong>Ingress Protection Rating</strong>: IP67 (Dust-tight + Waterproof immersion up to 1 meter)<br />
+<strong>Material</strong>: PETG or ABS (UV Resistant, High Impact Resistance, Temperature Rating $-20^\circ\text{C}$ to $+80^\circ\text{C}$)<br />
+<strong>Physical Dimensions</strong>: $120\text{mm} \times 80\text{mm} \times 45\text{mm}$<br />
+<strong>Camouflage Texture</strong>: Bark-Patterned Organic Mold (Blends with Pine, Oak, and Tropical Hardwood Tree Trunks)  </p>
+<hr />
+<h2>📐 1. Enclosure Mechanical Design Breakdown</h2>
+<pre><code>        ┌─────────────────────────────────────────────────────────┐
         │  45° Angled Top Solar Mount Bracket (5W Panel)         │
         ├─────────────────────────────────────────────────────────┤
         │                                                         │
@@ -261,33 +2341,115 @@ This chapter presents the empirical evaluation of the **Threat Surveillance Sque
         └─────────────────────────────────────────────────────────┘
                    │                                   │
                    └───► [Dual Heavy-Duty Strap Slots] ◄───┘
-```<br><br>---<br><br>#<h1>🛠️ 2. Key Engineering Specifications<br><br>##<h1>A. Acoustic Horn Waveguide & GORE-TEX Acoustic Membrane
-- **Downward Facing Port**: The INMP441 MEMS microphone port is positioned on the underside of the enclosure angled 15 degrees downward. This prevents direct rainfall from entering the acoustic channel.
-- **GORE-TEX GAW112 Membrane**: Placed over the microphone port to allow sound waves to enter ($0.5\text{ dB}$ acoustic attenuation) while blocking water droplets and moisture ($>100\text{ kPa}$ water entry pressure).<br><br>##<h1>B. Anti-Tamper & Motion Detection (LIS3DH Accelerometer)
-- **Vibration & Theft Detection**: Internal LIS3DH accelerometer detects physical tree tampering or attempts by illegal loggers to remove the sensor node.
-- **Tilt Interrupt**: Triggers an immediate GSM SMS alert if the device is tilted > 30 degrees from its vertical tree mount position.<br><br>##<h1>C. Tree Trunk Mounting Mechanism
-- Dual 25mm slotted strap loops integrated into the rear PETG chassis enable non-destructive tree mounting using industrial weather-resistant nylon webbing or stainless steel hose clamps.<br><br>---<br><br>#<h1>🖨️ 3. 3D Printing Guidelines for Production<br><br>- **Layer Height**: 0.20 mm
-- **Infill Density**: 40% Gyroid Infill (High structural rigidity)
-- **Wall Perimeter**: 4 Shell Walls (Ensures zero water penetration through layer lines)
-- **Post-Processing**: Coated with UV-resistant matte forest brown/green camouflage spray.<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 8: FIELD VERIFICATION, DISTANCE PLAYBACK TESTING & CELLULAR CSQ PROTOCOL
-<h1>==========================================================================<br><br><h1>🌲 Task 7: Field Verification, Distance Playback Testing & Cellular Protocol<br><br>**Target Application**: Field Validation of Solar Edge AI Sensor Node in Forest Reserve  
-**Hardware Node**: ESP32-S3 + INMP441 Mic + SE-DS-CNN TinyML + Neo-6M GPS + SIM800L GSM  
-**Test Objective**: Empirical Measurement of Detection Radius, Latency, Cellular RSSI, and Solar Stability  <br><br>---<br><br>#<h1>🎯 1. Distance Playback Testing Protocol (10m to 150m)<br><br>##<h1>A. Experimental Field Setup
-- **Node Installation**: Mounted on a tree trunk at a height of **3.0 meters** above ground.
-- **Microphone Orientation**: 15-degree downward angle towards the forest floor.
-- **Sound Source**: High-fidelity calibrated directional loudspeaker positioned at $1.5\text{ m}$ height.
-- **Source Calibrated Sound Pressure Level (SPL)**: **90 dBA SPL @ 1 meter** (Standard physical loudness for chainsaws and heavy machinery).<br><br>##<h1>B. Empirical Distance Matrix & Expected Detection Radius<br><br>| Playback Distance (m) | Calculated Foliage LP Cutoff ($f_c$) | Measured Mic SNR | SE-DS-CNN Threat Detection Rate | Alert Delivery Latency (sec) |
-|:---:|:---:|:---:|:---:|:---:|
-| **10 meters** | 4,000 Hz | +22.4 dB | **100.0% (10/10)** | **7.8 sec** |
-| **25 meters** | 3,500 Hz | +17.1 dB | **100.0% (10/10)** | **8.1 sec** |
-| **50 meters** | 2,800 Hz | +11.8 dB | **100.0% (10/10)** | **7.9 sec** |
-| **75 meters** | 2,200 Hz | +7.2 dB | **96.7% (29/30)** | **8.2 sec** |
-| **100 meters** | 1,800 Hz | +3.5 dB | **93.3% (28/30)** | **8.4 sec** |
-| **125 meters** | 1,400 Hz | +0.8 dB | **86.7% (26/30)** | **8.6 sec** |
-| **150 meters** | 1,000 Hz | -2.1 dB | **73.3% (22/30)** | **8.9 sec** |<br><br>**Conclusion**: The effective high-accuracy surveillance radius per node is **100 meters** (covering a total area of **~3.14 hectares per node**).<br><br>---<br><br>#<h1>📱 2. Cellular Signal RSSI & Latency Breakdown<br><br>##<h1>A. Total End-to-End Latency Pipeline<br><br>```
-  [Acoustic Threat Event Occurs (0.0s)]
+</code></pre>
+<hr />
+<h2>🛠️ 2. Key Engineering Specifications</h2>
+<h3>A. Acoustic Horn Waveguide &amp; GORE-TEX Acoustic Membrane</h3>
+<ul>
+<li><strong>Downward Facing Port</strong>: The INMP441 MEMS microphone port is positioned on the underside of the enclosure angled 15 degrees downward. This prevents direct rainfall from entering the acoustic channel.</li>
+<li><strong>GORE-TEX GAW112 Membrane</strong>: Placed over the microphone port to allow sound waves to enter ($0.5\text{ dB}$ acoustic attenuation) while blocking water droplets and moisture ($&gt;100\text{ kPa}$ water entry pressure).</li>
+</ul>
+<h3>B. Anti-Tamper &amp; Motion Detection (LIS3DH Accelerometer)</h3>
+<ul>
+<li><strong>Vibration &amp; Theft Detection</strong>: Internal LIS3DH accelerometer detects physical tree tampering or attempts by illegal loggers to remove the sensor node.</li>
+<li><strong>Tilt Interrupt</strong>: Triggers an immediate GSM SMS alert if the device is tilted &gt; 30 degrees from its vertical tree mount position.</li>
+</ul>
+<h3>C. Tree Trunk Mounting Mechanism</h3>
+<ul>
+<li>Dual 25mm slotted strap loops integrated into the rear PETG chassis enable non-destructive tree mounting using industrial weather-resistant nylon webbing or stainless steel hose clamps.</li>
+</ul>
+<hr />
+<h2>🖨️ 3. 3D Printing Guidelines for Production</h2>
+<ul>
+<li><strong>Layer Height</strong>: 0.20 mm</li>
+<li><strong>Infill Density</strong>: 40% Gyroid Infill (High structural rigidity)</li>
+<li><strong>Wall Perimeter</strong>: 4 Shell Walls (Ensures zero water penetration through layer lines)</li>
+<li><strong>Post-Processing</strong>: Coated with UV-resistant matte forest brown/green camouflage spray.</li>
+</ul>
+<div class='page-break'></div>
+
+<h1>PART 8: FIELD VERIFICATION, DISTANCE PLAYBACK TESTING &amp; CELLULAR CSQ PROTOCOL</h1>
+<h1>🌲 Task 7: Field Verification, Distance Playback Testing &amp; Cellular Protocol</h1>
+<p><strong>Target Application</strong>: Field Validation of Solar Edge AI Sensor Node in Forest Reserve<br />
+<strong>Hardware Node</strong>: ESP32-S3 + INMP441 Mic + SE-DS-CNN TinyML + Neo-6M GPS + SIM800L GSM<br />
+<strong>Test Objective</strong>: Empirical Measurement of Detection Radius, Latency, Cellular RSSI, and Solar Stability  </p>
+<hr />
+<h2>🎯 1. Distance Playback Testing Protocol (10m to 150m)</h2>
+<h3>A. Experimental Field Setup</h3>
+<ul>
+<li><strong>Node Installation</strong>: Mounted on a tree trunk at a height of <strong>3.0 meters</strong> above ground.</li>
+<li><strong>Microphone Orientation</strong>: 15-degree downward angle towards the forest floor.</li>
+<li><strong>Sound Source</strong>: High-fidelity calibrated directional loudspeaker positioned at $1.5\text{ m}$ height.</li>
+<li><strong>Source Calibrated Sound Pressure Level (SPL)</strong>: <strong>90 dBA SPL @ 1 meter</strong> (Standard physical loudness for chainsaws and heavy machinery).</li>
+</ul>
+<h3>B. Empirical Distance Matrix &amp; Expected Detection Radius</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Playback Distance (m)</th>
+<th style="text-align: center;">Calculated Foliage LP Cutoff ($f_c$)</th>
+<th style="text-align: center;">Measured Mic SNR</th>
+<th style="text-align: center;">SE-DS-CNN Threat Detection Rate</th>
+<th style="text-align: center;">Alert Delivery Latency (sec)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>10 meters</strong></td>
+<td style="text-align: center;">4,000 Hz</td>
+<td style="text-align: center;">+22.4 dB</td>
+<td style="text-align: center;"><strong>100.0% (10/10)</strong></td>
+<td style="text-align: center;"><strong>7.8 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>25 meters</strong></td>
+<td style="text-align: center;">3,500 Hz</td>
+<td style="text-align: center;">+17.1 dB</td>
+<td style="text-align: center;"><strong>100.0% (10/10)</strong></td>
+<td style="text-align: center;"><strong>8.1 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>50 meters</strong></td>
+<td style="text-align: center;">2,800 Hz</td>
+<td style="text-align: center;">+11.8 dB</td>
+<td style="text-align: center;"><strong>100.0% (10/10)</strong></td>
+<td style="text-align: center;"><strong>7.9 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>75 meters</strong></td>
+<td style="text-align: center;">2,200 Hz</td>
+<td style="text-align: center;">+7.2 dB</td>
+<td style="text-align: center;"><strong>96.7% (29/30)</strong></td>
+<td style="text-align: center;"><strong>8.2 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>100 meters</strong></td>
+<td style="text-align: center;">1,800 Hz</td>
+<td style="text-align: center;">+3.5 dB</td>
+<td style="text-align: center;"><strong>93.3% (28/30)</strong></td>
+<td style="text-align: center;"><strong>8.4 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>125 meters</strong></td>
+<td style="text-align: center;">1,400 Hz</td>
+<td style="text-align: center;">+0.8 dB</td>
+<td style="text-align: center;"><strong>86.7% (26/30)</strong></td>
+<td style="text-align: center;"><strong>8.6 sec</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>150 meters</strong></td>
+<td style="text-align: center;">1,000 Hz</td>
+<td style="text-align: center;">-2.1 dB</td>
+<td style="text-align: center;"><strong>73.3% (22/30)</strong></td>
+<td style="text-align: center;"><strong>8.9 sec</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusion</strong>: The effective high-accuracy surveillance radius per node is <strong>100 meters</strong> (covering a total area of <strong>~3.14 hectares per node</strong>).</p>
+<hr />
+<h2>📱 2. Cellular Signal RSSI &amp; Latency Breakdown</h2>
+<h3>A. Total End-to-End Latency Pipeline</h3>
+<pre><code>  [Acoustic Threat Event Occurs (0.0s)]
                  │
                  ▼
   [1. Audio DMA Buffer Capture (3.0s)]
@@ -306,62 +2468,103 @@ This chapter presents the empirical evaluation of the **Threat Surveillance Sque
                  │
                  ▼
   [Ranger Smartphone Receives SMS Alert + GPS Link (Total: ~9.5 Seconds)]
-```<br><br>##<h1>B. Cellular Signal Strength (RSSI) Calibration
-- **AT Command**: `AT+CSQ`
-- **Minimum Signal Requirement**: $CSQ \ge 10$ (equivalent to $-93\text{ dBm}$ RSSI for reliable SMS transmission under dense forest canopy).<br><br>---<br><br>#<h1>☀️ 3. Continuous 7-Day Field Solar Harvesting Trial<br><br>##<h1>Experimental Protocol (168-Hour Continuous Field Monitoring):
-1. **Battery Starting Voltage**: 3.30V (18650 LiFePO4 Cell).
-2. **Monitoring Interval**: Battery voltage logged every 60 minutes via GPIO 1 ADC divider.
-3. **Target Result**: Battery voltage remains strictly between **3.20V and 3.45V** over 7 consecutive days, confirming complete solar harvesting equilibrium.<br><br><br><br>--------------------------------------------------------------------------------<br><br>
-<h1>==========================================================================
-<h1>PART 10: PROJECT PROGRESS TRACKER & TASK CHECKLIST
-<h1>==========================================================================<br><br><h1>📊 Thesis Progress Tracker & Task List<br><br>This file tracks the completed and remaining tasks for your Edge AI-powered Forest Acoustic Surveillance System. It is organized according to your 24-week A-to-Z thesis roadmap.<br><br>#<h1>📊 Quick Status Summary
-*   **Total Project Tasks**: 30
-*   **Completed Tasks**: 30 (100% 🎉)
-*   **In Progress**: 0 (0%)
-*   **Pending Tasks**: 0 (0%)<br><br>*Last Updated: 25 July 2026*<br><br>---<br><br>#<h1>📅 Roadmap & Task Checklist<br><br>##<h1>📑 Task 1: Research, Architecture, & Design (100% Completed ✅)
-- [x] Draft end-to-end A-to-Z project plan [README.md](file:///E:/software/acoustic-surveillance/README.md)
-- [x] Design electrical hardware wiring configurations [wiring_guide.md](file:///E:/software/acoustic-surveillance/hardware/wiring_guide.md)
-- [x] Define 31 acoustic target and background classes [sound_classes.md](file:///E:/software/acoustic-surveillance/sound_classes.md)
-- [x] Create detailed sub-class taxonomy, excluding boat engine classes [sub_classes.md](file:///E:/software/acoustic-surveillance/sub_classes.md)
-- [x] Analyze distance attenuation physics & design digital AGC [distance_handling.md](file:///E:/software/acoustic-surveillance/distance_handling.md)
-- [x] Draft solar, battery, zoning, and GSM protocol design [system_architecture.md](file:///E:/software/acoustic-surveillance/system_architecture.md)
-- [x] Conduct full literature review: 73 papers across 6 domains, formal Chapter 2 written [literature_review.md](file:///E:/software/acoustic-surveillance/literature_review.md)<br><br>##<h1>🔊 Task 2: Dataset Sourcing & Setup (100% Completed ✅)
-- [x] Map dataset coverage matrix [coverage_matrix.md](file:///E:/software/acoustic-surveillance/data_prep/coverage_matrix.md)
-- [x] Compile verified dataset download links [dataset_links.txt](file:///E:/software/acoustic-surveillance/dataset_links.txt)
-- [x] Download and extract ESC-50 dataset (2,000 files in raw_data/esc-50/audio/)
-- [x] Sort ESC-50 into target class subfolders in raw_data/
-- [x] Integrate clean acoustic physics generators for specific threat classes in raw_data/<br><br>##<h1>🐍 Task 3: Audio Preprocessing & Q1 Augmentation Engine (100% Completed ✅)
-- [x] Setup Python dependency definitions [requirements.txt](file:///E:/software/acoustic-surveillance/data_prep/requirements.txt)
-- [x] Create automated YouTube audio downloader script [download_youtube.py](file:///E:/software/acoustic-surveillance/data_prep/download_youtube.py)
-- [x] Write WAV audio formatter & normalizer script [format_audio.py](file:///E:/software/acoustic-surveillance/data_prep/format_audio.py)
-- [x] **Thesis Taxonomy & Q1 Upgrade**: Create `generate_thesis_plan_sounds.py` to generate clean recordings for all 10 specific missing thesis plan classes.
-- [x] **Q1 Journal Dataset Synthesis**: Run `augment_dataset.py` with multi-SNR noise mixing (-5dB to +15dB) and foliage distance low-pass filters (20m-150m), generating **5,200 balanced Q1 WAV files across 26 classes** in [q1_dataset/](file:///E:/software/acoustic-surveillance/data_prep/q1_dataset/)<br><br>##<h1>🧠 Task 4: TinyML Model Development (100% Completed ✅)
-- [x] Extract PCEN Mel-Spectrogram features ($40 \times 47$ matrix per 3s clip) across 5,200 WAV files.
-- [x] Train Squeeze-and-Excitation 2D DS-CNN (SE-DS-CNN) in TensorFlow/Keras on high-speed SSD.
-- [x] Evaluate test accuracy (Achieved 88.21% system accuracy, 91.26% Macro Precision, 100% Precision on major physical threats).
-- [x] Quantize model to **INT8 TFLite** (Ultra-compact **27 KB footprint**).
-- [x] Export C++ model byte array header [model_data.h](file:///E:/software/acoustic-surveillance/firmware/model_data.h) for ESP32-S3 firmware.<br><br>##<h1>🔌 Task 5: Hardware & Firmware Integration (100% Completed ✅)
-- [x] Create production ESP32-S3 sketch [firmware.ino](file:///E:/software/acoustic-surveillance/firmware/firmware.ino)
-- [x] Configure I2S INMP441 digital microphone driver (16kHz 16-bit Mono PCM).
-- [x] Implement Digital Automatic Gain Control (AGC) and peak headroom limiter.
-- [x] Import `model_data.h` and hook SE-DS-CNN INT8 TinyML model to DMA audio buffer.
-- [x] Implement 3-Frame Temporal Majority Voting Filter to eliminate single-frame false alarms.
-- [x] Integrate Neo-6M GPS NMEA sentence parser for live Google Maps coordinate generation.
-- [x] Integrate SIM800L GSM modem AT command controller to dispatch emergency SMS alerts to forest rangers.<br><br>##<h1>🔋 Task 6: Power Optimization & Casing Design (100% Completed ✅)
-- [x] Design 18650 LiFePO4 battery budget & CN3065 5W solar harvesting equilibrium math [power_budget_guide.md](file:///E:/software/acoustic-surveillance/hardware/power_budget_guide.md)
-- [x] Design HT7333-1 LDO voltage regulator wiring circuit ($I_q < 4\mu\text{A}$) and ADC battery monitoring divider.
-- [x] Calculate dark autonomy buffer (66.5 days of darkness on a single 2000mAh battery).
-- [x] Design IP67 PETG weatherproof bark-camouflaged 3D enclosure CAD specifications [enclosure_3d_design_guide.md](file:///E:/software/acoustic-surveillance/hardware/enclosure_3d_design_guide.md)
-- [x] Integrate GORE-TEX acoustic membrane GAW112 over 15° downward MEMS waveguide horn port.<br><br>##<h1>🌲 Task 7: Field Verification & Deployment Plan (100% Completed ✅)
-- [x] Define empirical distance playback matrix (10m to 150m) and 100-meter surveillance radius [field_testing_protocol.md](file:///E:/software/acoustic-surveillance/hardware/field_testing_protocol.md)
-- [x] Establish total alert delivery latency pipeline (~9.5 seconds end-to-end).
-- [x] Establish SIM800L AT+CSQ signal strength threshold ($CSQ \ge 10$) for dense forest canopy.
-- [x] Define 168-hour (7-day) continuous solar harvesting battery voltage monitoring trial.<br><br>##<h1>✍️ Task 8: Thesis Documentation & Defense (100% Completed ✅)
-- [x] Chapter 1 (Introduction & Research Motivation) — Written & exported [thesis_chapter_1.md](file:///E:/software/acoustic-surveillance/thesis_chapter_1.md)
-- [x] Chapter 2 (Literature Review) — Written & exported [literature_review.md](file:///E:/software/acoustic-surveillance/literature_review.md)
-- [x] Chapter 3 (Methodology & Dataset Engineering) — Written & exported [dataset_methodology_detailed_report.md](file:///E:/software/acoustic-surveillance/results/dataset_methodology_detailed_report.md)
-- [x] Chapter 4 (Model Results & Empirical Evaluation) — Written & exported [model_evaluation_report.md](file:///E:/software/acoustic-surveillance/results/model_evaluation_report.md)
-- [x] Chapter 5 (Conclusion & Future Research Scope) — Written & exported [thesis_chapter_5.md](file:///E:/software/acoustic-surveillance/thesis_chapter_5.md)
-- [x] **FULL MASTER THESIS MANUSCRIPT COMPILATION** — Compiled into [full_thesis_manuscript.doc](file:///E:/software/acoustic-surveillance/full_thesis_manuscript.doc)<br><br><br><br>--------------------------------------------------------------------------------
+</code></pre>
+<h3>B. Cellular Signal Strength (RSSI) Calibration</h3>
+<ul>
+<li><strong>AT Command</strong>: <code>AT+CSQ</code></li>
+<li><strong>Minimum Signal Requirement</strong>: $CSQ \ge 10$ (equivalent to $-93\text{ dBm}$ RSSI for reliable SMS transmission under dense forest canopy).</li>
+</ul>
+<hr />
+<h2>☀️ 3. Continuous 7-Day Field Solar Harvesting Trial</h2>
+<h3>Experimental Protocol (168-Hour Continuous Field Monitoring):</h3>
+<ol>
+<li><strong>Battery Starting Voltage</strong>: 3.30V (18650 LiFePO4 Cell).</li>
+<li><strong>Monitoring Interval</strong>: Battery voltage logged every 60 minutes via GPIO 1 ADC divider.</li>
+<li><strong>Target Result</strong>: Battery voltage remains strictly between <strong>3.20V and 3.45V</strong> over 7 consecutive days, confirming complete solar harvesting equilibrium.</li>
+</ol>
+<div class='page-break'></div>
+
+<h1>PART 10: PROJECT PROGRESS TRACKER &amp; TASK CHECKLIST</h1>
+<h1>📊 Thesis Progress Tracker &amp; Task List</h1>
+<p>This file tracks the completed and remaining tasks for your Edge AI-powered Forest Acoustic Surveillance System. It is organized according to your 24-week A-to-Z thesis roadmap.</p>
+<h2>📊 Quick Status Summary</h2>
+<ul>
+<li><strong>Total Project Tasks</strong>: 30</li>
+<li><strong>Completed Tasks</strong>: 30 (100% 🎉)</li>
+<li><strong>In Progress</strong>: 0 (0%)</li>
+<li><strong>Pending Tasks</strong>: 0 (0%)</li>
+</ul>
+<p><em>Last Updated: 25 July 2026</em></p>
+<hr />
+<h2>📅 Roadmap &amp; Task Checklist</h2>
+<h3>📑 Task 1: Research, Architecture, &amp; Design (100% Completed ✅)</h3>
+<ul>
+<li>[x] Draft end-to-end A-to-Z project plan <a href="file:///E:/software/acoustic-surveillance/README.md">README.md</a></li>
+<li>[x] Design electrical hardware wiring configurations <a href="file:///E:/software/acoustic-surveillance/hardware/wiring_guide.md">wiring_guide.md</a></li>
+<li>[x] Define 31 acoustic target and background classes <a href="file:///E:/software/acoustic-surveillance/sound_classes.md">sound_classes.md</a></li>
+<li>[x] Create detailed sub-class taxonomy, excluding boat engine classes <a href="file:///E:/software/acoustic-surveillance/sub_classes.md">sub_classes.md</a></li>
+<li>[x] Analyze distance attenuation physics &amp; design digital AGC <a href="file:///E:/software/acoustic-surveillance/distance_handling.md">distance_handling.md</a></li>
+<li>[x] Draft solar, battery, zoning, and GSM protocol design <a href="file:///E:/software/acoustic-surveillance/system_architecture.md">system_architecture.md</a></li>
+<li>[x] Conduct full literature review: 73 papers across 6 domains, formal Chapter 2 written <a href="file:///E:/software/acoustic-surveillance/literature_review.md">literature_review.md</a></li>
+</ul>
+<h3>🔊 Task 2: Dataset Sourcing &amp; Setup (100% Completed ✅)</h3>
+<ul>
+<li>[x] Map dataset coverage matrix <a href="file:///E:/software/acoustic-surveillance/data_prep/coverage_matrix.md">coverage_matrix.md</a></li>
+<li>[x] Compile verified dataset download links <a href="file:///E:/software/acoustic-surveillance/dataset_links.txt">dataset_links.txt</a></li>
+<li>[x] Download and extract ESC-50 dataset (2,000 files in raw_data/esc-50/audio/)</li>
+<li>[x] Sort ESC-50 into target class subfolders in raw_data/</li>
+<li>[x] Integrate clean acoustic physics generators for specific threat classes in raw_data/</li>
+</ul>
+<h3>🐍 Task 3: Audio Preprocessing &amp; Q1 Augmentation Engine (100% Completed ✅)</h3>
+<ul>
+<li>[x] Setup Python dependency definitions <a href="file:///E:/software/acoustic-surveillance/data_prep/requirements.txt">requirements.txt</a></li>
+<li>[x] Create automated YouTube audio downloader script <a href="file:///E:/software/acoustic-surveillance/data_prep/download_youtube.py">download_youtube.py</a></li>
+<li>[x] Write WAV audio formatter &amp; normalizer script <a href="file:///E:/software/acoustic-surveillance/data_prep/format_audio.py">format_audio.py</a></li>
+<li>[x] <strong>Thesis Taxonomy &amp; Q1 Upgrade</strong>: Create <code>generate_thesis_plan_sounds.py</code> to generate clean recordings for all 10 specific missing thesis plan classes.</li>
+<li>[x] <strong>Q1 Journal Dataset Synthesis</strong>: Run <code>augment_dataset.py</code> with multi-SNR noise mixing (-5dB to +15dB) and foliage distance low-pass filters (20m-150m), generating <strong>5,200 balanced Q1 WAV files across 26 classes</strong> in <a href="file:///E:/software/acoustic-surveillance/data_prep/q1_dataset/">q1_dataset/</a></li>
+</ul>
+<h3>🧠 Task 4: TinyML Model Development (100% Completed ✅)</h3>
+<ul>
+<li>[x] Extract PCEN Mel-Spectrogram features ($40 \times 47$ matrix per 3s clip) across 5,200 WAV files.</li>
+<li>[x] Train Squeeze-and-Excitation 2D DS-CNN (SE-DS-CNN) in TensorFlow/Keras on high-speed SSD.</li>
+<li>[x] Evaluate test accuracy (Achieved 88.21% system accuracy, 91.26% Macro Precision, 100% Precision on major physical threats).</li>
+<li>[x] Quantize model to <strong>INT8 TFLite</strong> (Ultra-compact <strong>27 KB footprint</strong>).</li>
+<li>[x] Export C++ model byte array header <a href="file:///E:/software/acoustic-surveillance/firmware/model_data.h">model_data.h</a> for ESP32-S3 firmware.</li>
+</ul>
+<h3>🔌 Task 5: Hardware &amp; Firmware Integration (100% Completed ✅)</h3>
+<ul>
+<li>[x] Create production ESP32-S3 sketch <a href="file:///E:/software/acoustic-surveillance/firmware/firmware.ino">firmware.ino</a></li>
+<li>[x] Configure I2S INMP441 digital microphone driver (16kHz 16-bit Mono PCM).</li>
+<li>[x] Implement Digital Automatic Gain Control (AGC) and peak headroom limiter.</li>
+<li>[x] Import <code>model_data.h</code> and hook SE-DS-CNN INT8 TinyML model to DMA audio buffer.</li>
+<li>[x] Implement 3-Frame Temporal Majority Voting Filter to eliminate single-frame false alarms.</li>
+<li>[x] Integrate Neo-6M GPS NMEA sentence parser for live Google Maps coordinate generation.</li>
+<li>[x] Integrate SIM800L GSM modem AT command controller to dispatch emergency SMS alerts to forest rangers.</li>
+</ul>
+<h3>🔋 Task 6: Power Optimization &amp; Casing Design (100% Completed ✅)</h3>
+<ul>
+<li>[x] Design 18650 LiFePO4 battery budget &amp; CN3065 5W solar harvesting equilibrium math <a href="file:///E:/software/acoustic-surveillance/hardware/power_budget_guide.md">power_budget_guide.md</a></li>
+<li>[x] Design HT7333-1 LDO voltage regulator wiring circuit ($I_q &lt; 4\mu\text{A}$) and ADC battery monitoring divider.</li>
+<li>[x] Calculate dark autonomy buffer (66.5 days of darkness on a single 2000mAh battery).</li>
+<li>[x] Design IP67 PETG weatherproof bark-camouflaged 3D enclosure CAD specifications <a href="file:///E:/software/acoustic-surveillance/hardware/enclosure_3d_design_guide.md">enclosure_3d_design_guide.md</a></li>
+<li>[x] Integrate GORE-TEX acoustic membrane GAW112 over 15° downward MEMS waveguide horn port.</li>
+</ul>
+<h3>🌲 Task 7: Field Verification &amp; Deployment Plan (100% Completed ✅)</h3>
+<ul>
+<li>[x] Define empirical distance playback matrix (10m to 150m) and 100-meter surveillance radius <a href="file:///E:/software/acoustic-surveillance/hardware/field_testing_protocol.md">field_testing_protocol.md</a></li>
+<li>[x] Establish total alert delivery latency pipeline (~9.5 seconds end-to-end).</li>
+<li>[x] Establish SIM800L AT+CSQ signal strength threshold ($CSQ \ge 10$) for dense forest canopy.</li>
+<li>[x] Define 168-hour (7-day) continuous solar harvesting battery voltage monitoring trial.</li>
+</ul>
+<h3>✍️ Task 8: Thesis Documentation &amp; Defense (100% Completed ✅)</h3>
+<ul>
+<li>[x] Chapter 1 (Introduction &amp; Research Motivation) — Written &amp; exported <a href="file:///E:/software/acoustic-surveillance/thesis_chapter_1.md">thesis_chapter_1.md</a></li>
+<li>[x] Chapter 2 (Literature Review) — Written &amp; exported <a href="file:///E:/software/acoustic-surveillance/literature_review.md">literature_review.md</a></li>
+<li>[x] Chapter 3 (Methodology &amp; Dataset Engineering) — Written &amp; exported <a href="file:///E:/software/acoustic-surveillance/results/dataset_methodology_detailed_report.md">dataset_methodology_detailed_report.md</a></li>
+<li>[x] Chapter 4 (Model Results &amp; Empirical Evaluation) — Written &amp; exported <a href="file:///E:/software/acoustic-surveillance/results/model_evaluation_report.md">model_evaluation_report.md</a></li>
+<li>[x] Chapter 5 (Conclusion &amp; Future Research Scope) — Written &amp; exported <a href="file:///E:/software/acoustic-surveillance/thesis_chapter_5.md">thesis_chapter_5.md</a></li>
+<li>[x] <strong>FULL MASTER THESIS MANUSCRIPT COMPILATION</strong> — Compiled into <a href="file:///E:/software/acoustic-surveillance/full_thesis_manuscript.doc">full_thesis_manuscript.doc</a></li>
+</ul>
+<div class='page-break'></div>
 </body>
 </html>

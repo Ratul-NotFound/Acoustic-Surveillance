@@ -1,246 +1,184 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8">
-<title>Work Update - Forest Acoustic Surveillance System</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 <style>
-body { font-family: Calibri, Segoe UI, Arial, sans-serif; font-size:11pt; line-height:1.65; color:#222; margin:50px 70px; max-width:860px; }
-h1 { color:#0d3b66; border-bottom:3px solid #1a5276; padding-bottom:8px; }
-h2 { color:#1a5276; }
-h3 { color:#2874a6; }
-pre { font-family: Courier New, monospace; font-size:10pt; background:#f5f5f5; padding:10px; border-left:4px solid #3498db; }
-</style></head><body>
-<h1>Work Update Report<br><small style="font-size:10pt;color:#555;">Edge AI Forest Acoustic Surveillance System &mdash; 24 July 2026</small></h1>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">WORK UPDATE REPORT</h2>
-<p style="margin:3px 0;font-size:10.5pt;">Edge AI Forest Acoustic Surveillance System</p>
-<p style="margin:3px 0;font-size:10.5pt;">Last Updated: 24 July 2026</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">OVERALL PROGRESS</h2>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  Done      ██████████████████████░░░░░░░░░░░░░░░░░░   50%  (15 / 30 tasks)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  Active    ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    7%  ( 2 / 30 tasks)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  Pending   ████████████████░░░░░░░░░░░░░░░░░░░░░░░░   43%  (13 / 30 tasks)</p>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">1. COMPLETED WORK  (50%)</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 1 — RESEARCH, ARCHITECTURE &amp; DESIGN  [100% DONE]</h3>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Thesis Plan (README.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Complete A-to-Z 24-week roadmap with chapter outlines, milestones,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         hardware BOM, and dataset strategy.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Hardware Wiring Guide (wiring_guide.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Pin-level wiring diagram for ESP32-S3 + INMP441 + LIS3DH +</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Neo-6M GPS + SIM800L GSM + CN3065 solar charge controller.</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Includes voltage level considerations and power rail layout.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Sound Classes Catalog (sound_classes.doc + sub_classes.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         31 acoustic target classes defined with subclass taxonomy,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         boat-engine classes excluded per project scope.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Distance &amp; Attenuation Physics (distance_handling.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Forest acoustic propagation math: inverse-square-law attenuation,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         frequency-dependent atmospheric absorption, foliage scattering,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         and C++ Digital AGC (Automatic Gain Control) algorithm.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> System Architecture (system_architecture.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Multidirectional solar-box casing design, power budget calculations</p>
-<p style="margin:3px 0;font-size:10.5pt;">         (20 mA average draw, 2600 mAh battery, 1.6h solar charge time),</p>
-<p style="margin:3px 0;font-size:10.5pt;">         multi-zone deployment model, and SIM800L SMS payload format.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Literature Review — FULLY WRITTEN TODAY (literature_review.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Formal academic Chapter 2 covering 8 thematic sections:</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.1 — Introduction &amp; PAM motivation</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.2 — Illegal logging &amp; poaching scope (Tleimat 2022, Innes 2010)</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.3 — PAM &amp; eco-acoustic soundscape analysis (Sethi et al. 2020)</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.4 — Acoustic feature extraction (MFCC, STHT, LPC, MFE, NAS)</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.5 — ML classifiers: RF → DS-CNNs → Tiny Transformers</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.6 — IoT hardware, LoRaWAN vs. ZigBee vs. GSM, solar power</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.7 — Gunshot &amp; chainsaw acoustic physics &amp; detection ranges</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.8 — UAV/drone-based complementary approaches</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.9 — Research gaps: domain shift, adversarial attacks, datasets</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Section 2.10 — Comparison Table 2.1 (7 prior systems vs. this thesis)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         35 fully cited academic references included.</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Total: ~50,000 characters / ~10,000 words.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Qora Research Synthesis (qora_search_synthesis.doc)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         73 unique papers from arXiv, OpenAlex, and Semantic Scholar,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         categorized into 6 domains, fully referenced and compiled.</p>
-<p style="margin:3px 0;font-size:10.5pt;">         3 unrelated papers (fatty liver disease, ACE health study,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Bayesian phylogenetics) filtered out automatically.</p>
-<br>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 2 — DATASET SOURCING  [65% DONE]</h3>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> ESC-50 Dataset — 2,000 audio files extracted and sorted</p>
-<p style="margin:3px 0;font-size:10.5pt;">         13 class subfolders populated in raw_data/:</p>
-<p style="margin:3px 0;font-size:10.5pt;">           bird_calls: 40 files      campfire_crackle: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           chainsaw: 40 files        footsteps: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           frog_croaks: 40 files     handsaw: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           hunting_dog: 40 files     insect_hums: 80 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           rain: 40 files            river_stream: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           thunder: 40 files         vehicle_engines: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">           wind: 40 files</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Total sorted files: 560 | ESC-50 full archive: 2,000 files</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> Dataset links compiled (dataset_links.txt)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         Links verified for: Mendeley Gunshot Dataset, FSC22 (Kaggle),</p>
-<p style="margin:3px 0;font-size:10.5pt;">         UrbanSound8K, ESC-50, DCASE 2024.</p>
-<br>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 3 — AUDIO PREPROCESSING SCRIPTS  [75% DONE]</h3>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> requirements.txt           Python dependencies defined</p>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> download_youtube.py        YouTube audio scraper (yt-dlp)</p>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> format_audio.py            16kHz mono 16-bit WAV converter</p>
-<br>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 5 — FIRMWARE  [25% DONE]</h3>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#27ae60;font-weight:bold;">&#10003; DONE</span> firmware.ino (boilerplate)</p>
-<p style="margin:3px 0;font-size:10.5pt;">         ESP32-S3 I2S DMA microphone driver, deep sleep registers,</p>
-<p style="margin:3px 0;font-size:10.5pt;">         accelerometer interrupt wake-up, and GSM module sleep switch.</p>
-<br>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">2. IN PROGRESS  (7%)</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#e67e22;font-weight:bold;">&#8635; ACTIVE</span> Scraping rare classes from YouTube (download_youtube.py)</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Target: walkie-talkie squelch, metal trap click, drone hum,</p>
-<p style="margin:3px 0;font-size:10.5pt;">           vehicle approach/departure, distant explosion.</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Status: Script ready, scraping runs ongoing.</p>
-<br>
-<p style="margin:4px 0 4px 16px;"><span style="color:#e67e22;font-weight:bold;">&#8635; ACTIVE</span> Formatting raw audio files (format_audio.py)</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Target: All raw_data/ files → formatted_data/ at 16kHz/16-bit/mono</p>
-<p style="margin:3px 0;font-size:10.5pt;">           Status: Script tested and working; waiting for rare class</p>
-<p style="margin:3px 0;font-size:10.5pt;">           downloads to complete before final batch run.</p>
-<br>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">3. REMAINING WORK  (43% Pending)</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<p style="background:#fef9e7;border-left:4px solid #f39c12;padding:8px 12px;margin:10px 0;font-weight:bold;">⚠️  USER ACTION NEEDED — MANUAL DOWNLOADS (cannot be automated):</p>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  A. Mendeley Gunshot Dataset</p>
-<p style="margin:3px 0;font-size:10.5pt;">     Reason required: Requires free Mendeley account login.</p>
-<p style="margin:3px 0;font-size:10.5pt;">     Action: Visit dataset_links.txt, log in, download ZIP, extract</p>
-<p style="margin:3px 0;font-size:10.5pt;">             to: E:\software\acoustic-surveillance\data_prep\raw_data\gunshot\</p>
-<br>
-<p style="margin:3px 0;font-size:10.5pt;">  B. FSC22 Forest Sound Dataset (Kaggle)</p>
-<p style="margin:3px 0;font-size:10.5pt;">     Reason required: Requires free Kaggle account login.</p>
-<p style="margin:3px 0;font-size:10.5pt;">     Action: Visit dataset_links.txt, download ZIP, extract relevant</p>
-<p style="margin:3px 0;font-size:10.5pt;">             classes to matching raw_data/ subfolders.</p>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 2 (remaining 35%)</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Download Mendeley Gunshot Dataset       → raw_data/gunshot/</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Download FSC22 Dataset                  → raw_data/ (various subfolders)</p>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 4 — MODEL TRAINING (0% — Next major milestone)</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Create Edge Impulse project</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Upload formatted_data/ (all processed WAV files)</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Configure feature blocks: MFE (mechanical), MFCC (voice/fauna)</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Train 2D CNN — target validation accuracy: &gt; 90%</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Review confusion matrix and retrain if needed</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Export quantized INT8 C++ Arduino library</p>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 5 — FIRMWARE INTEGRATION (75% remaining)</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Wire physical circuit on proto-board</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Import Edge Impulse library into Arduino IDE</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Merge: EI inference + Digital AGC + GPS parser + GSM SMS</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Implement 2-stage anomaly detection pipeline</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Implement SIM800L AT commands for zone-tagged SMS alerts</p>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 6 — POWER &amp; CASING</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Integrate CN3065 solar charger + LiFePO4 battery</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Write duty-cycle firmware (deep sleep + accelerometer wake)</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Measure active vs. sleep current with multimeter</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Design IP67 weatherproof camouflage tree-mount casing</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> 3D print casing with Gore-Tex acoustic port</p>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 7 — FIELD TESTING</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Deploy prototype node on real tree in wooded area</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Playback tests: chainsaw, gunshot at 10m, 30m, 50m, 100m, 150m</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Log detection accuracy, alert latency, GSM signal strength</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> 7-day solar harvesting validation run</p>
-<br>
-<h3 style="color:#2874a6;font-size:12pt;margin-top:18px;">TASK 8 — THESIS WRITING (5% done — Chapter 2 complete)</h3>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Chapter 1: Introduction</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Chapter 3: Methodology</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Chapter 4: Results &amp; Analysis</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Chapter 5: Conclusion &amp; Future Work</p>
-<p style="margin:4px 0 4px 24px;"><span style="color:#c0392b;">&#9744;</span> Presentation slides + hardware demo video</p>
-<br>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">4. FILE INDEX — All Project Documents</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">ACADEMIC DOCUMENTS</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  literature_review.doc         Chapter 2 — Full formal literature review</p>
-<p style="margin:3px 0;font-size:10.5pt;">                                (8 sections, Table 2.1, 35 references, ~10,000 words)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  literature_review.html        Same — open in Google Docs</p>
-<p style="margin:3px 0;font-size:10.5pt;">  qora_search_synthesis.doc     73-paper bibliography (6 categories)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  README.doc                    Full A-to-Z thesis plan</p>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">SYSTEM DESIGN DOCUMENTS</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  system_architecture.doc       Solar box, power budget, zoning, GSM protocol</p>
-<p style="margin:3px 0;font-size:10.5pt;">  hardware\wiring_guide.doc     Pin-level wiring diagram</p>
-<p style="margin:3px 0;font-size:10.5pt;">  distance_handling.doc         Attenuation physics + C++ AGC algorithm</p>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">SOUND CLASSIFICATION</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  sound_classes.doc             31-class acoustic target taxonomy</p>
-<p style="margin:3px 0;font-size:10.5pt;">  sub_classes.doc               Sub-class breakdown (boat engines excluded)</p>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">DATASET &amp; DATA PREP</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\dataset_links.txt           Download links (Mendeley, FSC22, etc.)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\coverage_matrix.doc         Which datasets cover which classes</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\data_collection_guide.doc   Step-by-step data collection guide</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\remaining_classes.doc       Rare classes still needed</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\download_youtube.py         YouTube audio scraper script</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\format_audio.py             WAV resampling formatter</p>
-<p style="margin:3px 0;font-size:10.5pt;">  data_prep\requirements.txt            Python dependencies</p>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">FIRMWARE</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  firmware\firmware.ino                 ESP32-S3 main sketch (boilerplate)</p>
-<br>
-<h2 style="color:#1a5276;font-size:13pt;margin-top:24px;border-bottom:1px solid #d6eaf8;padding-bottom:4px;">TRACKING</h2>
-<hr style="border:1px dashed #aaa;margin:8px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">  progress_tracker.doc                  Master task checklist (30 items)</p>
-<p style="margin:3px 0;font-size:10.5pt;">  WORK_UPDATE.doc                       This document</p>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<p style="margin:3px 0;font-size:10.5pt;">5. WHAT TO DO NEXT (Priority Order)</p>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-<p style="background:#eafaf1;border-left:4px solid #27ae60;padding:8px 12px;margin:6px 0;">PRIORITY 1 (YOU — Manual download required):</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Download Mendeley Gunshot Dataset and FSC22 from dataset_links.txt.</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Place files into raw_data/ subfolders as labeled above.</p>
-<br>
-<p style="background:#eafaf1;border-left:4px solid #27ae60;padding:8px 12px;margin:6px 0;">PRIORITY 2 (I can do this):</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Run format_audio.py to convert all raw data to 16kHz/mono WAV.</p>
-<p style="margin:3px 0;font-size:10.5pt;">    This produces the formatted_data/ folder ready for Edge Impulse upload.</p>
-<br>
-<p style="background:#eafaf1;border-left:4px solid #27ae60;padding:8px 12px;margin:6px 0;">PRIORITY 3 (YOU — Edge Impulse account required):</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Create a free Edge Impulse account at edgeimpulse.com.</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Upload formatted_data/. Train model. Export C++ library.</p>
-<br>
-<p style="background:#eafaf1;border-left:4px solid #27ae60;padding:8px 12px;margin:6px 0;">PRIORITY 4 (I can help write):</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Merge all firmware pieces into firmware.ino.</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Add GPS parser, AGC, and GSM SMS alert code.</p>
-<br>
-<p style="background:#eafaf1;border-left:4px solid #27ae60;padding:8px 12px;margin:6px 0;">PRIORITY 5 (Physical hardware):</p>
-<p style="margin:3px 0;font-size:10.5pt;">    Wire the circuit, assemble the solar-box casing, run field tests.</p>
-<br>
-<hr style="border:2px solid #1a5276;margin:18px 0;">
-<br>
-</body></html>
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
+</style>
+</head>
+<body>
+<h1>📊 Thesis Work Update &amp; Progress Report</h1>
+<p>This document outlines the completed (DONE) work, active tasks (IN PROGRESS), and remaining milestones (REMAINING) for your <strong>Edge AI-powered Forest Acoustic Surveillance System</strong> (built on the ESP32-S3, digital I2S microphone, and SIM800L GSM).</p>
+<hr />
+<h2>📈 Executive Summary</h2>
+<ul>
+<li><strong>Total Identified Tasks</strong>: 30</li>
+<li><strong>Completed (DONE)</strong>: 14 (47%)</li>
+<li><strong>Active (IN PROGRESS)</strong>: 3 (10%)</li>
+<li><strong>Pending (REMAINING)</strong>: 13 (43%)</li>
+<li><strong>Project Workspace</strong>: <code>E:\software\acoustic-surveillance</code></li>
+</ul>
+<pre><code class="language-mermaid">gantt
+    title Thesis Development Timeline
+    dateFormat  YYYY-MM-DD
+    section Phase 1: Research &amp; Setup
+    Research &amp; Architecture   :done,    des1, 2026-06-01, 2026-06-10
+    Literature Review         :done,    des2, 2026-06-05, 2026-06-12
+    section Phase 2: Data Sourcing
+    ESC-50 Sourcing           :done,    des3, 2026-06-10, 2026-06-15
+    YouTube Scraping Setup    :done,    des4, 2026-06-12, 2026-06-16
+    Remaining Rare Sourcing   :active,  des5, 2026-06-16, 2026-06-20
+    Manual Data Sourcing      :active,  des6, 2026-06-17, 2026-06-21
+    section Phase 3: TinyML
+    Model Training            :crit,    des7, 2026-06-22, 2026-06-28
+    Model Export (C++ Lib)    :         des8, 2026-06-29, 2026-07-02
+    section Phase 4: Embedded &amp; Hardware
+    Wiring Design             :done,    des9, 2026-06-14, 2026-06-16
+    Firmware Boilerplate      :done,    des10, 2026-06-15, 2026-06-17
+    Firmware Integration      :         des11, 2026-07-03, 2026-07-10
+    Hardware Assembly         :         des12, 2026-07-08, 2026-07-15
+    section Phase 5: Field Tests
+    Field Verification        :         des13, 2026-07-16, 2026-07-25
+    Thesis Report Writing     :         des14, 2026-07-20, 2026-08-05
+</code></pre>
+<hr />
+<h2>🛠️ Detailed Task Status</h2>
+<h3>🟢 1. Research, Architecture, &amp; Design (100% Completed)</h3>
+<p>All fundamental physics, hardware architecture, sound catalogs, and mathematical analyses have been fully prepared.</p>
+<ul>
+<li><strong>[x] End-to-End Project Plan</strong>: Created the master thesis plan outlining directory structure, goals, and setup.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/README.md">README.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Target Acoustic Catalog</strong>: Defined 31 target and environmental filter classes with their typical frequency ranges, temporal signatures, and dataset sources.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/sound_classes.md">sound_classes.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Sub-Class Taxonomy</strong>: Created detailed acoustic profiles for sub-classes (gas vs. electric chainsaws, rifle vs. handgun vs. shotgun, etc.) and excluded boat engine classes per specifications.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/sub_classes.md">sub_classes.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Physics &amp; Signal Processing Guide</strong>: Documented forest acoustic propagation physics (geometric spreading, high-frequency absorption, reverberation) and wrote C++ code for digital Automatic Gain Control (AGC).<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/distance_handling.md">distance_handling.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Literature Review Draft</strong>: Wrote a detailed academic literature review synthesizing 7 key research papers on TinyML environmental sound classification, hardware, and propagation.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/literature_review.md">literature_review.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Solar, Battery, &amp; Zoning Architecture</strong>: Created a comprehensive system design document detailing physical solar box packaging, battery sizing calculations, zoning jurisdictions, and SIM800L payload transmission protocols.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/system_architecture.md">system_architecture.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Electrical Wiring Schematics</strong>: Designed electrical connections and pins mapping ESP32-S3 to INMP441 Microphone, SIM800L GSM, Neo-6M GPS, and LIS3DH Accelerometer.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/hardware/wiring_guide.md">hardware/wiring_guide.md</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>🟡 2. Dataset Sourcing &amp; Preprocessing (65% Completed)</h3>
+<p>Scripts have been implemented and baseline datasets have been successfully processed, but manual sourcing is required for authenticated platforms.</p>
+<ul>
+<li><strong>[x] Sourcing Coverage Matrix</strong>: Mapped out where each of the 31 classes will be downloaded from.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/coverage_matrix.md">data_prep/coverage_matrix.md</a></li>
+</ul>
+</li>
+<li><strong>[x] Dataset Links &amp; Citations Index</strong>: Compiled direct download URLs and bibliographic citation formats for Kaggle, Mendeley, Zenodo, and Xeno-Canto.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/dataset_links.md">dataset_links.md</a></li>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/dataset_links.txt">dataset_links.txt</a></li>
+</ul>
+</li>
+<li><strong>[x] Python Audio Preprocessing Setup</strong>: Created the Python virtual environment dependency configuration.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/requirements.txt">data_prep/requirements.txt</a></li>
+</ul>
+</li>
+<li><strong>[x] YouTube Audio Scraper</strong>: Wrote a Python script to download target audio from YouTube links and crop clips to specific segments.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/download_youtube.py">data_prep/download_youtube.py</a></li>
+</ul>
+</li>
+<li><strong>[x] Audio Resampling Formatter</strong>: Built a script to recursively resample audio files to 16kHz, mono, 16-bit PCM WAV.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/format_audio.py">data_prep/format_audio.py</a></li>
+</ul>
+</li>
+<li><strong>[x] ESC-50 Dataset Downloader &amp; Class Extractor</strong>: Created and executed scripts to download the 2,000-clip ESC-50 dataset and extract/sort 560 clips across 13 target classes (chainsaw, handsaw, footsteps, dog, fire, rain, wind, birds, insects, frogs, stream, thunder, vehicles) into the <code>raw_data/</code> directory.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/download_esc50.py">data_prep/download_esc50.py</a></li>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/data_prep/extract_esc50_classes.py">data_prep/extract_esc50_classes.py</a></li>
+</ul>
+</li>
+<li><strong>[/] YouTube Rare Sound Scraping</strong>: Currently collecting rare threat classes (walkie-talkie static, trap metallic clinking, drone hums) using the scraper.</li>
+<li><strong>[ ] Mendeley Gunshot Sourcing</strong>: <strong>User Action Required</strong> — Download the dataset zip using the link in <code>dataset_links.txt</code> (requires free Mendeley sign-in) and place gunshot files in <code>raw_data/gunshot/</code>.</li>
+<li><strong>[ ] FSC22 Sourcing</strong>: <strong>User Action Required</strong> — Download the FSC22 dataset from Kaggle (requires Kaggle sign-in) and extract the background weather and animal clips.</li>
+</ul>
+<hr />
+<h3>🟡 3. TinyML Model &amp; Firmware Development (20% Completed)</h3>
+<ul>
+<li><strong>[x] ESP32-S3 Firmware Boilerplate</strong>: Developed a C++ Arduino sketch setting up I2S microphone drivers, deep sleep timer duty-cycling, and LIS3DH external accelerometer wake-up interrupts.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/firmware/firmware.ino">firmware/firmware.ino</a></li>
+</ul>
+</li>
+<li><strong>[x] Model Training Reference Guide</strong>: Documented the pipeline for setting up Edge Impulse, configuring features, training the CNN, and deploying the library.<ul>
+<li>📄 <a href="file:///E:/software/acoustic-surveillance/model_training_guide.md">model_training_guide.md</a></li>
+</ul>
+</li>
+<li><strong>[ ] Edge Impulse Project Upload</strong>: Upload <code>formatted_data/</code> to Edge Impulse once all 31 classes have been fully collected and formatted.</li>
+<li><strong>[ ] Spectrogram Feature Extraction Setup</strong>: Configure Mel-Frequency Energy (MFE) feature extraction blocks (20ms frames for transients, 40ms frames for continuous engine sounds).</li>
+<li><strong>[ ] CNN Model Training &amp; Tuning</strong>: Train the 2D CNN (target validation accuracy &gt;90%) and quantize it to INT8.</li>
+<li><strong>[ ] Model Arduino Library Export</strong>: Export the quantized neural network as a C++ ZIP library.</li>
+<li><strong>[ ] Digital AGC &amp; ML Firmware Integration</strong>: Merge the C++ digital AGC code from <code>distance_handling.md</code> and the exported ML library into the main <code>firmware.ino</code>.</li>
+<li><strong>[ ] GPS &amp; GSM Transmission Logic</strong>: Code the SIM800L AT commands to transmit the SMS alert containing GPS coordinates and Google Maps location links.</li>
+<li><strong>[ ] Hierarchical Two-Stage Inference</strong>: Implement a low-power anomaly pre-detector (Stage 1) to check RMS/ZCR thresholds before starting the heavy CNN classifier (Stage 2) to maximize battery life.</li>
+</ul>
+<hr />
+<h3>🔴 4. Hardware Assembly, Field Testing, &amp; Thesis Report (0% Completed)</h3>
+<ul>
+<li><strong>[ ] Physical Prototype Assembly</strong>: Wire the physical ESP32-S3, INMP441 Mic, LIS3DH Accelerometer, Neo-6M GPS, and SIM800L module.</li>
+<li><strong>[ ] Solar Power Management Setup</strong>: Connect the CN3065 solar charger, 18650 LiFePO4 battery, and regulate the voltages safely.</li>
+<li><strong>[ ] Weatherproof Casing</strong>: 3D print and assemble a waterproof IP67 camouflaged tree-mount enclosure with an acoustic membrane.</li>
+<li><strong>[ ] Field Verification &amp; Distance Playbacks</strong>: Deploy the system in a local wooded area and play gunshot/chainsaw sounds at 10m to 150m.</li>
+<li><strong>[ ] Power Auditing &amp; Latency Logging</strong>: Measure active/sleep currents and log GSM SMS delivery latency.</li>
+<li><strong>[ ] Thesis Report Compilation</strong>: Write the final thesis chapters and record a video demo of the working hardware.</li>
+</ul>
+<hr />
+<h2>🎯 Next Immediate Steps</h2>
+<p>Here is the exact action plan to continue development:</p>
+<ol>
+<li><strong>Download Mendeley &amp; FSC22 Datasets</strong>:<ul>
+<li>Open <a href="file:///E:/software/acoustic-surveillance/dataset_links.txt">dataset_links.txt</a>.</li>
+<li>Download Mendeley Gunshot Dataset and FSC22.</li>
+<li>Place gunshots in <code>data_prep/raw_data/gunshot</code> and FSC22 files in their respective folders.</li>
+</ul>
+</li>
+<li><strong>Scrape Rare Sounds</strong>:<ul>
+<li>Run <code>data_prep/download_youtube.py</code> to get walkie-talkie static and snare trap clicks.</li>
+</ul>
+</li>
+<li><strong>Format and Resample</strong>:<ul>
+<li>Run <code>data_prep/format_audio.py</code> to resample everything to 16kHz Mono WAV.</li>
+</ul>
+</li>
+<li><strong>Upload &amp; Train Model</strong>:<ul>
+<li>Create Edge Impulse project, upload dataset, train 2D CNN, and export the Arduino library.</li>
+</ul>
+</li>
+<li><strong>Assemble and Flash Hardware</strong>:<ul>
+<li>Wire the ESP32-S3, integrate firmware, flash the sketch, and deploy for testing.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><em>Last Updated: June 18, 2026 (Local Time)</em></p></body></html>

@@ -1,41 +1,49 @@
 import os
+import glob
+import markdown
 
-hardware_dir = r"E:\software\acoustic-surveillance\hardware"
+DOCS_DIR = r"E:\software\acoustic-surveillance\docs"
 
-for fname in ['power_budget_guide', 'enclosure_3d_design_guide', 'field_testing_protocol']:
-    md_file = os.path.join(hardware_dir, f"{fname}.md")
-    doc_file = os.path.join(hardware_dir, f"{fname}.doc")
-    html_file = os.path.join(hardware_dir, f"{fname}.html")
-
-    with open(md_file, 'r', encoding='utf-8') as f:
-        md_text = f.read()
-
-    body_html = md_text.replace('# ', '<h1>').replace('## ', '<h2>').replace('### ', '<h3>').replace('\n\n', '<br><br>')
-    full_html = f"""<!DOCTYPE html>
-<html>
+style_head = """<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>{fname}</title>
 <style>
-body {{ font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; padding: 25px; color: #333; }}
-h1 {{ color: #1a365d; border-bottom: 2px solid #2b6cb0; padding-bottom: 8px; }}
-h2 {{ color: #2c5282; margin-top: 20px; border-bottom: 1px solid #cbd5e0; padding-bottom: 4px; }}
-h3 {{ color: #2b6cb0; }}
-table {{ border-collapse: collapse; width: 100%; margin: 15px 0; }}
-th, td {{ border: 1px solid #cbd5e0; padding: 10px; text-align: left; }}
-th {{ background-color: #ebf8ff; color: #2c5282; }}
-code {{ background-color: #edf2f7; padding: 2px 5px; border-radius: 4px; font-family: Consolas, monospace; }}
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
 </style>
 </head>
 <body>
-{body_html}
-</body>
-</html>
 """
 
-    with open(html_file, 'w', encoding='utf-8') as f:
+for md_path in glob.glob(os.path.join(DOCS_DIR, "*.md")):
+    base_name = os.path.splitext(os.path.basename(md_path))[0]
+    doc_path = os.path.join(DOCS_DIR, f"{base_name}.doc")
+    html_path = os.path.join(DOCS_DIR, f"{base_name}.html")
+
+    with open(md_path, 'r', encoding='utf-8') as f:
+        md_text = f.read()
+
+    parsed_html = markdown.markdown(md_text, extensions=['tables', 'fenced_code', 'nl2br'])
+    full_html = style_head + parsed_html + "</body></html>"
+
+    with open(html_path, 'w', encoding='utf-8') as f:
         f.write(full_html)
-    with open(doc_file, 'w', encoding='utf-8') as f:
+    with open(doc_path, 'w', encoding='utf-8') as f:
         f.write(full_html)
 
-print("All Hardware HTML and DOC exports generated successfully!")
+print("ALL INDIVIDUAL TOPIC DOC & HTML FILES CONVERTED TO CLEAN PROFESSIONAL FORMATTING!")

@@ -1,94 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>System Architecture</title>
 <style>
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        line-height: 1.6;
-        color: #333333;
-        margin: 40px;
-    }
-    h1 {
-        color: #1a5276;
-        border-bottom: 2.5px solid #1a5276;
-        padding-bottom: 8px;
-        font-size: 24pt;
-        margin-top: 20px;
-    }
-    h2 {
-        color: #2980b9;
-        margin-top: 35px;
-        border-bottom: 1.5px solid #ddd;
-        padding-bottom: 5px;
-        font-size: 18pt;
-    }
-    h3 {
-        color: #2e86c1;
-        font-size: 14pt;
-        margin-top: 25px;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin: 25px 0;
-        font-size: 11pt;
-    }
-    th, td {
-        border: 1px solid #cccccc;
-        text-align: left;
-        padding: 10px;
-    }
-    th {
-        background-color: #f2f4f4;
-        font-weight: bold;
-        color: #1a5276;
-    }
-    tr:nth-child(even) {
-        background-color: #f8f9f9;
-    }
-    code {
-        font-family: Consolas, Monaco, Courier, monospace;
-        background-color: #f4f6f7;
-        color: #c0392b;
-        padding: 2px 5px;
-        border-radius: 3px;
-        font-size: 10pt;
-    }
-    pre {
-        background-color: #f4f6f7;
-        padding: 15px;
-        border: 1px solid #d5dbdb;
-        border-radius: 5px;
-        overflow-x: auto;
-        margin: 20px 0;
-    }
-    pre code {
-        color: #333333;
-        background-color: transparent;
-        padding: 0;
-    }
-    blockquote {
-        border-left: 5px solid #3498db;
-        background-color: #ebf5fb;
-        padding: 12px 20px;
-        margin: 20px 0;
-        color: #2c3e50;
-        font-style: italic;
-    }
-    ul, ol {
-        margin-bottom: 20px;
-        padding-left: 30px;
-    }
-    li {
-        margin-bottom: 5px;
-    }
-    hr {
-        border: 0;
-        border-top: 1px solid #d5dbdb;
-        margin: 30px 0;
-    }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
 </style>
 </head>
 <body>
@@ -98,7 +28,7 @@
 <h2>1. Physical Device Casing &amp; Solar Box Design</h2>
 <p>To ensure the node is self-sustaining in dense forest foliage with limited sunlight, the device uses a <strong>multidirectional solar harvesting box design</strong>.</p>
 <h3>📦 Physical Enclosure Concept</h3>
-<pre class="codehilite"><code>             ┌────────────────────────┐
+<pre><code>             ┌────────────────────────┐
              │    [ SOLAR PANEL 1 ]   │  &lt;-- Top Panel (Direct Overhead Sunlight)
              │      (Rain Shield)     │
       ┌──────┴────────────────────────┴──────┐
@@ -112,7 +42,6 @@
       │  [Inside: ESP32-S3, GPS, GSM, LiPo]  │  &lt;-- Heavy components placed at bottom for stability
       └──────────────────────────────────────┘
 </code></pre>
-
 <ol>
 <li><strong>3D Printed Weatherproof Box (IP67)</strong>:<ul>
 <li>Printed in UV-resistant PETG or ABS filament.</li>
@@ -148,7 +77,7 @@
 <td style="text-align: left;"><strong>Energy Density</strong></td>
 <td style="text-align: left;">🟢 Very High (Small &amp; Lightweight)</td>
 <td style="text-align: left;">🟡 Moderate (Heavier, larger)</td>
-<td style="text-align: left;"><strong>LiFePO4</strong> is recommended for forest safety because it is thermally stable and will not catch fire or explode if the tree trunk exceeds <i>50^\circ\text{C}</i> in direct sunlight. However, if space is extremely constrained, a <strong>protected 18650 LiPo battery pack</strong> (2600mAh) can be used.</td>
+<td style="text-align: left;"><strong>LiFePO4</strong> is recommended for forest safety because it is thermally stable and will not catch fire or explode if the tree trunk exceeds $50^\circ\text{C}$ in direct sunlight. However, if space is extremely constrained, a <strong>protected 18650 LiPo battery pack</strong> (2600mAh) can be used.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Lifespan</strong></td>
@@ -166,24 +95,22 @@
 </table>
 <h3>⚡ Power Budget Calculations</h3>
 <ul>
-<li><strong>ESP32-S3 Sleep Mode</strong>: <i>\approx 20\,\mu\text{A}</i> at <i>3.3\text{V} = 0.066\,\text{mW}</i></li>
-<li><strong>Active Inference Mode (ESP32-S3 + I2S Mic active for 2s every 10s)</strong>: <i>\approx 100\,\text{mA}</i> at <i>3.3\text{V} = 330\,\text{mW}</i></li>
-<li><strong>GSM Standby Mode (SIM800L power-down state)</strong>: <i>0.0\,\text{mA}</i> (Isolated by MOSFET switch)</li>
-<li><strong>GSM Transmission Alert Mode (SIM800L powered on, sending SMS, 15 seconds duration)</strong>: <i>\approx 350\,\text{mA}</i> average, with <i>2\,\text{A}</i> bursts at <i>4.0\text{V} = 1400\,\text{mW}</i></li>
+<li><strong>ESP32-S3 Sleep Mode</strong>: $\approx 20\,\mu\text{A}$ at $3.3\text{V} = 0.066\,\text{mW}$</li>
+<li><strong>Active Inference Mode (ESP32-S3 + I2S Mic active for 2s every 10s)</strong>: $\approx 100\,\text{mA}$ at $3.3\text{V} = 330\,\text{mW}$</li>
+<li><strong>GSM Standby Mode (SIM800L power-down state)</strong>: $0.0\,\text{mA}$ (Isolated by MOSFET switch)</li>
+<li><strong>GSM Transmission Alert Mode (SIM800L powered on, sending SMS, 15 seconds duration)</strong>: $\approx 350\,\text{mA}$ average, with $2\,\text{A}$ bursts at $4.0\text{V} = 1400\,\text{mW}$</li>
 </ul>
 <h4>Average Continuous Power Consumption (No Alerts):</h4>
-<div style="text-align:center; font-style:italic; margin: 15px 0;">\text{Average Current} = \frac{(I_{\text{active}} \times t_{\text{active}}) + (I_{\text{sleep}} \times t_{\text{sleep}})}{t_{\text{active}} + t_{\text{sleep}}}</div>
-
-<div style="text-align:center; font-style:italic; margin: 15px 0;">\text{Average Current} = \frac{(100\,\text{mA} \times 2\,\text{s}) + (0.02\,\text{mA} \times 8\,\text{s})}{10\,\text{s}} = 20.016\,\text{mA}</div>
-
-<p>At a standard <i>3.7\text{V}</i> battery voltage:
-*   <strong>Daily Capacity Needed</strong>: <i>20.016\,\text{mA} \times 24\,\text{hours} = 480.38\,\text{mAh}</i> per day.
-*   A lightweight <strong>2600mAh 18650 battery</strong> can power the device for <strong>5.4 days</strong> with zero sunlight.
-*   <strong>Solar Charging</strong>: A small <i>5\text{V}</i> <i>1.5\text{W}</i> solar panel (generating <i>\approx 300\,\text{mA}</i> in peak sun) only needs <strong>1.6 hours</strong> of direct sunlight per day to fully recharge the daily consumed energy (<i>480.38\,\text{mAh} / 300\,\text{mA} = 1.6\,\text{h}</i>).</p>
+<p>$$\text{Average Current} = \frac{(I_{\text{active}} \times t_{\text{active}}) + (I_{\text{sleep}} \times t_{\text{sleep}})}{t_{\text{active}} + t_{\text{sleep}}}$$<br />
+$$\text{Average Current} = \frac{(100\,\text{mA} \times 2\,\text{s}) + (0.02\,\text{mA} \times 8\,\text{s})}{10\,\text{s}} = 20.016\,\text{mA}$$</p>
+<p>At a standard $3.7\text{V}$ battery voltage:<br />
+*   <strong>Daily Capacity Needed</strong>: $20.016\,\text{mA} \times 24\,\text{hours} = 480.38\,\text{mAh}$ per day.<br />
+*   A lightweight <strong>2600mAh 18650 battery</strong> can power the device for <strong>5.4 days</strong> with zero sunlight.<br />
+*   <strong>Solar Charging</strong>: A small $5\text{V}$ $1.5\text{W}$ solar panel (generating $\approx 300\,\text{mA}$ in peak sun) only needs <strong>1.6 hours</strong> of direct sunlight per day to fully recharge the daily consumed energy ($480.38\,\text{mAh} / 300\,\text{mA} = 1.6\,\text{h}$).</p>
 <hr />
 <h2>3. Deployment Zoning Model</h2>
 <p>Devices are grouped into coordinate-defined <strong>Zones</strong> matching the jurisdiction of different environmental and emergency response agencies.</p>
-<pre class="codehilite"><code>       🌲 FOREST CANOPY / DEPLOYMENT AREA 🌲
+<pre><code>       🌲 FOREST CANOPY / DEPLOYMENT AREA 🌲
 ┌───────────────────────┬───────────────────────┐
 │        ZONE A         │        ZONE B         │
 │    (North Coastline)  │     (Dense Forest)    │
@@ -203,7 +130,6 @@
 │ (Zone A alerts)│ (Zone B alerts)│ (All logs)   │
 └──────────────┘  └──────────────┘  └──────────────┘
 </code></pre>
-
 <ol>
 <li><strong>Zone A (Mangrove/Riverside - Coast Guard Jurisdiction)</strong>:<ul>
 <li>Monitors illegal boat movement, snare trapping, and coastal logging.</li>
@@ -222,7 +148,7 @@
 <h3>Option A: SMS Alert Format (Standard &amp; Highly Reliable)</h3>
 <p>SMS is preferred for remote regions because it transmits over the 2G control channel, requiring minimal signal strength.</p>
 <h4>SMS Payload Structure (Plain Text):</h4>
-<pre class="codehilite"><code class="language-text">[ALERT]
+<pre><code class="language-text">[ALERT]
 ID: NODE-042
 ZONE: B-NORTH
 ACT: CHAINSAW (CUTTING)
@@ -232,7 +158,6 @@ MAPS: https://maps.google.com/?q=22.34891,89.54023
 BATT: 3.82V (85%)
 TIME: 2026-06-18 02:42:19
 </code></pre>
-
 <ul>
 <li><strong>Key Parameters</strong>:<ul>
 <li><code>ID</code>: Unique node hardware identifier.</li>
@@ -249,7 +174,7 @@ TIME: 2026-06-18 02:42:19
 <h3>Option B: GPRS Data Payload (JSON API Integration)</h3>
 <p>If cellular internet is stable, the device transmits a lightweight HTTP POST request to a Central Control dashboard server.</p>
 <h4>JSON Data Payload:</h4>
-<pre class="codehilite"><code class="language-json">{
+<pre><code class="language-json">{
   &quot;device_id&quot;: &quot;NODE-042&quot;,
   &quot;zone&quot;: &quot;B-NORTH&quot;,
   &quot;timestamp&quot;: &quot;2026-06-18T02:42:19Z&quot;,
@@ -267,11 +192,10 @@ TIME: 2026-06-18 02:42:19
   }
 }
 </code></pre>
-
 <hr />
 <h2>5. Firmware Code Implementation: Building the Alert String</h2>
 <p>Here is how the notification string is constructed in the C++ firmware before sending via the SIM800L GSM serial interface:</p>
-<pre class="codehilite"><code class="language-cpp">#include &lt;Arduino.h&gt;
+<pre><code class="language-cpp">#include &lt;Arduino.h&gt;
 
 // Simulated GPS data structure
 struct GPSData {
@@ -314,6 +238,4 @@ void compile_and_send_alert(const char* node_id, const char* zone_id, const char
     // Serial2.print(message);
     // Serial2.write(26); // Send ASCII Ctrl+Z
 }
-</code></pre>
-</body>
-</html>
+</code></pre></body></html>

@@ -1,94 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Dataset Links</title>
 <style>
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        line-height: 1.6;
-        color: #333333;
-        margin: 40px;
-    }
-    h1 {
-        color: #1a5276;
-        border-bottom: 2.5px solid #1a5276;
-        padding-bottom: 8px;
-        font-size: 24pt;
-        margin-top: 20px;
-    }
-    h2 {
-        color: #2980b9;
-        margin-top: 35px;
-        border-bottom: 1.5px solid #ddd;
-        padding-bottom: 5px;
-        font-size: 18pt;
-    }
-    h3 {
-        color: #2e86c1;
-        font-size: 14pt;
-        margin-top: 25px;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin: 25px 0;
-        font-size: 11pt;
-    }
-    th, td {
-        border: 1px solid #cccccc;
-        text-align: left;
-        padding: 10px;
-    }
-    th {
-        background-color: #f2f4f4;
-        font-weight: bold;
-        color: #1a5276;
-    }
-    tr:nth-child(even) {
-        background-color: #f8f9f9;
-    }
-    code {
-        font-family: Consolas, Monaco, Courier, monospace;
-        background-color: #f4f6f7;
-        color: #c0392b;
-        padding: 2px 5px;
-        border-radius: 3px;
-        font-size: 10pt;
-    }
-    pre {
-        background-color: #f4f6f7;
-        padding: 15px;
-        border: 1px solid #d5dbdb;
-        border-radius: 5px;
-        overflow-x: auto;
-        margin: 20px 0;
-    }
-    pre code {
-        color: #333333;
-        background-color: transparent;
-        padding: 0;
-    }
-    blockquote {
-        border-left: 5px solid #3498db;
-        background-color: #ebf5fb;
-        padding: 12px 20px;
-        margin: 20px 0;
-        color: #2c3e50;
-        font-style: italic;
-    }
-    ul, ol {
-        margin-bottom: 20px;
-        padding-left: 30px;
-    }
-    li {
-        margin-bottom: 5px;
-    }
-    hr {
-        border: 0;
-        border-top: 1px solid #d5dbdb;
-        margin: 30px 0;
-    }
+body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.65; color: #1f2937; background: #fff; padding: 30px; max-width: 950px; margin: 0 auto; font-size: 11pt; }
+h1 { color: #0f2b48; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 22pt; font-weight: 700; border-bottom: 3px solid #0f2b48; padding-bottom: 8px; margin-top: 35px; margin-bottom: 15px; }
+h2 { color: #1e4265; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 15pt; font-weight: 600; border-bottom: 1.5px solid #d0d7de; padding-bottom: 5px; margin-top: 28px; margin-bottom: 12px; }
+h3 { color: #2b5c8f; font-family: 'Calibri', 'Segoe UI', sans-serif; font-size: 13pt; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+p { margin-top: 0; margin-bottom: 12px; text-align: justify; }
+ul, ol { margin-top: 0; margin-bottom: 14px; padding-left: 24px; }
+li { margin-bottom: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 10pt; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+th { background-color: #0f2b48; color: #ffffff; font-weight: 600; padding: 10px 12px; text-align: left; border: 1px solid #0f2b48; }
+td { padding: 8px 12px; border: 1px solid #d0d7de; vertical-align: top; }
+tr:nth-child(even) { background-color: #f8fafc; }
+code { background-color: #f1f5f9; color: #0f172a; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', 'Courier New', monospace; font-size: 9.5pt; border: 1px solid #e2e8f0; }
+pre { background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 6px; overflow-x: auto; font-size: 9.5pt; }
+blockquote { border-left: 4px solid #1e4265; background-color: #f0f4f8; margin: 16px 0; padding: 10px 18px; color: #334155; font-style: italic; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 30px 0; }
+img { max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #cbd5e1; border-radius: 6px; }
 </style>
 </head>
 <body>
@@ -172,12 +102,10 @@
 <h2>4. Citation and Reference Format for Your Bibliography</h2>
 <p>When referencing these datasets in your thesis report, you can use the following standard citation formats:</p>
 <ul>
-<li><strong>FSC22</strong>:
+<li><strong>FSC22</strong>:<br />
     &gt; <em>Dakshinaranmal, S. (2022). FSC22: A Forest Sound Classification Dataset for Illegal Logging Detection. Kaggle. https://www.kaggle.com/datasets/dakshinaranmal/fsc22-v1</em></li>
-<li><strong>Tropical Forest Gunshot</strong>:
+<li><strong>Tropical Forest Gunshot</strong>:<br />
     &gt; <em>Mendeley Data. (2020). Tropical Forest Gunshot Classification Dataset. Mendeley. https://data.mendeley.com/datasets/x48cwz364j/3</em></li>
-<li><strong>ESC-50</strong>:
+<li><strong>ESC-50</strong>:<br />
     &gt; <em>Piczak, K. J. (2015). ESC: Dataset for Environmental Sound Classification. GitHub. https://github.com/karoldvl/paper-2015-esc-dataset</em></li>
-</ul>
-</body>
-</html>
+</ul></body></html>
