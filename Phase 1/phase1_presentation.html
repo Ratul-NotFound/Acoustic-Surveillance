@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Thesis Presentation - Edge AI Acoustic Surveillance</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: #0a0a1a; color: #e0e0e0; overflow: hidden; }
+
+.slide-container { width: 100vw; height: 100vh; position: relative; }
+.slide { width: 100vw; height: 100vh; display: none; padding: 60px 80px; position: absolute; top: 0; left: 0; }
+.slide.active { display: flex; flex-direction: column; }
+
+/* Navigation */
+.nav { position: fixed; bottom: 30px; right: 40px; z-index: 100; display: flex; gap: 12px; align-items: center; }
+.nav button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; font-family: 'Inter'; }
+.nav button:hover { background: rgba(255,255,255,0.2); }
+.nav .counter { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+/* Title slide */
+.slide-title { background: linear-gradient(135deg, #0a1628 0%, #1a1a3e 50%, #0d2137 100%); justify-content: center; align-items: center; text-align: center; }
+.slide-title h1 { font-size: 42px; font-weight: 800; background: linear-gradient(135deg, #4fc3f7, #00e676); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.3; max-width: 900px; }
+.slide-title .subtitle { font-size: 20px; color: #90a4ae; margin-top: 16px; font-weight: 300; }
+.slide-title .meta { font-size: 15px; color: #546e7a; margin-top: 40px; }
+.slide-title .phase-badge { display: inline-block; background: linear-gradient(135deg, #00e676, #00bfa5); color: #0a0a1a; padding: 8px 24px; border-radius: 20px; font-weight: 700; font-size: 14px; margin-bottom: 30px; letter-spacing: 1px; }
+
+/* Content slides */
+.slide-content { background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); }
+.slide-content .slide-header { margin-bottom: 36px; }
+.slide-content .slide-header h2 { font-size: 32px; font-weight: 700; color: #4fc3f7; }
+.slide-content .slide-header .slide-num { font-size: 13px; color: #546e7a; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 2px; }
+
+.content-body { flex: 1; overflow: hidden; }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; }
+.card h3 { font-size: 16px; color: #4fc3f7; margin-bottom: 10px; font-weight: 600; }
+.card p, .card li { font-size: 14px; line-height: 1.6; color: #b0bec5; }
+.card ul { padding-left: 18px; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: rgba(79,195,247,0.15); color: #4fc3f7; padding: 10px 14px; text-align: left; font-weight: 600; border-bottom: 2px solid rgba(79,195,247,0.3); }
+td { padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #b0bec5; }
+tr:hover td { background: rgba(255,255,255,0.03); }
+.highlight { color: #00e676; font-weight: 700; }
+.warn { color: #ff7043; }
+
+/* Bullet lists */
+.bullets { list-style: none; padding: 0; }
+.bullets li { padding: 10px 0; padding-left: 28px; position: relative; font-size: 16px; line-height: 1.5; color: #cfd8dc; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.bullets li::before { content: '▸'; position: absolute; left: 0; color: #4fc3f7; font-weight: bold; }
+
+/* Two columns */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+/* Stats */
+.stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0; }
+.stat-box { background: linear-gradient(135deg, rgba(79,195,247,0.1), rgba(0,230,118,0.05)); border: 1px solid rgba(79,195,247,0.2); border-radius: 12px; padding: 20px 28px; text-align: center; flex: 1; min-width: 150px; }
+.stat-box .num { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, #4fc3f7, #00e676); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-box .label { font-size: 12px; color: #78909c; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Gap boxes */
+.gap-box { background: rgba(255,112,67,0.08); border-left: 3px solid #ff7043; padding: 14px 18px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
+.gap-box strong { color: #ff7043; }
+.gap-box span { color: #b0bec5; font-size: 14px; }
+
+/* Solution boxes */
+.sol-box { background: rgba(0,230,118,0.08); border-left: 3px solid #00e676; padding: 14px 18px; margin-bottom: 12px; border-radius: 0 8px 8px 0; }
+.sol-box strong { color: #00e676; }
+.sol-box span { color: #b0bec5; font-size: 14px; }
+
+/* Flow diagram */
+.flow { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
+.flow-box { background: rgba(79,195,247,0.12); border: 1px solid rgba(79,195,247,0.3); padding: 14px 20px; border-radius: 10px; text-align: center; font-size: 13px; color: #e0e0e0; min-width: 120px; }
+.flow-arrow { color: #4fc3f7; font-size: 20px; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title active" id="s1">
+  <div class="phase-badge">PHASE 1 PRESENTATION</div>
+  <h1>Edge AI-Powered Acoustic Surveillance System for Forest Protection</h1>
+  <p class="subtitle">Background Study · Literature Review · Methodology · Model Selection · Dataset</p>
+  <p class="meta">M.Sc. Thesis · Department of Computer Science & Engineering · 2026</p>
+</div>
+
+<!-- SLIDE 2: Problem -->
+<div class="slide slide-content" id="s2">
+  <div class="slide-header"><div class="slide-num">Slide 2</div><h2>Problem Statement & Background</h2></div>
+  <div class="content-body">
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">4.06B</div><div class="label">Hectares of Forest</div></div>
+      <div class="stat-box"><div class="num">25M</div><div class="label">Hectares Lost/Year</div></div>
+      <div class="stat-box"><div class="num">90%</div><div class="label">Terrestrial Biodiversity</div></div>
+      <div class="stat-box"><div class="num">#1</div><div class="label">Driver: Illegal Logging</div></div>
+    </div>
+    <ul class="bullets" style="margin-top:20px">
+      <li>Traditional monitoring relies on expensive, manual ground patrolling</li>
+      <li>Tree cutting, chainsaws, gunshots produce <strong style="color:#00e676">distinct acoustic signatures</strong></li>
+      <li>Wireless Acoustic Sensor Networks (WASN) can automate detection</li>
+      <li><strong style="color:#ff7043">Challenges:</strong> High computation demand, power constraints, communication range limits</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SLIDE 3: Literature Overview -->
+<div class="slide slide-content" id="s3">
+  <div class="slide-header"><div class="slide-num">Slide 3</div><h2>Literature Review — 33 Papers Analyzed</h2></div>
+  <div class="content-body">
+    <div class="two-col">
+      <div>
+        <h3 style="color:#4fc3f7;margin-bottom:16px;font-size:18px">Research Themes Covered</h3>
+        <div class="card" style="margin-bottom:10px"><h3>🧠 Edge AI / TinyML</h3><p>Singh (2024), Ayankoso (2024), Lorenzo (2024), Nguyen (2023) — 6 papers</p></div>
+        <div class="card" style="margin-bottom:10px"><h3>📡 IoT & WSN Systems</h3><p>TreeSpirit (2017), Srisuphab (2020), Radha (2023), Andreadis (2021) — 8 papers</p></div>
+        <div class="card" style="margin-bottom:10px"><h3>🎵 Audio Features & Classification</h3><p>MFCC, Mel, STHT, Haar, TCN+Transformer — 14 papers</p></div>
+        <div class="card"><h3>📋 Systematic Reviews</h3><p>Crocco et al. (ACM, 2016) — Comprehensive taxonomy</p></div>
+      </div>
+      <div>
+        <h3 style="color:#4fc3f7;margin-bottom:16px;font-size:18px">Key Findings from Literature</h3>
+        <table>
+          <tr><th>Aspect</th><th>State of Art</th></tr>
+          <tr><td>Sound Classes</td><td class="warn">2–5 classes only</td></tr>
+          <tr><td>Processing</td><td class="warn">Mostly server/cloud</td></tr>
+          <tr><td>Best Accuracy</td><td>98.55% (4 classes)</td></tr>
+          <tr><td>Model Size</td><td class="warn">~33 KB minimum</td></tr>
+          <tr><td>Battery Life</td><td class="warn">4–10 hours</td></tr>
+          <tr><td>Communication</td><td class="warn">Single protocol</td></tr>
+          <tr><td>PCEN Usage</td><td class="warn">None</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: Top Papers Comparison -->
+<div class="slide slide-content" id="s4">
+  <div class="slide-header"><div class="slide-num">Slide 4</div><h2>Key Papers — Performance Comparison</h2></div>
+  <div class="content-body">
+    <table>
+      <tr><th>Paper</th><th>Year</th><th>Classes</th><th>Accuracy</th><th>Model/Method</th><th>Deployment</th></tr>
+      <tr><td>Singh et al. (IEEE Systems J.)</td><td>2024</td><td>4</td><td class="highlight">98.55%</td><td>Gammatone + PSO-SVM</td><td>32-bit MCU</td></tr>
+      <tr><td>Mohmmad et al. (IEEE Access)</td><td>2026</td><td>4</td><td class="highlight">97.48%</td><td>TCN + Transformer</td><td class="warn">GPU Server</td></tr>
+      <tr><td>Singh et al. (IEEE Sensors J.)</td><td>2024</td><td>5</td><td>96.61%</td><td>STHT + SVM</td><td>32-bit MCU</td></tr>
+      <tr><td>Arevalo et al. (IEEE ICSET)</td><td>2020</td><td>2</td><td>96.00%</td><td>kNN</td><td>Microcomputer</td></tr>
+      <tr><td>ForNet (Scientific Reports)</td><td>2026</td><td>5</td><td>91.40%</td><td>CNN + XGBoost</td><td class="warn">CPU Server</td></tr>
+      <tr><td>Ayankoso et al. (JDMD)</td><td>2024</td><td>3</td><td>89.14%</td><td>CNN+LSTM TinyML</td><td>RPi Pico</td></tr>
+      <tr style="background:rgba(0,230,118,0.1)"><td><strong>Our System</strong></td><td><strong>2026</strong></td><td class="highlight"><strong>20</strong></td><td><strong>88.21%</strong></td><td><strong>SE-DS-CNN (27.4 KB)</strong></td><td class="highlight"><strong>ESP32-S3</strong></td></tr>
+    </table>
+    <p style="margin-top:18px;color:#78909c;font-size:14px">* Our system classifies <strong style="color:#00e676">4× more classes</strong> than any existing work while maintaining competitive accuracy on a low-power MCU.</p>
+  </div>
+</div>
+
+<!-- SLIDE 5: Research Gaps -->
+<div class="slide slide-content" id="s5">
+  <div class="slide-header"><div class="slide-num">Slide 5</div><h2>Research Gaps Identified</h2></div>
+  <div class="content-body">
+    <div class="two-col">
+      <div>
+        <div class="gap-box"><strong>Gap 1: Limited Sound Classes</strong><br><span>All systems classify only 2–5 classes. Real threats require comprehensive taxonomy.</span></div>
+        <div class="gap-box"><strong>Gap 2: No True Edge AI</strong><br><span>High-accuracy models require GPU/server. Edge systems handle ≤3 classes.</span></div>
+        <div class="gap-box"><strong>Gap 3: No Solar Sustainability</strong><br><span>Only 1 paper mentions solar; reports only 10 hrs battery life.</span></div>
+      </div>
+      <div>
+        <div class="gap-box"><strong>Gap 4: Single Communication</strong><br><span>Systems use LoRa OR GSM, never both adaptively.</span></div>
+        <div class="gap-box"><strong>Gap 5: Analog Microphones</strong><br><span>Prone to electrical noise; digital I2S is underutilized.</span></div>
+        <div class="gap-box"><strong>Gap 6: No PCEN</strong><br><span>Per-Channel Energy Normalization (ideal for outdoor noise) never applied.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: Our Solutions -->
+<div class="slide slide-content" id="s6">
+  <div class="slide-header"><div class="slide-num">Slide 6</div><h2>Our Contributions — Addressing All 6 Gaps</h2></div>
+  <div class="content-body">
+    <div class="two-col">
+      <div>
+        <div class="sol-box"><strong>→ 20-Class Threat Taxonomy</strong><br><span>Chainsaws, axes, gunshots, vehicles, drones, machinery, human activity, natural sounds</span></div>
+        <div class="sol-box"><strong>→ 27.4 KB SE-DS-CNN on ESP32-S3</strong><br><span>Smallest edge-deployed forest classifier in literature (9.5 ms inference)</span></div>
+        <div class="sol-box"><strong>→ Solar-Sustained Design</strong><br><span>5.4 days battery autonomy; only 1.6 hrs sunlight/day for perpetual operation</span></div>
+      </div>
+      <div>
+        <div class="sol-box"><strong>→ Dual LoRa + GSM with MOSFET</strong><br><span>Adaptive switching: LoRa primary, GSM fallback — hardware power gating</span></div>
+        <div class="sol-box"><strong>→ INMP441 I2S Digital Microphone</strong><br><span>Direct digital audio — eliminates analog noise entirely</span></div>
+        <div class="sol-box"><strong>→ First PCEN for Forest Acoustics</strong><br><span>Automatic noise-floor adaptation for variable outdoor environments</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: Methodology -->
+<div class="slide slide-content" id="s7">
+  <div class="slide-header"><div class="slide-num">Slide 7</div><h2>Proposed Methodology — System Architecture</h2></div>
+  <div class="content-body">
+    <div class="flow">
+      <div class="flow-box">🎤 INMP441<br>I2S Mic</div><div class="flow-arrow">→</div>
+      <div class="flow-box">📊 Pre-process<br>16kHz, Norm</div><div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-color:#00e676">🧠 PCEN/MFE<br>40-band Features</div><div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-color:#00e676;background:rgba(0,230,118,0.12)">⚡ SE-DS-CNN<br>27.4KB / 9.5ms</div><div class="flow-arrow">→</div>
+      <div class="flow-box">🎯 Classification<br>20 Classes</div><div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-color:#ff7043">🚨 Alert<br>LoRa / GSM</div>
+    </div>
+    <div class="card-grid" style="margin-top:30px">
+      <div class="card"><h3>⚡ Hardware</h3><ul><li>ESP32-S3 (240 MHz, dual-core)</li><li>INMP441 I2S digital mic</li><li>RFM95W LoRa + SIM800L GSM</li><li>Neo-6M GPS + LIS3DH accelerometer</li><li>LiFePO4 battery + 3-panel solar</li></ul></div>
+      <div class="card"><h3>🔄 Duty Cycle</h3><ul><li>Deep sleep: 8 sec (15-20 µA)</li><li>Wake & sample: 2 sec (~100 mA)</li><li>Feature + inference: <200 ms</li><li>Alert transmission: ~15 sec</li><li>IP67 weatherproof enclosure</li></ul></div>
+      <div class="card"><h3>📡 Communication</h3><ul><li>Primary: LoRa (low power, ~20 mA)</li><li>Fallback: GSM (if no gateway)</li><li>MOSFET power switching</li><li>Alert: class + GPS + confidence</li><li>2G SMS/GPRS to authorities</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: Model Selection -->
+<div class="slide slide-content" id="s8">
+  <div class="slide-header"><div class="slide-num">Slide 8</div><h2>Model Selection — Why SE-DS-CNN?</h2></div>
+  <div class="content-body">
+    <table style="margin-bottom:24px">
+      <tr><th>Architecture</th><th>Params</th><th>Size (INT8)</th><th>Inference</th><th>Accuracy</th><th>Selected?</th></tr>
+      <tr><td>Standard 2D CNN</td><td>~150K</td><td>~150 KB</td><td>~50 ms</td><td>~82%</td><td class="warn">❌ Too large</td></tr>
+      <tr><td>MobileNetV1</td><td>~3.2M</td><td>~3.2 MB</td><td>~500 ms</td><td>~92%</td><td class="warn">❌ Far too large</td></tr>
+      <tr style="background:rgba(0,230,118,0.1)"><td><strong>SE-DS-CNN</strong></td><td><strong>~28K</strong></td><td class="highlight"><strong>27.4 KB</strong></td><td class="highlight"><strong>9.5 ms</strong></td><td><strong>88.21%</strong></td><td class="highlight"><strong>✅ Best</strong></td></tr>
+      <tr><td>1D CNN + LSTM</td><td>~33K</td><td>~33 KB</td><td>~30 ms</td><td>~89%</td><td class="warn">❌ LSTM issue</td></tr>
+      <tr><td>Random Forest</td><td>N/A</td><td>~200 KB</td><td>~5 ms</td><td>~78%</td><td class="warn">❌ Low accuracy</td></tr>
+    </table>
+    <div class="card-grid">
+      <div class="card"><h3>Depthwise-Separable Conv</h3><p>8–9× fewer computations than standard convolution. Splits into depthwise (spatial) and pointwise (channel) operations.</p></div>
+      <div class="card"><h3>Squeeze-and-Excitation</h3><p>Channel attention mechanism — learns which frequency bands matter most per sound class. Adds only ~2 KB, improves accuracy 3–5%.</p></div>
+      <div class="card"><h3>INT8 Quantization</h3><p>4× compression (FP32→INT8). ESP32-S3 has hardware-accelerated INT8 vector instructions. Accuracy loss < 1%.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: Dataset -->
+<div class="slide slide-content" id="s9">
+  <div class="slide-header"><div class="slide-num">Slide 9</div><h2>Dataset Description</h2></div>
+  <div class="content-body">
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">5,200</div><div class="label">Audio Clips</div></div>
+      <div class="stat-box"><div class="num">20</div><div class="label">Sound Classes</div></div>
+      <div class="stat-box"><div class="num">16 kHz</div><div class="label">Sample Rate</div></div>
+      <div class="stat-box"><div class="num">70/15/15</div><div class="label">Train/Val/Test</div></div>
+    </div>
+    <div class="two-col" style="margin-top:20px">
+      <div>
+        <table>
+          <tr><th>Category</th><th>Classes</th><th>Samples</th></tr>
+          <tr><td>Primary Threats</td><td>Chainsaw, Axe, Handsaw, Gunshot, Explosive</td><td>~1,300</td></tr>
+          <tr><td>Vehicle Threats</td><td>Heavy Machinery, Vehicle, Motorcycle</td><td>~780</td></tr>
+          <tr><td>Human Activity</td><td>Speech, Shouting, Footsteps (×2)</td><td>~1,040</td></tr>
+          <tr><td>Aerial / Environmental</td><td>Drone, Digging, Tree Fall, Campfire</td><td>~1,040</td></tr>
+          <tr><td>Activity / Non-Threat</td><td>Dog, Walkie-Talkie, Forest Ambient</td><td>~1,040</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="card"><h3>Sources</h3><p>ESC-50 · UrbanSound8K · RFCx · Google AudioSet · Freesound</p></div>
+        <div class="card" style="margin-top:12px"><h3>Preprocessing</h3><ul><li>Resample → 16 kHz mono</li><li>Amplitude normalization</li><li>2-second windowing</li><li>Augmentation: time stretch, pitch shift, noise mixing</li><li>SHA-256 deduplication</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: Results & Validation -->
+<div class="slide slide-content" id="s10">
+  <div class="slide-header"><div class="slide-num">Slide 10</div><h2>Cross-Validation & Results</h2></div>
+  <div class="content-body">
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">88.21%</div><div class="label">Overall Accuracy</div></div>
+      <div class="stat-box"><div class="num">91.26%</div><div class="label">Macro Precision</div></div>
+      <div class="stat-box"><div class="num">89.84%</div><div class="label">Macro F1-Score</div></div>
+      <div class="stat-box"><div class="num">11/20</div><div class="label">Classes at 100%</div></div>
+    </div>
+    <div class="two-col" style="margin-top:20px">
+      <div>
+        <h3 style="color:#00e676;margin-bottom:10px">Perfect Detection (F1 = 1.00)</h3>
+        <table>
+          <tr><td>Axe/Machete</td><td class="highlight">1.00</td></tr>
+          <tr><td>Explosive Blast</td><td class="highlight">1.00</td></tr>
+          <tr><td>Heavy Machinery</td><td class="highlight">1.00</td></tr>
+          <tr><td>Human Speech</td><td class="highlight">1.00</td></tr>
+          <tr><td>Motorcycle</td><td class="highlight">1.00</td></tr>
+          <tr><td>Tree Falling</td><td class="highlight">1.00</td></tr>
+          <tr><td>Vehicle Engine</td><td class="highlight">1.00</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3 style="color:#ff7043;margin-bottom:10px">Room for Improvement</h3>
+        <table>
+          <tr><th>Class</th><th>F1</th><th>Issue</th></tr>
+          <tr><td>Gunshot</td><td>0.76</td><td>Confusion with explosive</td></tr>
+          <tr><td>Handsaw</td><td>0.81</td><td>Overlap with chainsaw</td></tr>
+          <tr><td>Chainsaw</td><td>0.82</td><td>Overlap with handsaw</td></tr>
+          <tr><td>Hunting Dog</td><td>0.86</td><td>Mix with ambient</td></tr>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:#78909c">Validation: 5-fold CV + hold-out + post-quantization testing</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: Comparison with Literature -->
+<div class="slide slide-content" id="s11">
+  <div class="slide-header"><div class="slide-num">Slide 11</div><h2>Synthesis — Our System vs. Literature</h2></div>
+  <div class="content-body">
+    <table>
+      <tr><th>Metric</th><th>Literature Best</th><th>Our System</th><th>Advantage</th></tr>
+      <tr><td>Sound Classes</td><td class="warn">5 max</td><td class="highlight">20</td><td class="highlight">4× more comprehensive</td></tr>
+      <tr><td>Model Size</td><td>~33 KB</td><td class="highlight">27.4 KB</td><td class="highlight">Smallest in literature</td></tr>
+      <tr><td>Inference (on-device)</td><td>Not reported</td><td class="highlight">9.5 ms</td><td class="highlight">Fastest on MCU</td></tr>
+      <tr><td>Battery Autonomy</td><td class="warn">10 hours</td><td class="highlight">5.4 days</td><td class="highlight">13× improvement</td></tr>
+      <tr><td>Communication</td><td class="warn">Single mode</td><td class="highlight">Dual LoRa+GSM</td><td class="highlight">Only adaptive system</td></tr>
+      <tr><td>PCEN Feature</td><td class="warn">Not used</td><td class="highlight">First application</td><td class="highlight">Novel for domain</td></tr>
+      <tr><td>Microphone</td><td class="warn">Analog</td><td class="highlight">I2S Digital</td><td>Cleaner signal</td></tr>
+    </table>
+    <p style="margin-top:24px;font-size:15px;color:#90a4ae;text-align:center;font-style:italic">"The most compact and comprehensive edge-deployed forest acoustic surveillance system reported in the literature."</p>
+  </div>
+</div>
+
+<!-- SLIDE 12: Thank You -->
+<div class="slide slide-title" id="s12">
+  <div class="phase-badge">PHASE 1 COMPLETE</div>
+  <h1>Thank You</h1>
+  <p class="subtitle">Questions & Discussion</p>
+  <p class="meta" style="margin-top:60px">33 Papers Reviewed · 20-Class System · 27.4 KB Model · 9.5 ms Inference · Solar-Powered</p>
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button onclick="prevSlide()">← Prev</button>
+  <span class="counter" id="counter">1 / 12</span>
+  <button onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+
+function showSlide(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  current = ((n % total) + total) % total;
+  slides[current].classList.add('active');
+  document.getElementById('counter').textContent = `${current + 1} / ${total}`;
+}
+function nextSlide() { showSlide(current + 1); }
+function prevSlide() { showSlide(current - 1); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+</script>
+</body>
+</html>
