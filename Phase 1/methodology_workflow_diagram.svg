@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Drop Shadow Filter -->
+    <filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <filter id="header-shadow" x="-5%" y="-10%" width="110%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1E293B" flood-opacity="0.12"/>
+    </filter>
+
+    <!-- Linear Gradients for Stage Headers -->
+    <linearGradient id="grad-stage1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="grad-stage2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369A1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="grad-stage3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#5B21B6"/>
+    </linearGradient>
+    <linearGradient id="grad-stage4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="grad-stage5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+
+    <!-- Arrow Marker Definition -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#F8FAFC"/>
+  <rect width="100%" height="100%" fill="none" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- ==================== MAIN HEADER ==================== -->
+  <g transform="translate(60, 40)">
+    <rect width="1800" height="70" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="url(#header-shadow)"/>
+    <rect x="0" y="0" width="12" height="70" rx="4" fill="#2563EB"/>
+    <text x="35" y="32" font-family="Segoe UI, Inter, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#0F172A" letter-spacing="0.5">RESEARCH METHODOLOGY &amp; SYSTEM ARCHITECTURE WORKFLOW</text>
+    <text x="35" y="54" font-family="Segoe UI, Inter, Helvetica, sans-serif" font-size="13" font-weight="500" fill="#64748B">Edge AI-Powered Forest Acoustic Surveillance System | ESP32-S3 TinyML Microcontroller Node</text>
+  </g>
+
+  <!-- ==================== STAGE 1: ACQUISITION ==================== -->
+  <g transform="translate(60, 140)">
+    <!-- Stage Container -->
+    <rect width="320" height="660" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect width="320" height="50" rx="14" fill="url(#grad-stage1)"/>
+    <rect y="36" width="320" height="14" fill="url(#grad-stage1)"/>
+    <text x="160" y="31" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STAGE 1: AUDIO ACQUISITION</text>
+
+    <!-- Block 1.1 -->
+    <g transform="translate(20, 70)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#1E293B"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">INMP441 I2S MEMS Mic</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 16 kHz Sample Rate, 16-bit PCM</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Digital I2S (Direct MCU DMA)</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Signal: x(t) ∈ ℝ³²⁰⁰⁰ (2.0s window)</text>
+    </g>
+
+    <!-- Arrow 1.1 -> 1.2 -->
+    <line x1="160" y1="180" x2="160" y2="210" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 1.2 -->
+    <g transform="translate(20, 215)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#1E293B"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Continuous Audio Framing</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 2.0s Sliding Audio Frame</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 50% Overlap (1.0s Hop Length)</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Framing: w(n) = Hann(N)</text>
+    </g>
+
+    <!-- Arrow 1.2 -> 1.3 -->
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 1.3 -->
+    <g transform="translate(20, 360)">
+      <rect width="280" height="120" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#1E293B"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Pre-processing &amp; Fingerprint</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• DC Offset Removal &amp; Trend Cut</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Amplitude Normalization [-1, 1]</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• SHA-256 Audio Deduplication</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#2563EB">Output: Cleaned Signal x̃(t)</text>
+    </g>
+
+    <!-- Specs Summary Box -->
+    <g transform="translate(20, 500)">
+      <rect width="280" height="140" rx="8" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="15" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#1E293B">HARDWARE SPECIFICATIONS</text>
+      <text x="15" y="48" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#334155">• Sensor: INMP441 Omnidirectional</text>
+      <text x="15" y="68" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#334155">• Interface: I2S Digital Bus</text>
+      <text x="15" y="88" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#334155">• Active Current: 1.4 mA</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#334155">• SNR: 61 dBA | Sensitivity: -26 dBFS</text>
+      <text x="15" y="126" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#334155">• Bandwidth: 60 Hz to 15 kHz</text>
+    </g>
+  </g>
+
+  <!-- Arrow Stage 1 -> Stage 2 -->
+  <path d="M 380 470 L 420 470" stroke="#2563EB" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <rect x="375" y="445" width="50" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="400" y="459" font-family="Segoe UI, Inter, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="middle">x̃(t)</text>
+
+  <!-- ==================== STAGE 2: FEATURE EXTRACTION ==================== -->
+  <g transform="translate(430, 140)">
+    <rect width="320" height="660" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect width="320" height="50" rx="14" fill="url(#grad-stage2)"/>
+    <rect y="36" width="320" height="14" fill="url(#grad-stage2)"/>
+    <text x="160" y="31" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STAGE 2: FEATURE EXTRACTION</text>
+
+    <!-- Block 2.1 -->
+    <g transform="translate(20, 70)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#0369A1"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">STFT Spectrogram</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• N_fft = 640 (40 ms window)</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Hop Length = 320 (20 ms stride)</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#0369A1">Spectrum: X(f,t) = ℱ{x̃(t)}</text>
+    </g>
+
+    <!-- Arrow 2.1 -> 2.2 -->
+    <line x1="160" y1="180" x2="160" y2="210" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 2.2 -->
+    <g transform="translate(20, 215)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#0369A1"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Mel-Filterbank Mapping</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 40 Triangular Mel Filterbanks</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Frequency Range: 60 Hz - 8 kHz</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#0369A1">Mel Energy: M = W_mel · |X|²</text>
+    </g>
+
+    <!-- Arrow 2.2 -> 2.3 -->
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 2.3 -->
+    <g transform="translate(20, 360)">
+      <rect width="280" height="120" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#0369A1"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">PCEN Compression</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Per-Channel Energy Normalization</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Dynamic Noise Floor Adaptation</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• First application in forest acoustic AI</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#0369A1">PCEN(t,f) = (M / (ε + E)^α + δ)^r - δ^r</text>
+    </g>
+
+    <!-- Specs Summary Box -->
+    <g transform="translate(20, 500)">
+      <rect width="280" height="140" rx="8" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+      <text x="15" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#0369A1">TENSOR SPECIFICATIONS</text>
+      <text x="15" y="48" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#0369A1">• Matrix Dimension: 40 × 99 × 1</text>
+      <text x="15" y="68" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#0369A1">• Frequency Channels: 40 Mel Bands</text>
+      <text x="15" y="88" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#0369A1">• Time Frames: 99 Time Steps</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#0369A1">• Dynamic Range: Normalized [0, 1]</text>
+      <text x="15" y="126" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#0369A1">• On-Edge Computation: C++ DSP Array</text>
+    </g>
+  </g>
+
+  <!-- Arrow Stage 2 -> Stage 3 -->
+  <path d="M 750 470 L 790 470" stroke="#2563EB" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <rect x="745" y="445" width="50" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="770" y="459" font-family="Segoe UI, Inter, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="middle">Input I</text>
+
+  <!-- ==================== STAGE 3: TinyML MODEL ==================== -->
+  <g transform="translate(800, 140)">
+    <rect width="320" height="660" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect width="320" height="50" rx="14" fill="url(#grad-stage3)"/>
+    <rect y="36" width="320" height="14" fill="url(#grad-stage3)"/>
+    <text x="160" y="31" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STAGE 3: TinyML ON-EDGE INFERENCE</text>
+
+    <!-- Block 3.1 -->
+    <g transform="translate(20, 70)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#6D28D9"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Depthwise-Separable Conv</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Depthwise 3×3 + Pointwise 1×1</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 8–9× Reduction in MAC Operations</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#6D28D9">Conv_ds = Conv_pt(Conv_dw(I))</text>
+    </g>
+
+    <!-- Arrow 3.1 -> 3.2 -->
+    <line x1="160" y1="180" x2="160" y2="210" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 3.2 -->
+    <g transform="translate(20, 215)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#6D28D9"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Squeeze-and-Excitation (SE)</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Global Average Pooling Squeeze</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• FC-ReLU-Sigmoid Channel Attention</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#6D28D9">Attention: s = σ(W₂ · δ(W₁ · GAP(F)))</text>
+    </g>
+
+    <!-- Arrow 3.2 -> 3.3 -->
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 3.3 -->
+    <g transform="translate(20, 360)">
+      <rect width="280" height="120" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#6D28D9"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">TFLite INT8 Quantized Model</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 4× Compression (110 KB → 27.4 KB)</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• ESP32-S3 Xtensa Vector Acceleration</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• 20-Class Softmax Output Logits</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#6D28D9">Output: p = Softmax(W_d · GAP(F'))</text>
+    </g>
+
+    <!-- Specs Summary Box -->
+    <g transform="translate(20, 500)">
+      <rect width="280" height="140" rx="8" fill="#F5F3FF" stroke="#DDD6FE" stroke-width="1"/>
+      <text x="15" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#6D28D9">MODEL HARDWARE BENCHMARKS</text>
+      <text x="15" y="48" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#6D28D9">• MCU: ESP32-S3 (Dual 240 MHz)</text>
+      <text x="15" y="68" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#6D28D9">• Binary Model Size: 27.4 KB (INT8)</text>
+      <text x="15" y="88" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#6D28D9">• Inference Latency: 9.5 ms</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#6D28D9">• SRAM Tensor Arena: 40.0 KB</text>
+      <text x="15" y="126" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#6D28D9">• Overall Accuracy: 88.21% (20 Classes)</text>
+    </g>
+  </g>
+
+  <!-- Arrow Stage 3 -> Stage 4 -->
+  <path d="M 1120 470 L 1160 470" stroke="#2563EB" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <rect x="1115" y="445" width="50" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="1140" y="459" font-family="Segoe UI, Inter, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="middle">Scores p</text>
+
+  <!-- ==================== STAGE 4: DECISION & CONTROL ==================== -->
+  <g transform="translate(1170, 140)">
+    <rect width="320" height="660" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect width="320" height="50" rx="14" fill="url(#grad-stage4)"/>
+    <rect y="36" width="320" height="14" fill="url(#grad-stage4)"/>
+    <text x="160" y="31" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STAGE 4: DECISION &amp; POWER</text>
+
+    <!-- Block 4.1 -->
+    <g transform="translate(20, 70)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#D97706"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Threat Classification Logic</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Max Confidence Class: ĉ = argmax(p)</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Threshold Check: p_max ≥ τ</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#D97706">Condition: Class 0 vs Classes 1-19</text>
+    </g>
+
+    <!-- Arrow 4.1 -> Branch -->
+    <line x1="160" y1="180" x2="160" y2="210" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 4.2: Non-Threat -->
+    <g transform="translate(20, 215)">
+      <rect width="280" height="110" rx="10" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#DC2626"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#991B1B">Non-Threat: Forest Ambient</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#7F1D1D">• Class 00 (Birds, Rain, Wind...)</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#7F1D1D">• Trigger Immediate 8s Deep Sleep</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#DC2626">Power: 15–20 µA Deep Sleep Current</text>
+    </g>
+
+    <!-- Arrow 4.2 -> 4.3 -->
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 4.3: Threat -->
+    <g transform="translate(20, 360)">
+      <rect width="280" height="120" rx="10" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#059669"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#065F46">Threat Confirmed (Classes 1-19)</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#047857">• Chainsaw, Gunshot, Machinery...</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#047857">• Lock Neo-6M GPS Coordinates</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#047857">• Query LIS3DH Accelerometer</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#059669">Trigger: MOSFET Telemetry Power ON</text>
+    </g>
+
+    <!-- Specs Summary Box -->
+    <g transform="translate(20, 500)">
+      <rect width="280" height="140" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1"/>
+      <text x="15" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#D97706">POWER &amp; SOLAR BUDGET</text>
+      <text x="15" y="48" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#B45309">• Battery: 3.2V 2600 mAh LiFePO4</text>
+      <text x="15" y="68" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#B45309">• Solar Array: 3 Panels (5V, 1.5W)</text>
+      <text x="15" y="88" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#B45309">• Sunlight Needed: 1.6 hrs/day</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#B45309">• Battery Autonomy: 5.4 Days</text>
+      <text x="15" y="126" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#B45309">• Perpetual 24/7 Autonomous Power</text>
+    </g>
+  </g>
+
+  <!-- Arrow Stage 4 -> Stage 5 -->
+  <path d="M 1490 470 L 1530 470" stroke="#2563EB" stroke-width="2.5" fill="none" marker-end="url(#arrow-blue)"/>
+  <rect x="1485" y="445" width="50" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+  <text x="1510" y="459" font-family="Segoe UI, Inter, sans-serif" font-size="10" font-weight="700" fill="#1D4ED8" text-anchor="middle">Trigger</text>
+
+  <!-- ==================== STAGE 5: TELEMETRY & ALERTS ==================== -->
+  <g transform="translate(1540, 140)">
+    <rect width="320" height="660" rx="14" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" filter="url(#card-shadow)"/>
+    <rect width="320" height="50" rx="14" fill="url(#grad-stage5)"/>
+    <rect y="36" width="320" height="14" fill="url(#grad-stage5)"/>
+    <text x="160" y="31" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">STAGE 5: TELEMETRY &amp; ALERTS</text>
+
+    <!-- Block 5.1 -->
+    <g transform="translate(20, 70)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#059669"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Alert Payload Struct</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Node ID + Threat Class ID</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Confidence Score + GPS (lat, lon)</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#059669">Payload: P = {ID, ĉ, p, lat, lon, V_b}</text>
+    </g>
+
+    <!-- Arrow 5.1 -> 5.2 -->
+    <line x1="160" y1="180" x2="160" y2="210" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 5.2 -->
+    <g transform="translate(20, 215)">
+      <rect width="280" height="110" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#059669"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Primary: RFM95W LoRa</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Long Range 868/915 MHz Mesh</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Active Transmit Current: ~20 mA</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#059669">Link: Transmits to Forest Gateway</text>
+    </g>
+
+    <!-- Arrow 5.2 -> 5.3 -->
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Block 5.3 -->
+    <g transform="translate(20, 360)">
+      <rect width="280" height="120" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>
+      <rect width="280" height="6" rx="3" fill="#059669"/>
+      <text x="15" y="30" font-family="Segoe UI, Inter, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Fallback: SIM800L 2G GSM</text>
+      <text x="15" y="52" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• MOSFET Power Switch (0 mA Standby)</text>
+      <text x="15" y="72" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Direct SMS Alert to Forest Rangers</text>
+      <text x="15" y="92" font-family="Segoe UI, Inter, sans-serif" font-size="12" fill="#475569">• Automatic Fallback if LoRa Fails</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#059669">Result: 100% Guaranteed Delivery</text>
+    </g>
+
+    <!-- Specs Summary Box -->
+    <g transform="translate(20, 500)">
+      <rect width="280" height="140" rx="8" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+      <text x="15" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#047857">RESPONSE SPECIFICATIONS</text>
+      <text x="15" y="48" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#047857">• Alert Latency: &lt; 15 seconds</text>
+      <text x="15" y="68" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#047857">• Location Precision: Neo-6M GPS</text>
+      <text x="15" y="88" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#047857">• Cloud Dashboard Integration</text>
+      <text x="15" y="108" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#047857">• Mobile Ranger SMS Dispatch</text>
+      <text x="15" y="126" font-family="Segoe UI, Inter, sans-serif" font-size="11" fill="#047857">• IP67 Weatherproof Enclosure</text>
+    </g>
+  </g>
+
+  <!-- ==================== FOOTER ==================== -->
+  <g transform="translate(60, 820)">
+    <rect width="1800" height="40" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="20" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="12" font-weight="700" fill="#1E293B">Fig. 1. End-to-end hardware-software methodology workflow of the proposed Edge AI forest acoustic surveillance node.</text>
+    <text x="1780" y="25" font-family="Segoe UI, Inter, sans-serif" font-size="11" font-weight="600" fill="#64748B" text-anchor="end">ESP32-S3 | TinyML INT8 (27.4 KB) | 20 Classes | 9.5 ms Latency | PCEN Feature Representation</text>
+  </g>
+
+</svg>
